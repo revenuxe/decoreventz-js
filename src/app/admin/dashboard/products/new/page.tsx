@@ -15,7 +15,7 @@ async function fetchProductFormOptions() {
     supabase.from("categories").select("id,name").order("name"),
     supabase.from("subcategories").select("id,name,category_id").order("name"),
     supabase.from("products").select("tags"),
-    supabase.from("addons").select("id,name,price").order("sort_order"),
+    supabase.from("addons").select("id,name,price,category_id,subcategory_id").order("sort_order"),
     supabase.from("decoration_content_items").select("id,name,content").eq("kind", "balloon_palette").eq("is_active", true).order("name"),
     supabase.from("decoration_content_items").select("id,name,kind,content").neq("kind", "balloon_palette").eq("is_active", true).order("name"),
   ]);
@@ -28,7 +28,7 @@ async function fetchProductFormOptions() {
     categories: cats ?? [],
     subcategories: subs ?? [],
     allTags: Array.from(tagSet).sort(),
-    allAddons: addons ?? [],
+    allAddons: (addons ?? []) as unknown as { id: string; name: string; price: number; category_id: string | null; subcategory_id: string | null }[],
     balloonPalettes: ((paletteRows ?? []) as unknown as { id: string; name: string; content: { pairs?: BalloonPaletteOption["pairs"] } }[]).map((palette) => ({ id: palette.id, name: palette.name, pairs: palette.content.pairs ?? [] })),
     reusableContent: ["included_set", "faq_set", "delivery_note", "care_note"].reduce((groups, kind) => ({ ...groups, [kind]: ((contentRows ?? []) as unknown as { id: string; name: string; kind: string; content: Record<string, unknown> }[]).filter((item) => item.kind === kind) }), {} as Record<string, { id: string; name: string; content: Record<string, unknown> }[]>),
   };

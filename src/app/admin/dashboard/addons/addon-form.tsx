@@ -20,6 +20,9 @@ export function AddonForm({ addon }: { addon: AddonRow | null }) {
   const [price, setPrice] = useState<number | "">(addon?.price ?? "");
   const [sortOrder, setSortOrder] = useState(addon?.sort_order ?? 0);
   const [isActive, setIsActive] = useState(addon?.is_active ?? true);
+  const scopedAddon = addon as (AddonRow & { category_id?: string | null; subcategory_id?: string | null }) | null;
+  const [scopeCategoryId, setScopeCategoryId] = useState(scopedAddon?.category_id ?? "");
+  const [scopeSubcategoryId, setScopeSubcategoryId] = useState(scopedAddon?.subcategory_id ?? "");
 
   const [categories, setCategories] = useState<CategoryOption[]>([]);
   const [subcategories, setSubcategories] = useState<SubcategoryOption[]>([]);
@@ -91,7 +94,7 @@ export function AddonForm({ addon }: { addon: AddonRow | null }) {
 
     setSaving(true);
     const supabase = createClient();
-    const payload = { name: name.trim(), price: Number(price), sort_order: sortOrder, is_active: isActive };
+    const payload = { name: name.trim(), price: Number(price), sort_order: sortOrder, is_active: isActive, category_id: scopeCategoryId || null, subcategory_id: scopeSubcategoryId || null } as unknown as Database["public"]["Tables"]["addons"]["Insert"];
 
     const { data: savedAddon, error: saveError } = isNew
       ? await supabase.from("addons").insert(payload).select("id").single()
@@ -168,7 +171,7 @@ export function AddonForm({ addon }: { addon: AddonRow | null }) {
         </div>
       </div>
 
-      <div className="mt-4 rounded-2xl border border-border bg-card p-5">
+      <div className="mt-4 grid gap-4 rounded-2xl border border-border bg-card p-5 md:grid-cols-2"><Field label="Add-on category" required><select value={scopeCategoryId} onChange={(e) => { setScopeCategoryId(e.target.value); setScopeSubcategoryId(""); }} className="w-full rounded-xl border border-border bg-background px-3 py-2 text-sm"><option value="">Choose category</option>{categories.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}</select></Field><Field label="Add-on subcategory (optional)"><select value={scopeSubcategoryId} onChange={(e) => setScopeSubcategoryId(e.target.value)} disabled={!scopeCategoryId} className="w-full rounded-xl border border-border bg-background px-3 py-2 text-sm disabled:opacity-50"><option value="">All subcategories</option>{subcategories.filter((s) => s.category_id === scopeCategoryId).map((s) => <option key={s.id} value={s.id}>{s.name}</option>)}</select></Field></div>      <div className="mt-4 rounded-2xl border border-border bg-card p-5">
         <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
           <div>
             <h3 className="text-sm font-bold">Assign to products</h3>

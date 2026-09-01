@@ -49,7 +49,7 @@ export default async function AllSubcategoriesPage({
         ])}
       />
       <TopBar />
-      <main className="mx-auto w-full max-w-md px-5 py-8 md:max-w-6xl md:px-8 md:py-12">
+      <main className="mx-auto w-full max-w-md px-5 py-8 md:max-w-none md:px-12 xl:px-16 md:py-12">
         <Link
           href={`/categories/${categorySlug}`}
           className="mb-4 inline-flex items-center gap-1.5 text-sm font-semibold text-muted-foreground hover:text-primary"
@@ -59,8 +59,8 @@ export default async function AllSubcategoriesPage({
 
         <header className="mb-6">
           <p className="text-xs font-bold uppercase tracking-widest text-accent">Shop by type</p>
-          <h1 className="mt-1 font-display text-4xl leading-tight md:text-5xl">
-            All <span className="italic text-gradient-brand">{category.name}</span> types
+          <h1 className="collection-title mt-1 text-4xl leading-tight text-primary md:text-5xl">
+            All <span className="collection-title-accent">{category.name}</span> types
           </h1>
         </header>
 

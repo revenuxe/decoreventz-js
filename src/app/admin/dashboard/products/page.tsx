@@ -310,7 +310,6 @@ export default function ProductsPage() {
                         </td>
                         <td className="px-3 py-2">
                           <div className="flex items-center gap-1.5">
-                            {r.is_trending && <Flame className="h-3.5 w-3.5 text-orange-500" />}
                             <span
                               className={`rounded-full px-2 py-0.5 text-[10px] font-bold ${
                                 r.is_active ? "bg-primary/10 text-primary" : "bg-muted text-muted-foreground"

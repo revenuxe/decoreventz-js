@@ -11,7 +11,7 @@ const LEGAL_LINKS = [
 
 export function Footer() {
   return (
-    <footer className="mx-auto w-full max-w-md px-5 pt-8 pb-28 md:max-w-6xl md:px-8 md:pb-16">
+    <footer className="mx-auto w-full max-w-md px-5 pt-8 pb-28 md:max-w-none md:px-12 xl:px-16 md:pb-16">
       <div className="rounded-[2rem] bg-gradient-brand p-6 text-primary-foreground shadow-elevated md:flex md:items-center md:justify-between md:gap-10 md:rounded-[3rem] md:p-12">
         <h2 className="font-display text-3xl leading-tight md:text-5xl">
           Ready to plan something<br />

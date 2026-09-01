@@ -195,6 +195,17 @@
   color: transparent;
 }
 
+/* Storefront collection headings: refined editorial type paired with the
+   rounded, contemporary Decor Eventz wordmark and DM Sans eyebrow labels. */
+@utility collection-title {
+  font-family: var(--font-playfair-display), ui-serif, Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.045em;
+}
+
+@utility collection-title-accent {
+  color: var(--brand-purple);
+}
 @utility bg-gradient-brand {
   background-image: var(--gradient-brand);
 }
@@ -282,3 +293,14 @@
   position: relative;
   overflow: hidden;
 }
+
+@keyframes balloon-rise {
+  0%, 100% { transform: translateY(18px) rotate(-3deg); }
+  50% { transform: translateY(-18px) rotate(3deg); }
+}
+@utility animate-balloon-rise { animation: balloon-rise 3.6s ease-in-out infinite; }
+@utility delay-150 { animation-delay: -0.15s; }
+@utility delay-300 { animation-delay: -0.3s; }
+@utility delay-500 { animation-delay: -0.5s; }
+@utility delay-700 { animation-delay: -0.7s; }
+@utility delay-1000 { animation-delay: -1s; }

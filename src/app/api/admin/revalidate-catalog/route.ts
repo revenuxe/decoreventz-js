@@ -16,5 +16,6 @@ export async function POST() {
   // rather than waiting for the catalog's normal timed revalidation.
   revalidateTag("catalog", { expire: 0 });
   revalidateTag("homepage-hero", { expire: 0 });
+  revalidateTag("homepage-topics", { expire: 0 });
   return NextResponse.json({ revalidated: true });
 }

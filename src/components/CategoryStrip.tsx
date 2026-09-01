@@ -5,7 +5,7 @@ import type { DecorCategory } from "@/data/types";
 
 export function CategoryStrip({ categories }: { categories: DecorCategory[] }) {
   return (
-    <section className="mx-auto w-full max-w-md px-6 pb-14 md:max-w-7xl md:px-8 md:pb-20">
+    <section className="mx-auto w-full max-w-md px-6 pb-14 md:max-w-none md:px-12 md:pb-20 xl:px-16">
       <div className="mb-7 flex flex-col items-start gap-3 md:mb-8 md:flex-row md:items-end md:justify-between">
         <div>
           <p className="text-xs font-bold uppercase tracking-widest text-accent">Choose an occasion</p>

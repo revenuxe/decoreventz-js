@@ -167,7 +167,7 @@ export function ServiceDetailView({
   return (
     <div className="min-h-dvh bg-background pb-32">
       <TopBar />
-      <main className="mx-auto w-full max-w-md px-5 py-6 md:max-w-6xl md:px-8 md:py-10">
+      <main className="mx-auto w-full max-w-md px-5 py-6 md:max-w-none md:px-12 xl:px-16 md:py-10">
         <div className="md:grid md:grid-cols-2 md:items-start md:gap-10 lg:gap-16">
           {/* Left: Gallery + buy box */}
           <div className="md:sticky md:top-24">

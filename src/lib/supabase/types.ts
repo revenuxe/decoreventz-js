@@ -376,6 +376,18 @@ export type Database = {
         Update: { action_label?: string; action_url?: string; created_at?: string; desktop_image_url?: string; id?: string; is_active?: boolean; kicker?: string; mobile_image_url?: string | null; sort_order?: number; subtitle?: string; title?: string; updated_at?: string }
         Relationships: []
       }
+      homepage_topic_products: {
+        Row: { created_at: string; id: string; product_id: string; sort_order: number; topic_id: string }
+        Insert: { created_at?: string; id?: string; product_id: string; sort_order?: number; topic_id: string }
+        Update: { created_at?: string; id?: string; product_id?: string; sort_order?: number; topic_id?: string }
+        Relationships: []
+      }
+      homepage_topics: {
+        Row: { category_id: string | null; created_at: string; eyebrow: string; id: string; is_active: boolean; sort_order: number; subcategory_id: string | null; title: string; title_accent: string; updated_at: string }
+        Insert: { category_id?: string | null; created_at?: string; eyebrow?: string; id?: string; is_active?: boolean; sort_order?: number; subcategory_id?: string | null; title: string; title_accent?: string; updated_at?: string }
+        Update: { category_id?: string | null; created_at?: string; eyebrow?: string; id?: string; is_active?: boolean; sort_order?: number; subcategory_id?: string | null; title?: string; title_accent?: string; updated_at?: string }
+        Relationships: []
+      }
       product_addon_links: {
         Row: {
           addon_id: string

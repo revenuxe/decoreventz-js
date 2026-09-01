@@ -25,12 +25,12 @@ export function FeaturedCollections({
   const move = (direction: "left" | "right") => cardsRef.current?.scrollBy({ left: direction === "right" ? 360 : -360, behavior: "smooth" });
   if (services.length === 0) return null;
   return (
-    <section className="mx-auto w-full max-w-md px-6 pb-10 md:max-w-6xl md:px-8 md:pb-16">
+    <section className="mx-auto w-full max-w-md px-6 pb-10 md:max-w-none md:px-12 md:pb-16 xl:px-16">
       <div className="mb-6 flex items-start justify-between gap-4">
         <div>
           <p className="text-xs font-bold uppercase tracking-widest text-accent">{eyebrow}</p>
-          <h2 className="mt-1 font-display text-3xl leading-tight md:text-5xl">
-            {title} <span className="italic text-gradient-brand">{titleAccent}</span>
+          <h2 className="collection-title mt-1 text-3xl leading-tight text-primary md:text-5xl">
+            {title} <span className="collection-title-accent">{titleAccent}</span>
           </h2>
         </div>
         <div className="flex shrink-0 flex-col items-end gap-2">
@@ -44,7 +44,7 @@ export function FeaturedCollections({
 
       <div ref={cardsRef} className="no-scrollbar -mx-6 flex snap-x-mandatory gap-3 overflow-x-auto scroll-px-6 px-6 pb-2 md:mx-0 md:gap-5 md:scroll-px-0 md:px-0">
         {services.map((s) => (
-          <div key={s.id} className="w-60 shrink-0 snap-start-safe md:w-[calc((100%-3.75rem)/4)]">
+          <div key={s.id} className="w-60 shrink-0 snap-start-safe md:w-[calc((100%-3.75rem)/4)] xl:w-[calc((100%-5rem)/5)]">
             <ServiceCard service={s} badge={cardBadge} size="md" />
           </div>
         ))}

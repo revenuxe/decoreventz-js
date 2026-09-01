@@ -28,10 +28,10 @@ export default async function FeaturedPage() {
       <JsonLd data={itemListJsonLd(services)} />
       <TopBar />
       <main>
-        <section className="mx-auto w-full max-w-md px-5 pt-8 md:max-w-6xl md:px-8 md:pt-12">
+        <section className="mx-auto w-full max-w-md px-5 pt-8 md:max-w-none md:px-12 xl:px-16 md:pt-12">
           <p className="text-xs font-bold uppercase tracking-widest text-accent">Hand-picked</p>
-          <h1 className="mt-1 font-display text-3xl leading-tight md:text-5xl">
-            Featured <span className="italic text-gradient-brand">setups</span>
+          <h1 className="collection-title mt-1 text-3xl leading-tight text-primary md:text-5xl">
+            Featured <span className="collection-title-accent">setups</span>
           </h1>
           <p className="mt-2 max-w-md text-sm text-muted-foreground md:text-base">
             Our team&apos;s favourite setups, curated for you.

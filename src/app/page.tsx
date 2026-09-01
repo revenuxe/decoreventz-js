@@ -4,17 +4,13 @@ import { Hero } from "@/components/Hero";
 import { PickupCta } from "@/components/PickupCta";
 import { CategoryStrip } from "@/components/CategoryStrip";
 import { FeaturedCollections } from "@/components/FeaturedCollections";
-import { SubcategoryGrid } from "@/components/SubcategoryGrid";
 import { Journey } from "@/components/Journey";
 import { Footer } from "@/components/Footer";
 import { BottomNav } from "@/components/BottomNav";
 import {
   getCategories,
-  getTrendingServices,
-  getFeaturedServices,
-  getServicesByCategory,
-  getCategoryBySlug,
   getHomepageHeroSlides,
+  getHomepageTopics,
 } from "@/data";
 
 // Below-the-fold and non-critical for first paint — split into its own
@@ -22,45 +18,40 @@ import {
 const Reviews = dynamic(() => import("@/components/Reviews").then((m) => m.Reviews));
 
 export default async function Home() {
-  const [categories, trendingServices, featuredServices, weddingCategory, heroSlides] = await Promise.all([
+  const [categories, heroSlides, homepageTopics] = await Promise.all([
     getCategories(),
-    getTrendingServices(8),
-    getFeaturedServices(8),
-    getCategoryBySlug("wedding"),
     getHomepageHeroSlides(),
+    getHomepageTopics(),
   ]);
-  const weddingServices = weddingCategory ? await getServicesByCategory("wedding") : [];
+  const orderedTopics = [...homepageTopics].sort((a, b) => a.sortOrder - b.sortOrder || a.id.localeCompare(b.id));
+  const [trendingTopic, ...remainingTopics] = orderedTopics;
 
   return (
     <div className="min-h-dvh bg-background pb-24 md:pb-0">
       <TopBar />
       <main>
         <Hero slides={heroSlides} />
-        <FeaturedCollections
-          services={trendingServices}
-          eyebrow="Trending now"
-          title="Trending"
-          titleAccent="setups"
-          viewAllHref="/trending"
-          cardBadge="trending"
-        />
-        <CategoryStrip categories={categories} />
-        <FeaturedCollections
-          services={featuredServices}
-          eyebrow="Hand-picked"
-          title="Featured"
-          titleAccent="setups"
-          viewAllHref="/featured"
-          cardBadge="featured"
-        />
-        <PickupCta />
-        {weddingCategory && (
-          <SubcategoryGrid
-            category={weddingCategory}
-            services={weddingServices}
-            eyebrow="From Haldi to Honeymoon"
+        {trendingTopic && (
+          <FeaturedCollections
+            services={trendingTopic.services}
+            eyebrow={trendingTopic.eyebrow || "Trending now"}
+            title={trendingTopic.title}
+            titleAccent={trendingTopic.titleAccent}
+            viewAllHref={`/topics/${trendingTopic.id}`}
           />
         )}
+        <CategoryStrip categories={categories} />
+        {remainingTopics.map((section) => (
+          <FeaturedCollections
+            key={section.id}
+            services={section.services}
+            eyebrow={section.eyebrow || "Curated for you"}
+            title={section.title}
+            titleAccent={section.titleAccent}
+            viewAllHref={`/topics/${section.id}`}
+          />
+        ))}
+        <PickupCta />
         <Journey />
         <Reviews />
         <Footer />

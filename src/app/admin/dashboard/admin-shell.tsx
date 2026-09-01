@@ -15,6 +15,7 @@ import {
   Users as UsersIcon,
   Store,
   House,
+  Tags,
 } from "lucide-react";
 
 const NAV = [
@@ -34,13 +35,16 @@ const LISTING_TABS = [
   { href: "/admin/dashboard/decorations", label: "Decorations", icon: PartyPopper },
 ];
 
-const HOMEPAGE_TABS = [{ href: "/admin/dashboard/homepage", label: "Hero carousel", icon: House }];
+const HOMEPAGE_TABS = [
+  { href: "/admin/dashboard/homepage", label: "Hero carousel", icon: House },
+  { href: "/admin/dashboard/topics", label: "Topics", icon: Tags },
+];
 
 export function AdminShell({ email, children }: { email: string; children: React.ReactNode }) {
   const pathname = usePathname();
   const router = useRouter();
   const activeListing = LISTING_TABS.some((tab) => pathname.startsWith(tab.href));
-  const activeHomepage = pathname.startsWith("/admin/dashboard/homepage");
+  const activeHomepage = pathname.startsWith("/admin/dashboard/homepage") || pathname.startsWith("/admin/dashboard/topics");
 
   async function signOut() {
     const supabase = createClient();

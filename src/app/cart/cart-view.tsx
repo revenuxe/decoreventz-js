@@ -17,23 +17,17 @@ export function CartView() {
 
   return (
     <div className="min-h-dvh bg-background pb-32">
-      <TopBar />
-      <main className="mx-auto w-full max-w-md px-5 py-8 md:max-w-2xl md:px-8">
-        <h1 className="font-display text-3xl leading-tight md:text-5xl">Your Cart</h1>
+      {items.length > 0 && <TopBar />}
+      <main className={`mx-auto w-full px-5 md:px-12 xl:px-16 ${items.length === 0 ? "max-w-none py-0" : "max-w-md md:max-w-2xl py-8"}`}>
+        {items.length > 0 && <h1 className="font-display text-3xl leading-tight md:text-5xl">Your Cart</h1>}
 
         {items.length === 0 ? (
-          <div className="mt-10 flex flex-col items-center text-center">
-            <div className="grid h-16 w-16 place-items-center rounded-full bg-muted">
-              <ShoppingBag className="h-7 w-7 text-muted-foreground" />
-            </div>
-            <p className="mt-4 text-sm text-muted-foreground">Your cart is empty.</p>
-            <Link
-              href="/categories"
-              className="mt-5 inline-flex items-center gap-1.5 rounded-full bg-gradient-brand px-6 py-3 text-sm font-bold text-primary-foreground shadow-glow"
-            >
-              Browse decorations <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
+          <section className="flex min-h-dvh flex-col items-center justify-center py-10 text-center">
+            <FloatingBalloons />
+            <h1 className="mt-6 font-display text-3xl text-primary md:text-4xl">Your cart is empty</h1>
+            <p className="mt-2 max-w-sm text-sm leading-relaxed text-muted-foreground">Explore our decoration ideas and add your favourites here.</p>
+            <Link href="/categories" className="mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-brand px-7 py-3.5 text-sm font-bold text-primary-foreground shadow-glow transition hover:brightness-110"><ShoppingBag className="h-4 w-4" /> Explore decorations <ArrowRight className="h-4 w-4" /></Link>
+          </section>
         ) : (
           <>
             <div className="mt-6 space-y-3">
@@ -116,4 +110,11 @@ export function CartView() {
       </main>
     </div>
   );
+}
+
+function FloatingBalloons() {
+  const balloons = [
+    ["bg-brand-pink", "delay-0"], ["bg-brand-purple", "delay-150"], ["bg-[#f5b84b]", "delay-300"], ["bg-[#7ed6c5]", "delay-500"], ["bg-[#ff8a7a]", "delay-700"], ["bg-[#b980e8]", "delay-1000"],
+  ];
+  return <div aria-hidden className="flex h-44 items-end justify-center gap-1 overflow-hidden sm:h-48">{balloons.map(([color, delay], index) => <div key={index} className={`animate-balloon-rise ${delay} flex flex-col items-center`}><span className={`h-16 w-12 rounded-[50%_50%_48%_48%] ${color} shadow-lg`} /><span className="h-12 w-px bg-primary/35" /></div>)}</div>;
 }

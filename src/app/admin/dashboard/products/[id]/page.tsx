@@ -10,7 +10,7 @@ import type { Database } from "@/lib/supabase/types";
 type ProductRow = Database["public"]["Tables"]["products"]["Row"];
 type CategoryOption = { id: string; name: string };
 type SubcategoryOption = { id: string; name: string; category_id: string };
-type AddonOption = { id: string; name: string; price: number };
+type AddonOption = { id: string; name: string; price: number; category_id: string | null; subcategory_id: string | null };
 type BalloonPaletteOption = { id: string; name: string; pairs: { id: string; color1: { name: string; hex: string }; color2: { name: string; hex: string } }[] };
 
 export default function EditProductPage() {
@@ -33,7 +33,7 @@ export default function EditProductPage() {
           supabase.from("categories").select("id,name").order("name"),
           supabase.from("subcategories").select("id,name,category_id").order("name"),
           supabase.from("products").select("tags"),
-          supabase.from("addons").select("id,name,price").order("sort_order"),
+          supabase.from("addons").select("id,name,price,category_id,subcategory_id").order("sort_order"),
           supabase.from("product_addon_links").select("addon_id").eq("product_id", id),
           supabase.from("decoration_content_items").select("id,name,content").eq("kind", "balloon_palette").eq("is_active", true).order("name"),
           supabase.from("decoration_content_items").select("id,name,kind,content").neq("kind", "balloon_palette").eq("is_active", true).order("name"),
@@ -44,7 +44,7 @@ export default function EditProductPage() {
       const tagSet = new Set<string>();
       for (const p of products ?? []) for (const t of p.tags) tagSet.add(t);
       setAllTags(Array.from(tagSet).sort());
-      setAllAddons(addons ?? []);
+      setAllAddons((addons ?? []) as unknown as AddonOption[]);
       setSelectedAddonIds((links ?? []).map((l) => l.addon_id));
       setBalloonPalettes(((paletteRows ?? []) as unknown as { id: string; name: string; content: { pairs?: BalloonPaletteOption["pairs"] } }[]).map((palette) => ({ id: palette.id, name: palette.name, pairs: palette.content.pairs ?? [] })));
       const reusableRows = (contentRows ?? []) as unknown as { id: string; name: string; kind: string; content: Record<string, unknown> }[];

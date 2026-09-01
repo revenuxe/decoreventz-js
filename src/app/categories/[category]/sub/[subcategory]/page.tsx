@@ -86,7 +86,7 @@ export default async function SubcategoryPage({
               className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"
             />
           </div>
-          <div className="relative -mt-14 px-5 md:mx-auto md:max-w-6xl md:px-8">
+          <div className="relative -mt-14 px-5 md:mx-auto md:max-w-none md:px-12 xl:px-16">
             <div className="rounded-3xl border border-border bg-card p-5 shadow-elevated md:p-8">
               <Link
                 href={`/categories/${categorySlug}`}

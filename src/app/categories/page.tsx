@@ -25,11 +25,11 @@ export default async function CategoriesPage() {
     <div className="min-h-dvh bg-background pb-24">
       <JsonLd data={breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Categories", path: "/categories" }])} />
       <TopBar />
-      <main className="mx-auto w-full max-w-md px-5 py-8 md:max-w-6xl md:px-8 md:py-12">
+      <main className="mx-auto w-full max-w-md px-5 py-8 md:max-w-none md:px-12 xl:px-16 md:py-12">
         <header className="mb-6">
           <p className="text-xs font-bold uppercase tracking-widest text-accent">Explore</p>
-          <h1 className="mt-1 font-display text-4xl leading-tight md:text-5xl">
-            Every <span className="italic text-gradient-brand">occasion</span>, covered
+          <h1 className="collection-title mt-1 text-4xl leading-tight text-primary md:text-5xl">
+            Every <span className="collection-title-accent">occasion</span>, covered
           </h1>
         </header>
 

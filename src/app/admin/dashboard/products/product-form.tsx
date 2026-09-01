@@ -23,7 +23,7 @@ import type { Database } from "@/lib/supabase/types";
 type ProductRow = Database["public"]["Tables"]["products"]["Row"];
 type CategoryOption = { id: string; name: string };
 type SubcategoryOption = { id: string; name: string; category_id: string };
-type AddonOption = { id: string; name: string; price: number };
+type AddonOption = { id: string; name: string; price: number; category_id: string | null; subcategory_id: string | null };
 type BalloonOption = { name: string; colors: string[] };
 type ProductFaq = { question: string; answer: string };
 type BalloonPaletteOption = {
@@ -165,6 +165,8 @@ export function ProductForm({
     () => subcategories.filter((s) => s.category_id === categoryId),
     [subcategories, categoryId],
   );
+
+  const availableAddons = useMemo(() => allAddons.filter((addOn) => categoryId && addOn.category_id === categoryId && (!subcategoryId || addOn.subcategory_id === subcategoryId)), [allAddons, categoryId, subcategoryId]);
 
   const discountPct =
     salePrice !== "" && price !== "" && price > 0
@@ -457,16 +459,7 @@ export function ProductForm({
                   />
                 </Field>
                 <div className="mt-4 flex flex-wrap items-center gap-4">
-                  <Toggle
-                    label="Trending"
-                    checked={isTrending}
-                    onChange={setIsTrending}
-                  />
-                  <Toggle
-                    label="Featured"
-                    checked={isFeatured}
-                    onChange={setIsFeatured}
-                  />
+
                   <Toggle
                     label="Active"
                     checked={isActive}
@@ -829,14 +822,24 @@ export function ProductForm({
                     <Plus className="h-3 w-3" /> New add-on
                   </Link>
                 </div>
-                {allAddons.length === 0 ? (
+                <div className="mb-3 grid gap-2 sm:grid-cols-2">
+                  <select value={categoryId} onChange={(e) => { setCategoryId(e.target.value); setSubcategoryId(""); }} className="rounded-xl border border-border bg-background px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-primary">
+                    <option value="">Select add-on category</option>
+                    {categories.map((category) => <option key={category.id} value={category.id}>{category.name}</option>)}
+                  </select>
+                  <select value={subcategoryId} onChange={(e) => setSubcategoryId(e.target.value)} disabled={!categoryId} className="rounded-xl border border-border bg-background px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-primary disabled:opacity-50">
+                    <option value="">All subcategories</option>
+                    {categorySubcategories.map((subcategory) => <option key={subcategory.id} value={subcategory.id}>{subcategory.name}</option>)}
+                  </select>
+                </div>
+                {availableAddons.length === 0 ? (
                   <p className="rounded-xl border border-dashed border-border p-4 text-center text-xs text-muted-foreground">
                     No add-ons in your library yet. Create some from the Add-ons
                     tab, then assign them here.
                   </p>
                 ) : (
                   <div className="space-y-2">
-                    {allAddons.map((addOn) => {
+                    {availableAddons.map((addOn) => {
                       const selected = selectedAddonIds.includes(addOn.id);
                       return (
                         <button

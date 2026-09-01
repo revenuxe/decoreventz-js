@@ -13,7 +13,7 @@ export function SubcategoryProductsSection({ services }: { services: DecorServic
     : services;
 
   return (
-    <section className="mx-auto w-full max-w-md px-5 py-8 md:max-w-6xl md:px-8 md:py-12">
+    <section className="mx-auto w-full max-w-md px-5 py-8 md:max-w-none md:px-12 xl:px-16 md:py-12">
       <SearchBar className="mb-6 max-w-xl" mode="filter" onQueryChange={setQuery} />
 
       {visibleServices.length > 0 ? (

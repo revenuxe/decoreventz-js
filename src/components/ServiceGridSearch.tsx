@@ -23,11 +23,11 @@ export function ServiceGridSearch({
 
   return (
     <>
-      <div className="mx-auto w-full max-w-md px-5 pt-6 md:max-w-6xl md:px-8">
+      <div className="mx-auto w-full max-w-md px-5 pt-6 md:max-w-none md:px-12 xl:px-16">
         <SearchBar className="max-w-xl" mode="filter" onQueryChange={setQuery} placeholder={searchPlaceholder} />
       </div>
 
-      <section className="mx-auto w-full max-w-md px-5 py-8 md:max-w-6xl md:px-8 md:py-12">
+      <section className="mx-auto w-full max-w-md px-5 py-8 md:max-w-none md:px-12 xl:px-16 md:py-12">
         {visible.length > 0 ? (
           <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-5">
             {visible.map((s) => (

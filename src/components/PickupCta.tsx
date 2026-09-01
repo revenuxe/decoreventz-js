@@ -3,7 +3,7 @@ import { ArrowRight, Sparkles } from "lucide-react";
 
 export function PickupCta() {
   return (
-    <section className="mx-auto w-full max-w-md px-5 pt-2 md:max-w-6xl md:px-8">
+    <section className="mx-auto w-full max-w-md px-5 pt-2 md:max-w-none md:px-12 xl:px-16">
       <Link
         href="/categories"
         className="relative flex items-center gap-4 overflow-hidden rounded-3xl bg-gradient-brand p-4 shadow-elevated md:p-6"

@@ -21,12 +21,12 @@ export function SubcategoryGrid({
 
   if (services.length === 0) return null;
   return (
-    <section className="mx-auto w-full max-w-md px-6 py-10 md:max-w-6xl md:px-8 md:py-16">
+    <section className="mx-auto w-full max-w-md px-6 py-10 md:max-w-none md:px-12 xl:px-16 md:py-16">
       <div className="mb-6 flex items-start justify-between gap-4">
         <div>
           <p className="text-xs font-bold uppercase tracking-widest text-accent">{eyebrow}</p>
-          <h2 className="mt-1 font-display text-3xl leading-tight md:text-5xl">
-            The <span className="italic text-gradient-brand">{category.name}</span> Collection
+          <h2 className="collection-title mt-1 text-3xl leading-tight text-primary md:text-5xl">
+            The <span className="collection-title-accent">{category.name}</span> Collection
           </h2>
           <p className="mt-2 max-w-md text-sm text-muted-foreground md:text-base">{category.tagline}</p>
         </div>

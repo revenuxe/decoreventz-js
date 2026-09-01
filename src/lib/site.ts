@@ -21,10 +21,10 @@ export const SITE_URL = getSiteUrl();
 export const SITE_NAME = "Decor Eventz";
 
 export const CONTACT = {
-  phone: "+91 98862 85028",
-  phoneHref: "tel:+919886285028",
-  whatsappHref: "https://wa.me/919886285028",
-  email: "baraabarevents@gmail.com",
+  phone: "+91 63635 63274",
+  phoneHref: "tel:+916363563274",
+  whatsappHref: "https://wa.me/916363563274",
+  email: "decoreventz.com@gmail.com",
   address: {
     line1: "No 11, 4th Cross, 2nd Main Road",
     line2: "Shampura",

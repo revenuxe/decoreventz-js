@@ -35,7 +35,7 @@ export function CategoryProductsSection({
   return (
     <>
       {subcategories.length > 0 && (
-        <section className="mx-auto w-full max-w-md px-6 pt-8 md:max-w-6xl md:px-8 md:pt-10">
+        <section className="mx-auto w-full max-w-md px-6 pt-8 md:max-w-none md:px-12 xl:px-16 md:pt-10">
           <div className="mb-3 flex items-center justify-between gap-3"><p className="text-xs font-bold uppercase tracking-widest text-accent">Choose a style</p><span className="text-xs font-semibold text-muted-foreground">{visibleServices.length} setup{visibleServices.length === 1 ? "" : "s"}</span></div>
           <div className="no-scrollbar -mx-6 flex gap-4 overflow-x-auto scroll-px-6 px-6 pb-1 md:mx-0 md:scroll-px-0 md:px-0">
             <ShowAllCard active={activeSub === null} onClick={() => setActiveSub(null)} />
@@ -52,13 +52,13 @@ export function CategoryProductsSection({
         </section>
       )}
 
-      <div className="mx-auto w-full max-w-md px-6 pt-6 md:max-w-6xl md:px-8">
+      <div className="mx-auto w-full max-w-md px-6 pt-6 md:max-w-none md:px-12 xl:px-16">
         <SearchBar className="max-w-xl" mode="filter" onQueryChange={setQuery} />
       </div>
 
-      <section aria-label="Sort and filter products" className="mx-auto w-full max-w-md px-6 pt-5 md:max-w-6xl md:px-8"><div className="flex items-center justify-between"><p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Sort &amp; filter</p><span className="text-sm font-semibold text-primary">{visibleServices.length} products</span></div><div className="no-scrollbar -mx-6 mt-3 flex gap-2 overflow-x-auto px-6 pb-1 md:mx-0 md:px-0"><FilterChip active={sort === "popular"} onClick={() => setSort("popular")} icon={<TrendingUp className="h-4 w-4" />}>Popularity</FilterChip><FilterChip active={sort === "newest"} onClick={() => setSort("newest")} icon={<Sparkles className="h-4 w-4" />}>New arrivals</FilterChip><FilterChip active={sort === "price-low"} onClick={() => setSort("price-low")} icon={<ArrowDownUp className="h-4 w-4" />}>Price low</FilterChip></div><div className="no-scrollbar -mx-6 mt-3 flex gap-2 overflow-x-auto border-t border-border px-6 pt-3 md:mx-0 md:px-0"><span className="inline-flex h-10 shrink-0 items-center gap-1.5 px-1 text-xs font-bold uppercase tracking-wide text-muted-foreground"><Tag className="h-4 w-4" /> Price</span><FilterChip active={priceBand === "all"} onClick={() => setPriceBand("all")}>All</FilterChip><FilterChip active={priceBand === "under-3000"} onClick={() => setPriceBand("under-3000")}>Under ₹3,000</FilterChip><FilterChip active={priceBand === "3000-6000"} onClick={() => setPriceBand("3000-6000")}>₹3,000 – ₹6,000</FilterChip><FilterChip active={priceBand === "over-6000"} onClick={() => setPriceBand("over-6000")}>Over ₹6,000</FilterChip></div></section>
+      <section aria-label="Sort and filter products" className="mx-auto w-full max-w-md px-6 pt-5 md:max-w-none md:px-12 xl:px-16"><div className="flex items-center justify-between"><p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Sort &amp; filter</p><span className="text-sm font-semibold text-primary">{visibleServices.length} products</span></div><div className="no-scrollbar -mx-6 mt-3 flex gap-2 overflow-x-auto px-6 pb-1 md:mx-0 md:px-0"><FilterChip active={sort === "popular"} onClick={() => setSort("popular")} icon={<TrendingUp className="h-4 w-4" />}>Popularity</FilterChip><FilterChip active={sort === "newest"} onClick={() => setSort("newest")} icon={<Sparkles className="h-4 w-4" />}>New arrivals</FilterChip><FilterChip active={sort === "price-low"} onClick={() => setSort("price-low")} icon={<ArrowDownUp className="h-4 w-4" />}>Price low</FilterChip></div><div className="no-scrollbar -mx-6 mt-3 flex gap-2 overflow-x-auto border-t border-border px-6 pt-3 md:mx-0 md:px-0"><span className="inline-flex h-10 shrink-0 items-center gap-1.5 px-1 text-xs font-bold uppercase tracking-wide text-muted-foreground"><Tag className="h-4 w-4" /> Price</span><FilterChip active={priceBand === "all"} onClick={() => setPriceBand("all")}>All</FilterChip><FilterChip active={priceBand === "under-3000"} onClick={() => setPriceBand("under-3000")}>Under ₹3,000</FilterChip><FilterChip active={priceBand === "3000-6000"} onClick={() => setPriceBand("3000-6000")}>₹3,000 – ₹6,000</FilterChip><FilterChip active={priceBand === "over-6000"} onClick={() => setPriceBand("over-6000")}>Over ₹6,000</FilterChip></div></section>
 
-      <section aria-live="polite" className="mx-auto w-full max-w-md px-6 py-8 md:max-w-6xl md:px-8 md:py-12">
+      <section aria-live="polite" className="mx-auto w-full max-w-md px-6 py-8 md:max-w-none md:px-12 xl:px-16 md:py-12">
         {visibleServices.length > 0 ? (
           <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-5">
             {visibleServices.map((s) => (

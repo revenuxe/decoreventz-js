@@ -12,6 +12,7 @@ import type {
 } from "./types";
 
 export type HomepageHeroSlide = { id: string; desktopImageUrl: string; mobileImageUrl: string | null; kicker: string; title: string; subtitle: string; actionLabel: string; actionUrl: string };
+export type HomepageTopic = { id: string; eyebrow: string; title: string; titleAccent: string; sortOrder: number; services: DecorService[] };
 
 type Catalog = {
   categories: DecorCategory[];
@@ -340,3 +341,36 @@ export const getHomepageHeroSlides = unstable_cache(async (): Promise<HomepageHe
   if (error) throw error;
   return (data ?? []).map((slide) => ({ id: slide.id, desktopImageUrl: slide.desktop_image_url, mobileImageUrl: slide.mobile_image_url, kicker: slide.kicker, title: slide.title, subtitle: slide.subtitle, actionLabel: slide.action_label, actionUrl: slide.action_url }));
 }, ["homepage-hero"], { revalidate: 3600, tags: ["homepage-hero"] });
+
+export const getHomepageTopics = unstable_cache(async (): Promise<HomepageTopic[]> => {
+  const supabase = publicSupabaseClient();
+  const [{ data: topicRows, error: topicsError }, { data: linkRows, error: linksError }] = await Promise.all([
+    supabase.from("homepage_topics").select("*").eq("is_active", true).order("sort_order"),
+    supabase.from("homepage_topic_products").select("topic_id, product_id, sort_order").order("sort_order"),
+  ]);
+  if (topicsError || linksError) throw topicsError ?? linksError;
+
+  const { services } = await getCatalog();
+  const servicesById = new Map(services.map((service) => [service.id, service]));
+  const linksByTopic = new Map<string, { product_id: string; sort_order: number }[]>();
+  for (const link of linkRows ?? []) {
+    const links = linksByTopic.get(link.topic_id) ?? [];
+    links.push(link);
+    linksByTopic.set(link.topic_id, links);
+  }
+
+  return (topicRows ?? []).map((topic) => ({
+    id: topic.id,
+    eyebrow: topic.eyebrow,
+    title: topic.title,
+    titleAccent: topic.title_accent,
+    sortOrder: topic.sort_order,
+    services: (linksByTopic.get(topic.id) ?? [])
+      .map((link) => servicesById.get(link.product_id))
+      .filter((service): service is DecorService => !!service),
+  })).filter((topic) => topic.services.length > 0);
+}, ["homepage-topics"], { revalidate: 3600, tags: ["homepage-topics", "catalog"] });
+export async function getHomepageTopicById(id: string): Promise<HomepageTopic | undefined> {
+  const topics = await getHomepageTopics();
+  return topics.find((topic) => topic.id === id);
+}
