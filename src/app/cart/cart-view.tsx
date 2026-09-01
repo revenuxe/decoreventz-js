@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import emptyCartIllustration from "@/assets/empty-cart-illustration.webp";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ArrowRight, Minus, Plus, ShoppingBag, Trash2 } from "lucide-react";
@@ -23,7 +24,7 @@ export function CartView() {
 
         {items.length === 0 ? (
           <section className="flex min-h-dvh flex-col items-center justify-center py-10 text-center">
-            <FloatingBalloons />
+            <EmptyCartIllustration />
             <h1 className="mt-6 font-display text-3xl text-primary md:text-4xl">Your cart is empty</h1>
             <p className="mt-2 max-w-sm text-sm leading-relaxed text-muted-foreground">Explore our decoration ideas and add your favourites here.</p>
             <Link href="/categories" className="mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-brand px-7 py-3.5 text-sm font-bold text-primary-foreground shadow-glow transition hover:brightness-110"><ShoppingBag className="h-4 w-4" /> Explore decorations <ArrowRight className="h-4 w-4" /></Link>
@@ -112,9 +113,14 @@ export function CartView() {
   );
 }
 
-function FloatingBalloons() {
-  const balloons = [
-    ["bg-brand-pink", "delay-0"], ["bg-brand-purple", "delay-150"], ["bg-[#f5b84b]", "delay-300"], ["bg-[#7ed6c5]", "delay-500"], ["bg-[#ff8a7a]", "delay-700"], ["bg-[#b980e8]", "delay-1000"],
-  ];
-  return <div aria-hidden className="flex h-44 items-end justify-center gap-1 overflow-hidden sm:h-48">{balloons.map(([color, delay], index) => <div key={index} className={`animate-balloon-rise ${delay} flex flex-col items-center`}><span className={`h-16 w-12 rounded-[50%_50%_48%_48%] ${color} shadow-lg`} /><span className="h-12 w-px bg-primary/35" /></div>)}</div>;
+function EmptyCartIllustration() {
+  return (
+    <Image
+      src={emptyCartIllustration}
+      alt=""
+      aria-hidden
+      priority
+      className="h-auto w-52 object-contain animate-float-slow motion-reduce:animate-none sm:w-60"
+    />
+  );
 }
