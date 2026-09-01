@@ -236,12 +236,19 @@ export function ServiceDetailView({
                     {selectedAddOns.length > 0 &&
                       `(incl. ${selectedAddOns.length} add-on${selectedAddOns.length > 1 ? "s" : ""})`}
                   </p>
-                  <p className="mt-1 text-3xl font-black text-gradient-brand">
-                    ₹
-                    {(service.priceDiscounted + addOnsTotal).toLocaleString(
-                      "en-IN",
+                  <div className="mt-1 flex items-baseline gap-3">
+                    <p className="text-3xl font-black text-gradient-brand">
+                      ₹
+                      {(service.priceDiscounted + addOnsTotal).toLocaleString(
+                        "en-IN",
+                      )}
+                    </p>
+                    {service.priceOriginal > service.priceDiscounted && (
+                      <span className="text-sm text-muted-foreground line-through">
+                        ₹{(service.priceOriginal + addOnsTotal).toLocaleString("en-IN")}
+                      </span>
                     )}
-                  </p>
+                  </div>
                 </div>
                 {service.discountPct > 0 && (
                   <span className="rounded-full bg-primary/10 px-2.5 py-1 text-xs font-bold text-primary">
