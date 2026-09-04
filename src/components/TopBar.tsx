@@ -16,6 +16,11 @@ const NAV_ITEMS = [
   { label: "Birthday", slug: "birthday" }, { label: "Anniversary", slug: "anniversary" }, { label: "Baby Shower", slug: "baby-shower" }, { label: "Kids Special", slug: "kids" }, { label: "Wedding Decor", slug: "wedding" }, { label: "Corporate", slug: "corporate" }, { label: "Kids Activities", slug: "kids-activities" },
 ];
 
+const SEARCH_PROMPTS = ["birthday decor", "wedding decor", "baby shower", "corporate event"];
+const TYPE_MS = 70;
+const DELETE_MS = 40;
+const HOLD_MS = 1400;
+
 export function TopBar() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
@@ -31,6 +36,45 @@ export function TopBar() {
   const mobileItem = NAV_ITEMS.find((item) => item.slug === mobileMenu);
   const mobileSubcategories = subcategories.filter((subcategory) => subcategory.categorySlug === mobileMenu);
   const mobileProducts = products.filter((product) => product.categorySlug === mobileMenu).slice(0, 4);
+  const [searchPrompt, setSearchPrompt] = useState("");
+
+  useEffect(() => {
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+    let timeout: ReturnType<typeof setTimeout>;
+
+    function tick() {
+      const phrase = SEARCH_PROMPTS[phraseIndex];
+
+      if (!deleting) {
+        charIndex += 1;
+        setSearchPrompt(phrase.slice(0, charIndex));
+
+        if (charIndex === phrase.length) {
+          deleting = true;
+          timeout = setTimeout(tick, HOLD_MS);
+          return;
+        }
+
+        timeout = setTimeout(tick, TYPE_MS);
+        return;
+      }
+
+      charIndex -= 1;
+      setSearchPrompt(phrase.slice(0, charIndex));
+
+      if (charIndex === 0) {
+        deleting = false;
+        phraseIndex = (phraseIndex + 1) % SEARCH_PROMPTS.length;
+      }
+
+      timeout = setTimeout(tick, DELETE_MS);
+    }
+
+    timeout = setTimeout(tick, TYPE_MS);
+    return () => clearTimeout(timeout);
+  }, []);
 
   useEffect(() => {
     let active = true;
@@ -54,7 +98,8 @@ export function TopBar() {
       <div className="mx-auto flex h-[72px] max-w-none items-center gap-4 px-4 md:px-12 xl:px-16">
         <Link href="/" aria-label="Decor Eventz home" className="flex h-16 shrink-0 items-center rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"><Image src={logo} alt="Decor Eventz — Dream, Design, Deliver" priority width={238} height={64} className="h-14 w-[210px] object-contain object-left md:h-16 md:w-[238px]" /></Link>
         <button onClick={() => setSearchOpen(true)} className="hidden h-11 max-w-[480px] flex-1 items-center gap-3 rounded-xl border border-[#dfe6ee] bg-[#f8fafc] px-4 text-left text-sm text-muted-foreground md:flex">
-          <Search className="h-5 w-5" /> Search decorations, themes and occasions...
+          <Search className="h-5 w-5 shrink-0" />
+          <span className="truncate">Search {searchPrompt || "decorations"}</span>
         </button>
         <div className="ml-auto flex items-center gap-2 md:gap-5">
           <button onClick={() => setSearchOpen(true)} aria-label="Search decorations" className="grid h-10 w-10 place-items-center rounded-full text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:hidden"><Search className="h-5 w-5" /></button>
