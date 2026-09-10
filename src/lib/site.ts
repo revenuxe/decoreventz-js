@@ -26,11 +26,11 @@ export const CONTACT = {
   whatsappHref: "https://wa.me/916363563274",
   email: "decoreventz.com@gmail.com",
   address: {
-    line1: "No 11, 4th Cross, 2nd Main Road",
-    line2: "Shampura",
+    line1: "Shop 4, 5th Main, Dr. M. C. Modi Eye Hospital Building",
+    line2: "Mahalakshmipuram",
     city: "Bengaluru",
     state: "Karnataka",
-    postalCode: "560045",
+    postalCode: "560086",
     country: "IN",
   },
 } as const;
