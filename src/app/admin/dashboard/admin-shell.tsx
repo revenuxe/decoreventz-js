@@ -16,6 +16,7 @@ import {
   Store,
   House,
   Tags,
+  Mail,
 } from "lucide-react";
 
 const NAV = [
@@ -25,6 +26,7 @@ const NAV = [
   { href: "/admin/dashboard/homepage", label: "Homepage", icon: House, exact: false },
   { href: "/admin/dashboard/vendors", label: "Vendors", icon: Store, exact: false },
   { href: "/admin/dashboard/users", label: "Users", icon: UsersIcon, exact: false },
+  { href: "/admin/dashboard/emails", label: "Emails", icon: Mail, exact: false },
 ];
 
 const LISTING_TABS = [
