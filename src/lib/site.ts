@@ -21,9 +21,9 @@ export const SITE_URL = getSiteUrl();
 export const SITE_NAME = "Decor Eventz";
 
 export const CONTACT = {
-  phone: "+91 63635 63274",
-  phoneHref: "tel:+916363563274",
-  whatsappHref: "https://wa.me/916363563274",
+  phone: "+91 73533 73373",
+  phoneHref: "tel:+917353373373",
+  whatsappHref: "https://wa.me/917353373373",
   email: "decoreventz.com@gmail.com",
   address: {
     line1: "Shop 4, 5th Main, Dr. M. C. Modi Eye Hospital Building",
