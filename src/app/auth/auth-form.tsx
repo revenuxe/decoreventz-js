@@ -20,6 +20,14 @@ export function AuthForm({ redirectTo }: { redirectTo: string }) {
   const [info, setInfo] = useState<string | null>(null);
 
   function close() {
+    if (redirectTo === "/book") {
+      // The booking wizard advances its persisted step before opening this
+      // sign-in gate. Cancelling must put an unauthenticated visitor back at
+      // the first step instead of exposing the venue form.
+      localStorage.setItem("baraabar_decor_booking_step_v1", "0");
+      router.push("/book");
+      return;
+    }
     if (window.history.length > 1) router.back();
     else router.push("/");
   }
