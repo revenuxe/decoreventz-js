@@ -35,16 +35,18 @@ const getCatalog = unstable_cache(
       { data: paletteRows, error: palettesError },
       { data: contentRows, error: contentError },
     ] = await Promise.all([
-      supabase.from("categories").select("*").order("sort_order"),
+      supabase.from("categories").select("*").eq("is_active", true).order("sort_order"),
       supabase
         .from("subcategories")
         .select("*, categories(slug)")
+        .eq("is_active", true)
         .order("sort_order"),
       supabase
         .from("products")
         .select(
           "*, categories(slug), subcategories(slug), product_addon_links(addons(*))",
         )
+        .eq("is_active", true)
         .order("sort_order"),
       supabase
         .from("decoration_content_items")

@@ -8,6 +8,17 @@ import { s3PublicHostname } from "./src/lib/s3-public-url";
 const s3CdnHostname = s3PublicHostname();
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      // The original navigation used /categories/corporate while the
+      // catalogue's canonical category slug is corporate-events.
+      {
+        source: "/categories/corporate",
+        destination: "/categories/corporate-events",
+        permanent: true,
+      },
+    ];
+  },
   images: {
     formats: ["image/avif", "image/webp"],
     remotePatterns: [
@@ -37,7 +48,10 @@ const nextConfig: NextConfig = {
     ],
   },
   compiler: {
-    removeConsole: process.env.NODE_ENV === "production" ? { exclude: ["error", "warn"] } : false,
+    removeConsole:
+      process.env.NODE_ENV === "production"
+        ? { exclude: ["error", "warn"] }
+        : false,
   },
 };
 
