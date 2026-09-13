@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import {
@@ -23,7 +23,13 @@ import type { Database } from "@/lib/supabase/types";
 type ProductRow = Database["public"]["Tables"]["products"]["Row"];
 type CategoryOption = { id: string; name: string };
 type SubcategoryOption = { id: string; name: string; category_id: string };
-type AddonOption = { id: string; name: string; price: number; category_id: string | null; subcategory_id: string | null };
+type AddonOption = {
+  id: string;
+  name: string;
+  price: number;
+  category_id: string | null;
+  subcategory_id: string | null;
+};
 type BalloonOption = { name: string; colors: string[] };
 type ProductFaq = { question: string; answer: string };
 type BalloonPaletteOption = {
@@ -49,6 +55,50 @@ const TABS = [
   { key: "seo", label: "SEO" },
 ] as const;
 type TabKey = (typeof TABS)[number]["key"];
+type ProductDraft = {
+  tab: TabKey;
+  name: string;
+  slug: string;
+  slugTouched: boolean;
+  categoryId: string;
+  subcategoryId: string;
+  tagline: string;
+  description: string;
+  tags: string[];
+  isTrending: boolean;
+  isFeatured: boolean;
+  isActive: boolean;
+  sortOrder: number;
+  price: number | "";
+  salePrice: number | "";
+  images: string[];
+  included: string[];
+  notIncluded: string[];
+  balloonOptions: BalloonOption[];
+  balloonPaletteId: string;
+  includedGroupId: string;
+  faqGroupId: string;
+  deliveryGroupId: string;
+  careGroupId: string;
+  faqs: ProductFaq[];
+  deliveryInfo: string;
+  careInfo: string;
+  selectedAddonIds: string[];
+  rating: number;
+  reviewCount: number;
+  metaTitle: string;
+  metaDescription: string;
+  ogImageUrl: string | null;
+};
+const PRODUCT_DRAFT_PREFIX = "admin-product-draft:v1:";
+function readProductDraft(key: string): ProductDraft | null {
+  try {
+    const stored = window.sessionStorage.getItem(key);
+    return stored ? (JSON.parse(stored) as ProductDraft) : null;
+  } catch {
+    return null;
+  }
+}
 
 function slugify(s: string): string {
   return s
@@ -92,6 +142,8 @@ export function ProductForm({
 }) {
   const router = useRouter();
   const isNew = !product;
+  const draftKey = `${PRODUCT_DRAFT_PREFIX}${product?.id ?? `new:${defaultCategoryId ?? ""}:${defaultSubcategoryId ?? ""}`}`;
+  const [draftRestored, setDraftRestored] = useState(false);
   const [tab, setTab] = useState<TabKey>("details");
 
   const [name, setName] = useState(product?.name ?? "");
@@ -161,12 +213,145 @@ export function ProductForm({
   const [uploadingImages, setUploadingImages] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  useEffect(() => {
+    const saved = readProductDraft(draftKey);
+    if (saved) {
+      setTab(saved.tab);
+      setName(saved.name);
+      setSlug(saved.slug);
+      setSlugTouched(saved.slugTouched);
+      setCategoryId(saved.categoryId);
+      setSubcategoryId(saved.subcategoryId);
+      setTagline(saved.tagline);
+      setDescription(saved.description);
+      setTags(saved.tags);
+      setIsTrending(saved.isTrending);
+      setIsFeatured(saved.isFeatured);
+      setIsActive(saved.isActive);
+      setSortOrder(saved.sortOrder);
+      setPrice(saved.price);
+      setSalePrice(saved.salePrice);
+      setImages(saved.images);
+      setIncluded(saved.included);
+      setNotIncluded(saved.notIncluded);
+      setBalloonOptions(saved.balloonOptions);
+      setBalloonPaletteId(saved.balloonPaletteId);
+      setIncludedGroupId(saved.includedGroupId);
+      setFaqGroupId(saved.faqGroupId);
+      setDeliveryGroupId(saved.deliveryGroupId);
+      setCareGroupId(saved.careGroupId);
+      setFaqs(saved.faqs);
+      setDeliveryInfo(saved.deliveryInfo);
+      setCareInfo(saved.careInfo);
+      setSelectedAddonIds(saved.selectedAddonIds);
+      setRating(saved.rating);
+      setReviewCount(saved.reviewCount);
+      setMetaTitle(saved.metaTitle);
+      setMetaDescription(saved.metaDescription);
+      setOgImageUrl(saved.ogImageUrl);
+    }
+    setDraftRestored(true);
+  }, [draftKey]);
+  const draft = useMemo<ProductDraft>(
+    () => ({
+      tab,
+      name,
+      slug,
+      slugTouched,
+      categoryId,
+      subcategoryId,
+      tagline,
+      description,
+      tags,
+      isTrending,
+      isFeatured,
+      isActive,
+      sortOrder,
+      price,
+      salePrice,
+      images,
+      included,
+      notIncluded,
+      balloonOptions,
+      balloonPaletteId,
+      includedGroupId,
+      faqGroupId,
+      deliveryGroupId,
+      careGroupId,
+      faqs,
+      deliveryInfo,
+      careInfo,
+      selectedAddonIds,
+      rating,
+      reviewCount,
+      metaTitle,
+      metaDescription,
+      ogImageUrl,
+    }),
+    [
+      tab,
+      name,
+      slug,
+      slugTouched,
+      categoryId,
+      subcategoryId,
+      tagline,
+      description,
+      tags,
+      isTrending,
+      isFeatured,
+      isActive,
+      sortOrder,
+      price,
+      salePrice,
+      images,
+      included,
+      notIncluded,
+      balloonOptions,
+      balloonPaletteId,
+      includedGroupId,
+      faqGroupId,
+      deliveryGroupId,
+      careGroupId,
+      faqs,
+      deliveryInfo,
+      careInfo,
+      selectedAddonIds,
+      rating,
+      reviewCount,
+      metaTitle,
+      metaDescription,
+      ogImageUrl,
+    ],
+  );
+  useEffect(() => {
+    if (!draftRestored) return;
+    try {
+      window.sessionStorage.setItem(draftKey, JSON.stringify(draft));
+    } catch {}
+  }, [draft, draftKey, draftRestored]);
+  function discardDraft() {
+    try {
+      window.sessionStorage.removeItem(draftKey);
+    } catch {}
+    window.location.reload();
+  }
+
   const categorySubcategories = useMemo(
     () => subcategories.filter((s) => s.category_id === categoryId),
     [subcategories, categoryId],
   );
 
-  const availableAddons = useMemo(() => allAddons.filter((addOn) => categoryId && addOn.category_id === categoryId && (!subcategoryId || addOn.subcategory_id === subcategoryId)), [allAddons, categoryId, subcategoryId]);
+  const availableAddons = useMemo(
+    () =>
+      allAddons.filter(
+        (addOn) =>
+          categoryId &&
+          addOn.category_id === categoryId &&
+          (!subcategoryId || addOn.subcategory_id === subcategoryId),
+      ),
+    [allAddons, categoryId, subcategoryId],
+  );
 
   const discountPct =
     salePrice !== "" && price !== "" && price > 0
@@ -459,7 +644,6 @@ export function ProductForm({
                   />
                 </Field>
                 <div className="mt-4 flex flex-wrap items-center gap-4">
-
                   <Toggle
                     label="Active"
                     checked={isActive}
@@ -823,13 +1007,33 @@ export function ProductForm({
                   </Link>
                 </div>
                 <div className="mb-3 grid gap-2 sm:grid-cols-2">
-                  <select value={categoryId} onChange={(e) => { setCategoryId(e.target.value); setSubcategoryId(""); }} className="rounded-xl border border-border bg-background px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-primary">
+                  <select
+                    value={categoryId}
+                    onChange={(e) => {
+                      setCategoryId(e.target.value);
+                      setSubcategoryId("");
+                    }}
+                    className="rounded-xl border border-border bg-background px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-primary"
+                  >
                     <option value="">Select add-on category</option>
-                    {categories.map((category) => <option key={category.id} value={category.id}>{category.name}</option>)}
+                    {categories.map((category) => (
+                      <option key={category.id} value={category.id}>
+                        {category.name}
+                      </option>
+                    ))}
                   </select>
-                  <select value={subcategoryId} onChange={(e) => setSubcategoryId(e.target.value)} disabled={!categoryId} className="rounded-xl border border-border bg-background px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-primary disabled:opacity-50">
+                  <select
+                    value={subcategoryId}
+                    onChange={(e) => setSubcategoryId(e.target.value)}
+                    disabled={!categoryId}
+                    className="rounded-xl border border-border bg-background px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-primary disabled:opacity-50"
+                  >
                     <option value="">All subcategories</option>
-                    {categorySubcategories.map((subcategory) => <option key={subcategory.id} value={subcategory.id}>{subcategory.name}</option>)}
+                    {categorySubcategories.map((subcategory) => (
+                      <option key={subcategory.id} value={subcategory.id}>
+                        {subcategory.name}
+                      </option>
+                    ))}
                   </select>
                 </div>
                 {availableAddons.length === 0 ? (
