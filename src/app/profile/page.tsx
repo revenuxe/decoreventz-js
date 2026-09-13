@@ -1,8 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ChevronRight, MapPin, Bell, HelpCircle, Gift, LogIn, CalendarCheck } from "lucide-react";
+import {
+  ChevronRight,
+  MapPin,
+  Bell,
+  HelpCircle,
+  Gift,
+  LogIn,
+  CalendarCheck,
+} from "lucide-react";
 import { TopBar } from "@/components/TopBar";
 import { BottomNav } from "@/components/BottomNav";
+import { GoogleSignInButton } from "@/components/GoogleSignInButton";
 import { createClient } from "@/lib/supabase/server";
 import { SignOutRow } from "./sign-out-row";
 import { EditProfileButton } from "./edit-profile-button";
@@ -27,9 +36,12 @@ export default async function ProfilePage() {
           <div className="mx-auto grid h-16 w-16 place-items-center rounded-3xl bg-gradient-brand text-primary-foreground shadow-glow">
             <LogIn className="h-6 w-6" />
           </div>
-          <h1 className="mt-5 font-display text-3xl">Sign in to Decor Eventz</h1>
+          <h1 className="mt-5 font-display text-3xl">
+            Sign in to Decor Eventz
+          </h1>
           <p className="mt-2 text-sm text-muted-foreground">
-            Create an account or sign in to save addresses and book decorations faster.
+            Create an account or sign in to save addresses and book decorations
+            faster.
           </p>
           <Link
             href="/auth?redirect=%2Fprofile"
@@ -37,26 +49,50 @@ export default async function ProfilePage() {
           >
             Sign in / Create account
           </Link>
+          <div className="mt-3">
+            <GoogleSignInButton
+              redirectTo="/profile"
+              label="Continue with Google"
+            />
+          </div>
         </main>
         <BottomNav />
       </div>
     );
   }
 
-  const [{ data: profile }, { count: addresses }, { count: bookingsCount }] = await Promise.all([
-    supabase.from("profiles").select("full_name, phone").eq("id", user.id).maybeSingle(),
-    supabase.from("addresses").select("id", { count: "exact", head: true }).eq("user_id", user.id),
-    supabase.from("bookings").select("id", { count: "exact", head: true }).eq("user_id", user.id),
-  ]);
+  const [{ data: profile }, { count: addresses }, { count: bookingsCount }] =
+    await Promise.all([
+      supabase
+        .from("profiles")
+        .select("full_name, phone")
+        .eq("id", user.id)
+        .maybeSingle(),
+      supabase
+        .from("addresses")
+        .select("id", { count: "exact", head: true })
+        .eq("user_id", user.id),
+      supabase
+        .from("bookings")
+        .select("id", { count: "exact", head: true })
+        .eq("user_id", user.id),
+    ]);
 
   const email = user.email ?? "";
   const initial = (profile?.full_name ?? email).trim().charAt(0).toUpperCase();
 
-  const rows: { icon: React.ElementType; label: string; meta?: string; href?: string }[] = [
+  const rows: {
+    icon: React.ElementType;
+    label: string;
+    meta?: string;
+    href?: string;
+  }[] = [
     {
       icon: CalendarCheck,
       label: "My Bookings",
-      meta: bookingsCount ? `${bookingsCount} booking${bookingsCount === 1 ? "" : "s"}` : "No bookings yet",
+      meta: bookingsCount
+        ? `${bookingsCount} booking${bookingsCount === 1 ? "" : "s"}`
+        : "No bookings yet",
       href: "/bookings",
     },
     {
@@ -85,7 +121,10 @@ export default async function ProfilePage() {
               </p>
               <p className="truncate text-xs opacity-80">{email}</p>
             </div>
-            <EditProfileButton fullName={profile?.full_name ?? ""} phone={profile?.phone ?? ""} />
+            <EditProfileButton
+              fullName={profile?.full_name ?? ""}
+              phone={profile?.phone ?? ""}
+            />
           </div>
           <div className="mt-4 grid grid-cols-2 gap-2 text-center">
             {[
@@ -113,18 +152,25 @@ export default async function ProfilePage() {
                 </div>
                 <div className="flex-1">
                   <p className="text-sm font-semibold">{label}</p>
-                  {meta && <p className="text-[11px] text-muted-foreground">{meta}</p>}
+                  {meta && (
+                    <p className="text-[11px] text-muted-foreground">{meta}</p>
+                  )}
                 </div>
                 <ChevronRight className="h-4 w-4 text-muted-foreground" />
               </Link>
             ) : (
-              <div key={label} className="flex w-full items-center gap-3 p-4 text-left">
+              <div
+                key={label}
+                className="flex w-full items-center gap-3 p-4 text-left"
+              >
                 <div className="grid h-10 w-10 place-items-center rounded-2xl bg-muted">
                   <Icon className="h-4.5 w-4.5" />
                 </div>
                 <div className="flex-1">
                   <p className="text-sm font-semibold">{label}</p>
-                  {meta && <p className="text-[11px] text-muted-foreground">{meta}</p>}
+                  {meta && (
+                    <p className="text-[11px] text-muted-foreground">{meta}</p>
+                  )}
                 </div>
                 <ChevronRight className="h-4 w-4 text-muted-foreground" />
               </div>

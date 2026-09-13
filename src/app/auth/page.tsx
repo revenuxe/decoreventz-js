@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
-import { getCategories, getHomepageHeroSlides, getTrendingServices } from "@/data";
+import {
+  getCategories,
+  getHomepageHeroSlides,
+  getTrendingServices,
+} from "@/data";
 import { TopBar } from "@/components/TopBar";
 import { Hero } from "@/components/Hero";
 import { FeaturedCollections } from "@/components/FeaturedCollections";
@@ -10,7 +14,8 @@ import { AuthForm } from "./auth-form";
 
 export const metadata: Metadata = {
   title: "Sign in",
-  description: "Sign in or create your Decor Eventz account to book decorations and track your bookings.",
+  description:
+    "Sign in or create your Decor Eventz account to book decorations and track your bookings.",
   robots: { index: false, follow: true },
 };
 
@@ -20,7 +25,10 @@ export default async function AuthPage({
   searchParams: Promise<{ redirect?: string }>;
 }) {
   const params = await searchParams;
-  const redirectTo = params.redirect?.startsWith("/") ? params.redirect : "/";
+  const redirectTo =
+    params.redirect?.startsWith("/") && !params.redirect.startsWith("//")
+      ? params.redirect
+      : "/";
   const supabase = await createClient();
   const {
     data: { user },
