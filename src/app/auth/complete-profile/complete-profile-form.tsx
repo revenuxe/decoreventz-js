@@ -31,8 +31,10 @@ export function CompleteProfileForm({
 
       const { error } = await supabase
         .from("profiles")
-        .update({ full_name: name.trim(), phone: phone.trim() })
-        .eq("id", user.id);
+        .upsert(
+          { id: user.id, full_name: name.trim(), phone: phone.trim() },
+          { onConflict: "id" },
+        );
       if (error) throw error;
 
       router.push(redirectTo);
@@ -47,10 +49,12 @@ export function CompleteProfileForm({
   return (
     <div className="min-h-dvh bg-gradient-to-br from-background via-background to-muted/50 pb-16">
       <main className="mx-auto max-w-md px-5 pt-16">
-        <h1 className="font-display text-4xl leading-tight">Just one more step</h1>
+        <h1 className="font-display text-4xl leading-tight">
+          Just one more step
+        </h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          Add your name and mobile number — we&apos;ll use these for pickup and delivery, and
-          fill them in automatically next time.
+          Add your name and mobile number — we&apos;ll use these for pickup and
+          delivery, and fill them in automatically next time.
         </p>
 
         <form onSubmit={onSubmit} className="mt-8 space-y-3">
@@ -76,7 +80,9 @@ export function CompleteProfileForm({
               required
               inputMode="numeric"
               value={phone}
-              onChange={(e) => setPhone(e.target.value.replace(/\D/g, "").slice(0, 10))}
+              onChange={(e) =>
+                setPhone(e.target.value.replace(/\D/g, "").slice(0, 10))
+              }
               placeholder="Mobile number"
               className="w-full bg-transparent text-sm outline-none placeholder:text-muted-foreground"
             />
