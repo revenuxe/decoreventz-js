@@ -1,6 +1,11 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/site";
-import { getCategories, getAllSubcategories, getAllServices } from "@/data";
+import {
+  getCategories,
+  getAllSubcategories,
+  getAllServices,
+  getHomepageTopics,
+} from "@/data";
 
 const staticEntries: {
   path: string;
@@ -17,10 +22,11 @@ const staticEntries: {
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [categories, subcategories, services] = await Promise.all([
+  const [categories, subcategories, services, topics] = await Promise.all([
     getCategories(),
     getAllSubcategories(),
     getAllServices(),
+    getHomepageTopics(),
   ]);
 
   const now = new Date();
@@ -36,6 +42,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: new Date(c.updatedAt),
     changeFrequency: "weekly" as const,
     priority: 0.8,
+    images: c.heroImage ? [c.heroImage] : [],
   }));
 
   const subcategoryIndexPages = categories.map((c) => ({
@@ -50,6 +57,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: new Date(s.updatedAt),
     changeFrequency: "weekly" as const,
     priority: 0.7,
+    images: s.image ? [s.image] : [],
   }));
 
   const productPages = services.map((s) => ({
@@ -57,7 +65,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: new Date(s.updatedAt),
     changeFrequency: "weekly" as const,
     priority: 0.9,
+    images: s.images,
   }));
 
-  return [...staticPages, ...categoryPages, ...subcategoryIndexPages, ...subcategoryPages, ...productPages];
+  const topicPages = topics.map((topic) => ({
+    url: `${SITE_URL}/topics/${topic.id}`,
+    changeFrequency: "weekly" as const,
+    priority: 0.7,
+    images: topic.services.flatMap((service) => service.images).slice(0, 10),
+  }));
+
+  return [
+    ...staticPages,
+    ...categoryPages,
+    ...subcategoryIndexPages,
+    ...subcategoryPages,
+    ...productPages,
+    ...topicPages,
+  ];
 }

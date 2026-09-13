@@ -8,30 +8,236 @@ import { BottomNav } from "@/components/BottomNav";
 import { JsonLd } from "@/components/JsonLd";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 import { breadcrumbJsonLd } from "@/lib/jsonld";
-import { CONTACT, CONTACT_ADDRESS_FULL, CONTACT_MAPS_URL } from "@/lib/site";
+import {
+  BUSINESS_HOURS,
+  CONTACT,
+  CONTACT_ADDRESS_FULL,
+  CONTACT_MAPS_URL,
+} from "@/lib/site";
 
-export const metadata: Metadata = { title: "Support", description: "Get booking support from Decor Eventz.", alternates: { canonical: "/contact" } };
+const TITLE = "Contact Decor Eventz in Bengaluru";
+const DESCRIPTION =
+  "Contact Decor Eventz for balloon and event decoration bookings, custom themes and venue setup support in Bengaluru.";
+
+export const metadata: Metadata = {
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    url: "/contact",
+    type: "website",
+    siteName: "Decor Eventz",
+    locale: "en_IN",
+  },
+  twitter: { card: "summary", title: TITLE, description: DESCRIPTION },
+};
 
 const FAQs = [
-  ["How do I book a decoration?", "Browse the catalogue, choose a setup, select your event details, and submit your booking request. Our team confirms the next steps with you."],
-  ["Can I customise a decoration?", "Yes. Share your theme, venue, and ideas with us and we will help tailor a celebration to your event."],
-  ["Which areas do you serve?", "We serve Bengaluru and nearby areas. Contact us with your venue location to confirm availability."],
-  ["What if I need to change my booking?", "Please reach out as early as possible. We will check what changes can be accommodated for your event date."],
+  [
+    "How do I book a decoration?",
+    "Browse the catalogue, choose a setup, select your event details, and submit your booking request. Our team confirms the next steps with you.",
+  ],
+  [
+    "Can I customise a decoration?",
+    "Yes. Share your theme, venue, and ideas with us and we will help tailor a celebration to your event.",
+  ],
+  [
+    "Which areas do you serve?",
+    "We serve Bengaluru and nearby areas. Contact us with your venue location to confirm availability.",
+  ],
+  [
+    "What if I need to change my booking?",
+    "Please reach out as early as possible. We will check what changes can be accommodated for your event date.",
+  ],
 ];
 
 export default function ContactPage() {
   const cards = [
-    { icon: <WhatsAppIcon className="h-6 w-6" />, title: "WhatsApp", text: "Chat with our team", href: CONTACT.whatsappHref, tone: "bg-[#e9fbef] text-[#159947]" },
-    { icon: <Phone className="h-6 w-6" />, title: "Call us", text: CONTACT.phone, href: CONTACT.phoneHref, tone: "bg-[#edf7f8] text-accent" },
-    { icon: <Mail className="h-6 w-6" />, title: "Email", text: CONTACT.email, href: `mailto:${CONTACT.email}`, tone: "bg-[#f1f4ff] text-[#3b6eea]" },
-    { icon: <Clock3 className="h-6 w-6" />, title: "Working hours", text: "Daily · 10 AM – 7 PM", href: undefined, tone: "bg-[#fff8e8] text-[#d98400]" },
+    {
+      icon: <WhatsAppIcon className="h-6 w-6" />,
+      title: "WhatsApp",
+      text: "Chat with our team",
+      href: CONTACT.whatsappHref,
+      tone: "bg-[#e9fbef] text-[#159947]",
+    },
+    {
+      icon: <Phone className="h-6 w-6" />,
+      title: "Call us",
+      text: CONTACT.phone,
+      href: CONTACT.phoneHref,
+      tone: "bg-[#edf7f8] text-accent",
+    },
+    {
+      icon: <Mail className="h-6 w-6" />,
+      title: "Email",
+      text: CONTACT.email,
+      href: `mailto:${CONTACT.email}`,
+      tone: "bg-[#f1f4ff] text-[#3b6eea]",
+    },
+    {
+      icon: <Clock3 className="h-6 w-6" />,
+      title: "Working hours",
+      text: BUSINESS_HOURS.display,
+      href: undefined,
+      tone: "bg-[#fff8e8] text-[#d98400]",
+    },
   ];
-  return <div className="min-h-dvh bg-background pb-24 md:pb-0"><JsonLd data={breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Support", path: "/contact" }])} /><TopBar /><main className="mx-auto w-full max-w-none px-5 py-10 md:px-12 md:py-16 xl:px-16">
-    <header className="mx-auto max-w-2xl text-center"><p className="inline-flex items-center gap-2 rounded-full bg-accent/10 px-4 py-2 text-xs font-bold text-accent"><Sparkles className="h-3.5 w-3.5" /> We&apos;d love to hear from you.</p><h1 className="mt-5 flex items-center justify-center gap-3 font-display text-4xl text-primary md:gap-4 md:text-6xl"><span>Get in Touch</span><Balloon aria-hidden="true" className="h-10 w-10 shrink-0 text-accent md:h-16 md:w-16" strokeWidth={1.5} /></h1><p className="mt-3 text-base leading-relaxed text-muted-foreground md:text-lg">Questions about a booking, your venue, or a custom celebration? Our team is here to help.</p></header>
-    <section aria-label="Contact methods" className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{cards.map((card) => { const content = <><span className={`grid h-14 w-14 place-items-center rounded-2xl ${card.tone}`}>{card.icon}</span><h2 className="mt-5 text-lg font-bold text-primary">{card.title}</h2><p className="mt-1 break-words text-sm text-muted-foreground">{card.text}</p></>; return card.href ? <a key={card.title} href={card.href} className="rounded-3xl border border-border bg-card p-6 shadow-card transition hover:-translate-y-1 hover:shadow-elevated">{content}</a> : <article key={card.title} className="rounded-3xl border border-border bg-card p-6 shadow-card">{content}</article>; })}</section>
-    <section className="mt-8 grid gap-6 lg:grid-cols-[.82fr_1.18fr]"><aside className="overflow-hidden rounded-3xl border border-border bg-card shadow-card"><div className="border-b border-border p-6"><h2 className="text-xl font-bold text-primary">Visit or contact us</h2><p className="mt-1 text-sm text-muted-foreground">We&apos;re based in Bengaluru and help bring celebrations to life.</p></div><div className="divide-y divide-border">{[[<Phone key="p" className="h-5 w-5" />,"Call us",CONTACT.phone,CONTACT.phoneHref],[<Mail key="e" className="h-5 w-5" />,"Email us",CONTACT.email,`mailto:${CONTACT.email}`],[<MapPin key="m" className="h-5 w-5" />,"Studio address",CONTACT_ADDRESS_FULL,CONTACT_MAPS_URL]].map(([icon,label,value,href]) => <a key={String(label)} href={String(href)} target={String(href).startsWith("http") ? "_blank" : undefined} rel="noreferrer" className="flex gap-4 p-5 transition hover:bg-muted/40"><span className="text-accent">{icon}</span><span><span className="block text-xs font-bold uppercase tracking-wider text-muted-foreground">{label}</span><span className="mt-1 block text-sm font-semibold text-primary">{value}</span></span></a>)}</div></aside>
-      <ContactForm /></section>
-    <ContactMapEmbed />
-    <section className="mx-auto mt-16 max-w-5xl"><div className="text-center"><p className="text-xs font-bold uppercase tracking-widest text-accent">Helpful answers</p><h2 className="mt-2 font-display text-3xl text-primary md:text-5xl">Frequently asked questions</h2></div><div className="mt-8 space-y-3">{FAQs.map(([question,answer]) => <details key={question} className="group rounded-2xl border border-border bg-card px-5 shadow-card"><summary className="cursor-pointer list-none py-5 font-bold text-primary">{question}<span className="float-right text-accent group-open:rotate-45">+</span></summary><p className="pb-5 text-sm leading-relaxed text-muted-foreground">{answer}</p></details>)}</div></section>
-  </main><Footer /><BottomNav /></div>;
+  return (
+    <div className="min-h-dvh bg-background pb-24 md:pb-0">
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Support", path: "/contact" },
+        ])}
+      />
+      <TopBar />
+      <main className="mx-auto w-full max-w-none px-5 py-10 md:px-12 md:py-16 xl:px-16">
+        <header className="mx-auto max-w-2xl text-center">
+          <p className="inline-flex items-center gap-2 rounded-full bg-accent/10 px-4 py-2 text-xs font-bold text-accent">
+            <Sparkles className="h-3.5 w-3.5" /> We&apos;d love to hear from
+            you.
+          </p>
+          <h1 className="mt-5 flex items-center justify-center gap-3 font-display text-4xl text-primary md:gap-4 md:text-6xl">
+            <span>Get in Touch</span>
+            <Balloon
+              aria-hidden="true"
+              className="h-10 w-10 shrink-0 text-accent md:h-16 md:w-16"
+              strokeWidth={1.5}
+            />
+          </h1>
+          <p className="mt-3 text-base leading-relaxed text-muted-foreground md:text-lg">
+            Questions about a booking, your venue, or a custom celebration? Our
+            team is here to help.
+          </p>
+        </header>
+        <section
+          aria-label="Contact methods"
+          className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
+        >
+          {cards.map((card) => {
+            const content = (
+              <>
+                <span
+                  className={`grid h-14 w-14 place-items-center rounded-2xl ${card.tone}`}
+                >
+                  {card.icon}
+                </span>
+                <h2 className="mt-5 text-lg font-bold text-primary">
+                  {card.title}
+                </h2>
+                <p className="mt-1 break-words text-sm text-muted-foreground">
+                  {card.text}
+                </p>
+              </>
+            );
+            return card.href ? (
+              <a
+                key={card.title}
+                href={card.href}
+                className="rounded-3xl border border-border bg-card p-6 shadow-card transition hover:-translate-y-1 hover:shadow-elevated"
+              >
+                {content}
+              </a>
+            ) : (
+              <article
+                key={card.title}
+                className="rounded-3xl border border-border bg-card p-6 shadow-card"
+              >
+                {content}
+              </article>
+            );
+          })}
+        </section>
+        <section className="mt-8 grid gap-6 lg:grid-cols-[.82fr_1.18fr]">
+          <aside className="overflow-hidden rounded-3xl border border-border bg-card shadow-card">
+            <div className="border-b border-border p-6">
+              <h2 className="text-xl font-bold text-primary">
+                Visit or contact us
+              </h2>
+              <p className="mt-1 text-sm text-muted-foreground">
+                We&apos;re based in Bengaluru and help bring celebrations to
+                life.
+              </p>
+            </div>
+            <div className="divide-y divide-border">
+              {[
+                [
+                  <Phone key="p" className="h-5 w-5" />,
+                  "Call us",
+                  CONTACT.phone,
+                  CONTACT.phoneHref,
+                ],
+                [
+                  <Mail key="e" className="h-5 w-5" />,
+                  "Email us",
+                  CONTACT.email,
+                  `mailto:${CONTACT.email}`,
+                ],
+                [
+                  <MapPin key="m" className="h-5 w-5" />,
+                  "Studio address",
+                  CONTACT_ADDRESS_FULL,
+                  CONTACT_MAPS_URL,
+                ],
+              ].map(([icon, label, value, href]) => (
+                <a
+                  key={String(label)}
+                  href={String(href)}
+                  target={
+                    String(href).startsWith("http") ? "_blank" : undefined
+                  }
+                  rel="noreferrer"
+                  className="flex gap-4 p-5 transition hover:bg-muted/40"
+                >
+                  <span className="text-accent">{icon}</span>
+                  <span>
+                    <span className="block text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                      {label}
+                    </span>
+                    <span className="mt-1 block text-sm font-semibold text-primary">
+                      {value}
+                    </span>
+                  </span>
+                </a>
+              ))}
+            </div>
+          </aside>
+          <ContactForm />
+        </section>
+        <ContactMapEmbed />
+        <section className="mx-auto mt-16 max-w-5xl">
+          <div className="text-center">
+            <p className="text-xs font-bold uppercase tracking-widest text-accent">
+              Helpful answers
+            </p>
+            <h2 className="mt-2 font-display text-3xl text-primary md:text-5xl">
+              Frequently asked questions
+            </h2>
+          </div>
+          <div className="mt-8 space-y-3">
+            {FAQs.map(([question, answer]) => (
+              <details
+                key={question}
+                className="group rounded-2xl border border-border bg-card px-5 shadow-card"
+              >
+                <summary className="cursor-pointer list-none py-5 font-bold text-primary">
+                  {question}
+                  <span className="float-right text-accent group-open:rotate-45">
+                    +
+                  </span>
+                </summary>
+                <p className="pb-5 text-sm leading-relaxed text-muted-foreground">
+                  {answer}
+                </p>
+              </details>
+            ))}
+          </div>
+        </section>
+      </main>
+      <Footer />
+      <BottomNav />
+    </div>
+  );
 }

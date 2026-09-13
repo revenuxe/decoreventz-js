@@ -31,16 +31,18 @@ describe("productJsonLd", () => {
 
     expect(jsonLd).toMatchObject({
       "@type": "Product",
-      "@id": "https://www.baraabar.com/categories/birthdays/birthday-backdrop#product",
+      "@id":
+        "https://www.decoreventz.com/categories/birthdays/birthday-backdrop#product",
       mainEntityOfPage: {
         "@type": "WebPage",
-        "@id": "https://www.baraabar.com/categories/birthdays/birthday-backdrop",
+        "@id":
+          "https://www.decoreventz.com/categories/birthdays/birthday-backdrop",
       },
       offers: {
         "@type": "Offer",
         seller: {
           "@type": "Organization",
-          "@id": "https://www.baraabar.com/#organization",
+          "@id": "https://www.decoreventz.com/#organization",
         },
       },
     });

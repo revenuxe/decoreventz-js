@@ -40,3 +40,16 @@ export const CONTACT_ADDRESS_FULL = `${CONTACT.address.line1}, ${CONTACT.address
 export const CONTACT_MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
   CONTACT_ADDRESS_FULL,
 )}`;
+
+export const BUSINESS_HOURS = {
+  opens: "10:00",
+  closes: "19:00",
+  display: "Daily \u00b7 10 AM \u2013 7 PM",
+} as const;
+
+// Keep these coordinates aligned with the Google Business Profile whenever
+// the premises move.
+export const BUSINESS_GEO = {
+  latitude: 12.9976916,
+  longitude: 77.5463858,
+} as const;
