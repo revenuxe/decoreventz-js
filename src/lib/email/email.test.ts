@@ -5,7 +5,7 @@ import { renderEmail } from "./templates";
 import { contactSchema } from "./contact-schema";
 import { sendEmail } from "./transport";
 import { emailConfig } from "./config";
-import { processEmailQueue, retryDelay } from "./worker";
+import { retryDelay } from "./worker";
 
 afterEach(() => { vi.unstubAllGlobals(); vi.unstubAllEnvs(); });
 
@@ -56,11 +56,11 @@ describe("email safety and transport", () => {
 
 
 describe("sender configuration", () => {
-  it("rejects the onboarding sender before queue claims consume attempts", async () => {
+  it("allows the onboarding sender for the single business inbox", () => {
     vi.stubEnv("RESEND_API_KEY", "test-key");
     vi.stubEnv("RESEND_FROM_EMAIL", "Decor Eventz <onboarding@resend.dev>");
-    expect(() => emailConfig()).toThrow(/Verify decoreventz.com/);
-    await expect(processEmailQueue()).rejects.toThrow(/Verify decoreventz.com/);
+    vi.stubEnv("EMAIL_ADMIN_TO", "another@example.com");
+    expect(emailConfig().recipients).toEqual(["decoreventz.com@gmail.com"]);
   });
   it("accepts a sender on the configured production domain", () => {
     vi.stubEnv("RESEND_API_KEY", "test-key");

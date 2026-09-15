@@ -40,6 +40,7 @@ beforeAll(async () => {
     "20260806080000_vendor_audit_defaults.sql",
     "20260808123000_booking_item_customizations.sql",
     "20260910000000_transactional_email.sql",
+    "20260916000000_booking_email_operations_only.sql",
     "20260915000000_secure_checkout.sql",
   ];
   for (const name of migrations) await db.exec(readFileSync(resolve("supabase/migrations", name), "utf8"));
@@ -71,7 +72,7 @@ describe("secure checkout in PostgreSQL", () => {
     expect(Number(row.total)).toBe(1100); expect(row.status).toBe("pending");
     const [item]=await sql<{service_name:string;unit_price:string;quantity:number}>("SELECT service_name,unit_price,quantity FROM booking_items WHERE booking_id=$1",[first.id]);
     expect(item.service_name).toBe("Catalog name"); expect(Number(item.unit_price)).toBe(500); expect(item.quantity).toBe(2);
-    expect(await sql("SELECT id FROM email_outbox WHERE event_key LIKE $1",[`booking/${first.id}/created/%`])).toHaveLength(2);
+    expect(await sql("SELECT id FROM email_outbox WHERE event_key LIKE $1",[`booking/${first.id}/created/%`])).toHaveLength(1);
     await expect(checkout(key,[{...lines[0],quantity:1}],550)).rejects.toThrow(/changed/);
   });
   it("rejects tampered totals, invalid quantities and unassigned add-ons without creating orders", async () => {

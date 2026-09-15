@@ -1,4 +1,5 @@
 import "server-only";
+import { isBookingNotification } from "./recipient-policy";
 import { sendEmail } from "./transport";
 import { emailConfig } from "./config";
 import { emailDatabase } from "./database";
@@ -20,6 +21,13 @@ export async function processEmailQueue() {
     if (error) throw new Error("Unable to claim email queue entry");
     const row = data?.[0];
     if (!row) break;
+    if (!isBookingNotification(row.event_key, row.recipient, row.request)) {
+      const cancelled = await db.from("email_outbox").update({ status: "failed", last_error: "disabled_by_booking_only_email_policy", locked_until: null })
+        .eq("id",row.id).eq("lock_token",row.lock_token).select("id").single();
+      if (cancelled.error) throw new Error("Unable to suppress disabled notification");
+      counts.failed++;
+      continue;
+    }
     const request = row.request ?? {
       from: config.from, to: row.recipient ? [row.recipient] : config.recipients,
       replyTo: row.reply_to || config.replyTo, ...renderEmail(row.payload),

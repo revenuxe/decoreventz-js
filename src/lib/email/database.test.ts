@@ -37,6 +37,7 @@ beforeAll(async () => {
     "20260806070100_vendor_finalize_payment.sql",
     "20260806080000_vendor_audit_defaults.sql",
     "20260910000000_transactional_email.sql",
+    "20260916000000_booking_email_operations_only.sql",
   ];
   for (const name of migrations) await db.exec(readFileSync(resolve("supabase/migrations", name), "utf8"));
   await sql("INSERT INTO auth.users(id,email) VALUES ($1,'customer@example.com'),($2,'vendor@example.com')", [customer, vendorUser]);
@@ -47,9 +48,9 @@ describe("real PostgreSQL email migration", () => {
     const id = await newBooking();
     expect(await sql("SELECT id FROM email_outbox WHERE event_key LIKE $1", [`booking/${id}/created/%`])).toHaveLength(0);
     await insertItems(id);
-    expect(await sql("SELECT id FROM email_outbox WHERE event_key LIKE $1", [`booking/${id}/created/%`])).toHaveLength(2);
+    expect(await sql("SELECT id FROM email_outbox WHERE event_key LIKE $1", [`booking/${id}/created/%`])).toHaveLength(1);
     await insertItems(id);
-    expect(await sql("SELECT id FROM email_outbox WHERE event_key LIKE $1", [`booking/${id}/created/%`])).toHaveLength(2);
+    expect(await sql("SELECT id FROM email_outbox WHERE event_key LIKE $1", [`booking/${id}/created/%`])).toHaveLength(1);
   });
   it("rolls back notifications with the source transaction", async () => {
     const id = await newBooking();
@@ -71,8 +72,9 @@ describe("real PostgreSQL email migration", () => {
     await sql("INSERT INTO vendor_payments(booking_id,amount) VALUES ($1,50)", [id]);
     await sql("UPDATE vendors SET status='approved' WHERE id=$1", [vendor.id]);
     const rows = await sql<{ recipient: string; payload: { title: string; rows: [string,string][]; path: string } }>("SELECT recipient,payload FROM email_outbox");
+    expect(rows.every((row) => row.recipient === "decoreventz.com@gmail.com")).toBe(true);
     const titles = rows.map((row) => row.payload.title).join("|");
-    for (const expected of ["Booking status updated","Vendor assignment updated","Vendor quote updated","Vendor bill updated","Vendor payment updated","Vendor application approved"]) expect(titles).toContain(expected);
+    for (const expected of ["Booking status updated","Vendor assignment updated","Vendor quote updated","Vendor bill updated","Vendor payment updated"]) expect(titles).toContain(expected);
     for (const row of rows.filter((row) => row.recipient === "customer@example.com")) {
       expect(JSON.stringify(row.payload)).not.toContain("Vendor quote");
       expect(row.payload.path).toMatch(/^\/bookings\//);
@@ -84,7 +86,7 @@ describe("real PostgreSQL email migration", () => {
     expect((await submit(id))[0].result).toBe("accepted");
     expect((await submit(id))[0].result).toBe("accepted");
     expect((await submit(id,"Changed message"))[0].result).toBe("conflict");
-    expect(await sql("SELECT id FROM email_outbox WHERE event_key LIKE $1", [`contact/${id}/%`])).toHaveLength(2);
+    expect(await sql("SELECT id FROM email_outbox WHERE event_key LIKE $1", [`contact/${id}/%`])).toHaveLength(0);
     await submit("00000000-0000-4000-8000-000000000011");
     await submit("00000000-0000-4000-8000-000000000012");
     expect((await submit("00000000-0000-4000-8000-000000000013"))[0].result).toBe("rate_limited");
