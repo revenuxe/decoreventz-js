@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { useBrowserReady } from "@/lib/browser-storage";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import {
@@ -144,6 +145,8 @@ export function ProductForm({
   const isNew = !product;
   const draftKey = `${PRODUCT_DRAFT_PREFIX}${product?.id ?? `new:${defaultCategoryId ?? ""}:${defaultSubcategoryId ?? ""}`}`;
   const [draftRestored, setDraftRestored] = useState(false);
+  const browserReady = useBrowserReady();
+  const [restoredKey, setRestoredKey] = useState<string | null>(null);
   const [tab, setTab] = useState<TabKey>("details");
 
   const [name, setName] = useState(product?.name ?? "");
@@ -213,7 +216,8 @@ export function ProductForm({
   const [uploadingImages, setUploadingImages] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
+  if (browserReady && restoredKey !== draftKey) {
+    setRestoredKey(draftKey);
     const saved = readProductDraft(draftKey);
     if (saved) {
       setTab(saved.tab);
@@ -251,7 +255,7 @@ export function ProductForm({
       setOgImageUrl(saved.ogImageUrl);
     }
     setDraftRestored(true);
-  }, [draftKey]);
+  }
   const draft = useMemo<ProductDraft>(
     () => ({
       tab,
@@ -330,12 +334,6 @@ export function ProductForm({
       window.sessionStorage.setItem(draftKey, JSON.stringify(draft));
     } catch {}
   }, [draft, draftKey, draftRestored]);
-  function discardDraft() {
-    try {
-      window.sessionStorage.removeItem(draftKey);
-    } catch {}
-    window.location.reload();
-  }
 
   const categorySubcategories = useMemo(
     () => subcategories.filter((s) => s.category_id === categoryId),

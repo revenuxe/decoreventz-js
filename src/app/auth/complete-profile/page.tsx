@@ -1,3 +1,4 @@
+import { safeRedirect } from "@/lib/safe-redirect";
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
@@ -14,10 +15,7 @@ export default async function CompleteProfilePage({
   searchParams: Promise<{ redirect?: string }>;
 }) {
   const params = await searchParams;
-  const redirectTo =
-    params.redirect?.startsWith("/") && !params.redirect.startsWith("//")
-      ? params.redirect
-      : "/";
+  const redirectTo = safeRedirect(params.redirect);
 
   const supabase = await createClient();
   const {

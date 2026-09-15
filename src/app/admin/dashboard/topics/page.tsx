@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Loader2, Plus, Save, Tags, Trash2 } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
 import type { Database } from "@/lib/supabase/types";
@@ -26,22 +26,22 @@ function HomepageTopicsManager() {
   const [loading, setLoading] = useState(true);
   const supabase = createClient();
 
-  const load = async () => {
-    setLoading(true);
-    const [{ data: topicData }, { data: categoryData }, { data: subcategoryData }, { data: productData }, { data: linkData }] = await Promise.all([
+  const load = useCallback(async () => {
+    return Promise.all([
       supabase.from("homepage_topics").select("*").order("sort_order"),
       supabase.from("categories").select("*").order("sort_order"),
       supabase.from("subcategories").select("*").order("sort_order"),
       supabase.from("products").select("*").order("sort_order"),
       supabase.from("homepage_topic_products").select("topic_id, product_id, sort_order").order("sort_order"),
-    ]);
+    ]).then(([{ data: topicData }, { data: categoryData }, { data: subcategoryData }, { data: productData }, { data: linkData }]) => {
     setTopics(topicData ?? []); setCategories(categoryData ?? []); setSubcategories(subcategoryData ?? []); setProducts(productData ?? []);
     const next: Record<string, string[]> = {};
     for (const link of linkData ?? []) next[link.topic_id] = [...(next[link.topic_id] ?? []), link.product_id];
     setSelected(next); setLoading(false);
-  };
+    });
+  }, [supabase]);
 
-  useEffect(() => { void load(); }, []);
+  useEffect(() => { void load(); }, [load]);
   const update = (id: string, patch: Partial<Topic>) => setTopics((items) => items.map((item) => item.id === id ? { ...item, ...patch } : item));
   const scopedSubcategories = (topic: Topic) => subcategories.filter((sub) => sub.category_id === topic.category_id);
   const scopedProducts = (topic: Topic) => products.filter((product) => product.is_active && (!topic.category_id || product.category_id === topic.category_id) && (!topic.subcategory_id || product.subcategory_id === topic.subcategory_id));

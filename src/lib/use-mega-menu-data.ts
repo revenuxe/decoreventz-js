@@ -22,7 +22,7 @@ let inflight: Promise<MegaMenuData> | null = null;
 
 async function fetchMegaMenuData(): Promise<MegaMenuData> {
   const supabase = createClient();
-  const [{ data: cats }, { data: subs }, { data: prods }] = await Promise.all([
+  const [{ data: cats, error: categoriesError }, { data: subs, error: subcategoriesError }, { data: prods, error: productsError }] = await Promise.all([
     supabase.from("categories").select("slug,name").eq("is_active", true).order("sort_order"),
     supabase
       .from("subcategories")
@@ -39,6 +39,7 @@ async function fetchMegaMenuData(): Promise<MegaMenuData> {
       .order("sort_order")
       .limit(300),
   ]);
+  if (categoriesError || subcategoriesError || productsError) throw new Error("Catalog temporarily unavailable");
 
   return {
     categories: (cats ?? []).map((c) => ({ slug: c.slug, name: c.name })),
@@ -62,12 +63,14 @@ export function useMegaMenuData(enabled: boolean): MegaMenuData {
 
   useEffect(() => {
     if (!enabled) return;
-    if (cache) {
-      setData(cache);
-      return;
+    let active = true;
+    if (!cache && !inflight) {
+      inflight = fetchMegaMenuData().then((result) => (cache = result)).finally(() => { inflight = null; });
     }
-    if (!inflight) inflight = fetchMegaMenuData().then((result) => (cache = result));
-    inflight.then(setData);
+    (cache ? Promise.resolve(cache) : inflight!).then((result) => {
+      if (active) setData(result);
+    }).catch(() => { /* Leave cache empty so the next opening retries. */ });
+    return () => { active = false; };
   }, [enabled]);
 
   return data;

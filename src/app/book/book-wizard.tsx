@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { toast } from "sonner";
@@ -32,6 +32,8 @@ export function BookWizard() {
   const [checkingAccount, setCheckingAccount] = useState(false);
   const [redirectingToSignIn, setRedirectingToSignIn] = useState(false);
   const router = useRouter();
+  const submissionLock = useRef(false);
+  const checkoutRequest = useRef<{ fingerprint: string; id: string } | null>(null);
 
   const ready = draftReady && cartReady;
 
@@ -72,101 +74,59 @@ export function BookWizard() {
   };
 
   async function submitBooking() {
+    if (submissionLock.current) return;
+    submissionLock.current = true;
     setSubmitting(true);
-    const supabase = createClient();
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
-    if (!user) {
-      // Draft and cart already persist to localStorage, so the wizard picks
-      // up where it left off once the user is back from signing in.
-      redirectToSignIn(step);
-      return;
-    }
-
-    // A hand-typed venue (not one picked from the saved-address list) gets
-    // added to the account's address book so it's available to pre-fill
-    // next time — best-effort, never blocks the booking itself on failure.
-    if (!draft.venue.addressId) {
-      const { count } = await supabase
-        .from("addresses")
-        .select("id", { count: "exact", head: true })
-        .eq("user_id", user.id);
-      await supabase.from("addresses").insert({
-        user_id: user.id,
-        label: draft.venue.label || "Home",
-        line1: draft.venue.line1,
-        line2: draft.venue.line2 || null,
-        city: draft.venue.city,
-        pincode: draft.venue.pincode,
-        phone: draft.venue.phone,
-        is_default: (count ?? 0) === 0,
-      });
-    }
-
-    const { data: booking, error } = await supabase
-      .from("bookings")
-      .insert({
-        user_id: user.id,
-        event_date: draft.eventDate!,
-        event_time: draft.eventTime!,
-        venue_name: draft.venue.name || null,
-        venue_line1: draft.venue.line1,
-        venue_line2: draft.venue.line2 || null,
-        venue_city: draft.venue.city,
-        venue_pincode: draft.venue.pincode,
-        venue_phone: draft.venue.phone,
+    try {
+      const supabase = createClient();
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) { redirectToSignIn(step); return; }
+      const details = {
+        event_date: draft.eventDate ?? "", event_time: draft.eventTime ?? "",
+        venue_name: draft.venue.name || null, venue_line1: draft.venue.line1,
+        venue_line2: draft.venue.line2 || null, venue_city: draft.venue.city,
+        venue_pincode: draft.venue.pincode, venue_phone: draft.venue.phone,
         notes: draft.notes || null,
-        total: subtotal,
-      })
-      .select("id, order_code")
-      .single();
-
-    if (error || !booking) {
-      setSubmitting(false);
-      toast.error(
-        error?.message ?? "Could not create your booking. Please try again.",
-      );
-      return;
-    }
-
-    const { error: itemsError } = await supabase.from("booking_items").insert(
-      items.map((it) => ({
-        booking_id: booking.id,
-        product_id: it.productId,
-        category_slug: it.categorySlug,
-        service_slug: it.serviceSlug,
-        service_name: it.serviceName,
-        image: it.image,
-        unit_price: it.unitPrice,
-        original_price: it.originalPrice ?? null,
-        quantity: it.quantity,
-        addons: it.addOns,
-        // A checkout snapshot ensures later catalogue edits never change what
-        // the decorator sees for an already placed order.
+      };
+      const lines = items.map((it) => ({
+        product_id: it.productId, quantity: it.quantity,
+        addon_ids: it.addOns.map((addon) => addon.id),
         customizations: it.balloonSelection
-          ? {
-              version: 1,
-              balloon: it.balloonSelection,
-              balloon_choice: it.balloonSelection.label,
-            }
-          : it.balloonChoice
-            ? { version: 1, balloon_choice: it.balloonChoice }
-            : {},
-      })),
-    );
-    if (itemsError) {
+          ? { version: 1, balloon: it.balloonSelection, balloon_choice: it.balloonSelection.label }
+          : it.balloonChoice ? { version: 1, balloon_choice: it.balloonChoice } : {},
+      }));
+      const fingerprint = JSON.stringify([user.id, details, lines, subtotal]);
+      if (checkoutRequest.current?.fingerprint !== fingerprint) {
+        // Persist the retry key so a lost response followed by a reload cannot duplicate an order.
+        let saved: { fingerprint?: string; id?: string } | null = null;
+        try { saved = JSON.parse(sessionStorage.getItem("decor_checkout_request") ?? "null"); } catch {}
+        checkoutRequest.current = {
+          fingerprint,
+          id: saved?.fingerprint === fingerprint && typeof saved.id === "string" ? saved.id : crypto.randomUUID(),
+        };
+        try { sessionStorage.setItem("decor_checkout_request", JSON.stringify(checkoutRequest.current)); } catch {}
+      }
+      const { data: booking, error } = await supabase.rpc("create_booking", {
+        _request_id: checkoutRequest.current.id, _details: details,
+        _items: lines, _expected_total: subtotal,
+      }).single();
+      if (error || !booking) {
+        toast.error(error?.message ?? "Could not create your booking. Please try again.");
+        return;
+      }
+      setOrderCode(booking.order_code);
+      setBookingId(booking.id);
+      setDone(true);
+      clear();
+      reset();
+      checkoutRequest.current = null;
+      try { sessionStorage.removeItem("decor_checkout_request"); } catch {}
+    } catch {
+      toast.error("Could not confirm your booking. Please retry; your cart has been saved.");
+    } finally {
+      submissionLock.current = false;
       setSubmitting(false);
-      toast.error(itemsError.message);
-      return;
     }
-
-    clear();
-    reset();
-    setSubmitting(false);
-    setOrderCode(booking.order_code);
-    setBookingId(booking.id);
-    setDone(true);
   }
 
   async function saveVenueAddress() {
@@ -188,6 +148,7 @@ export function BookWizard() {
       .eq("city", draft.venue.city)
       .eq("pincode", draft.venue.pincode)
       .eq("phone", draft.venue.phone)
+      .limit(1)
       .maybeSingle();
     if (lookupError) {
       toast.error("Could not save your address. Please try again.");
@@ -230,27 +191,23 @@ export function BookWizard() {
   }
 
   async function next() {
-    if (step === 0) {
-      setCheckingAccount(true);
-      const {
-        data: { user },
-      } = await createClient().auth.getUser();
-      setCheckingAccount(false);
-      if (!user) {
-        // The local booking draft keeps the completed event step through
-        // sign-in — advance the step before leaving so the wizard resumes
-        // on Venue (not back at Event) once the user returns from /auth.
-        redirectToSignIn(1);
-        return;
+    if (checkingAccount || submitting) return;
+    setCheckingAccount(true);
+    try {
+      if (step === 0) {
+        const { data: { user } } = await createClient().auth.getUser();
+        if (!user) { redirectToSignIn(1); return; }
+        setStep(1);
+      } else if (step === 1) {
+        if (await saveVenueAddress()) setStep(2);
+      } else {
+        await submitBooking();
       }
-      setStep(1);
-      return;
+    } catch {
+      toast.error("Could not continue. Check your connection and try again.");
+    } finally {
+      setCheckingAccount(false);
     }
-    if (step === 1) {
-      if (await saveVenueAddress()) setStep(2);
-      return;
-    }
-    submitBooking();
   }
   const back = () => {
     if (step > 0) setStep(step - 1);

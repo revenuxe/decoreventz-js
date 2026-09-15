@@ -16,10 +16,7 @@ function useTypingPlaceholder(active: boolean) {
   const [text, setText] = useState("");
 
   useEffect(() => {
-    if (!active) {
-      setText("");
-      return;
-    }
+    if (!active) return;
     let phraseIndex = 0;
     let charIndex = 0;
     let deleting = false;
@@ -51,7 +48,7 @@ function useTypingPlaceholder(active: boolean) {
     return () => clearTimeout(timeout);
   }, [active]);
 
-  return text;
+  return active ? text : "";
 }
 
 export function SearchBar({

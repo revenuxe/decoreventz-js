@@ -1,3 +1,4 @@
+import { safeRedirect } from "@/lib/safe-redirect";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
@@ -18,9 +19,7 @@ export async function GET(request: Request) {
   let redirectTo = "/";
   try {
     const candidate = rawRedirect ? decodeURIComponent(rawRedirect) : "/";
-    // Permit only an application-local path; reject protocol-relative URLs too.
-    if (candidate.startsWith("/") && !candidate.startsWith("//"))
-      redirectTo = candidate;
+    redirectTo = safeRedirect(candidate);
   } catch {}
 
   if (code) {

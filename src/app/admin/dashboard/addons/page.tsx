@@ -14,17 +14,17 @@ export default function AddonsPage() {
   const [loading, setLoading] = useState(true);
 
   async function load() {
-    setLoading(true);
     const supabase = createClient();
-    const [{ data: addons }, { data: links }] = await Promise.all([
+    return Promise.all([
       supabase.from("addons").select("*").order("sort_order"),
       supabase.from("product_addon_links").select("addon_id"),
-    ]);
+    ]).then(([{ data: addons }, { data: links }]) => {
     setRows(addons ?? []);
     const counts: Record<string, number> = {};
     for (const l of links ?? []) counts[l.addon_id] = (counts[l.addon_id] ?? 0) + 1;
     setLinkCounts(counts);
     setLoading(false);
+    });
   }
 
   useEffect(() => {

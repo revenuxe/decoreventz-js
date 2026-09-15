@@ -9,6 +9,12 @@ import { updateSession } from "@/lib/supabase/middleware";
 export async function proxy(request: NextRequest) {
   const { supabaseResponse, supabase, user } = await updateSession(request);
 
+  const redirectWithSession = (path: string) => {
+    const response = NextResponse.redirect(new URL(path, request.url));
+    supabaseResponse.cookies.getAll().forEach((cookie) => response.cookies.set(cookie));
+    return response;
+  };
+
   const { pathname } = request.nextUrl;
   const isAdminRoute = pathname.startsWith("/admin") && pathname !== "/admin/login";
   const isVendorRoute =
@@ -16,7 +22,7 @@ export async function proxy(request: NextRequest) {
 
   if (isAdminRoute) {
     if (!user) {
-      return NextResponse.redirect(new URL("/admin/login", request.url));
+      return redirectWithSession("/admin/login");
     }
 
     const { data: isAdmin } = await supabase.rpc("has_role", {
@@ -25,7 +31,7 @@ export async function proxy(request: NextRequest) {
     });
 
     if (!isAdmin) {
-      return NextResponse.redirect(new URL("/admin/login", request.url));
+      return redirectWithSession("/admin/login");
     }
 
     // Forward the already-validated user's email via a request header so
@@ -40,7 +46,7 @@ export async function proxy(request: NextRequest) {
 
   if (isVendorRoute) {
     if (!user) {
-      return NextResponse.redirect(new URL("/vendor/login", request.url));
+      return redirectWithSession("/vendor/login");
     }
 
     const { data: isVendor } = await supabase.rpc("has_role", {
@@ -49,7 +55,7 @@ export async function proxy(request: NextRequest) {
     });
 
     if (!isVendor) {
-      return NextResponse.redirect(new URL("/vendor/login", request.url));
+      return redirectWithSession("/vendor/login");
     }
 
     const { data: vendor } = await supabase
@@ -59,7 +65,7 @@ export async function proxy(request: NextRequest) {
       .maybeSingle();
 
     if (vendor?.status !== "approved") {
-      return NextResponse.redirect(new URL("/vendor/status", request.url));
+      return redirectWithSession("/vendor/status");
     }
   }
 
@@ -75,5 +81,5 @@ export const config = {
   // marketing/legal pages, /book — its catalog fetch is a cached,
   // non-cookie client, and the wizard's own auth check is entirely
   // client-side) are deliberately left out.
-  matcher: ["/admin/:path*", "/profile/:path*", "/auth/:path*", "/vendor/:path*"],
+  matcher: ["/admin/:path*", "/profile/:path*", "/bookings/:path*", "/auth/:path*", "/vendor/:path*"],
 };

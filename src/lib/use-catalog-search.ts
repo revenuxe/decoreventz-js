@@ -22,7 +22,7 @@ let inflight: Promise<SearchCatalog> | null = null;
 
 async function fetchCatalog(): Promise<SearchCatalog> {
   const supabase = createClient();
-  const [{ data: categoryRows }, { data: productRows }] = await Promise.all([
+  const [{ data: categoryRows, error: categoriesError }, { data: productRows, error: productsError }] = await Promise.all([
     supabase
       .from("categories")
       .select("slug,name,tagline")
@@ -34,6 +34,7 @@ async function fetchCatalog(): Promise<SearchCatalog> {
       .eq("is_active", true)
       .order("sort_order"),
   ]);
+  if (categoriesError || productsError) throw new Error("Catalog temporarily unavailable");
 
   const categories: SearchCategory[] = (categoryRows ?? []).map((c) => ({
     slug: c.slug,
@@ -56,12 +57,14 @@ export function useCatalogSearch(enabled: boolean = true): SearchCatalog {
 
   useEffect(() => {
     if (!enabled) return;
-    if (cache) {
-      setData(cache);
-      return;
+    let active = true;
+    if (!cache && !inflight) {
+      inflight = fetchCatalog().then((result) => (cache = result)).finally(() => { inflight = null; });
     }
-    if (!inflight) inflight = fetchCatalog().then((result) => (cache = result));
-    inflight.then(setData);
+    (cache ? Promise.resolve(cache) : inflight!).then((result) => {
+      if (active) setData(result);
+    }).catch(() => { /* Leave cache empty so the next opening retries. */ });
+    return () => { active = false; };
   }, [enabled]);
 
   return data;

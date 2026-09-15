@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { Dialog as DialogPrimitive } from "radix-ui";
 import { ArrowUpRight, Layers, PartyPopper, Search, X } from "lucide-react";
@@ -31,11 +31,15 @@ export function SearchOverlay({
 }) {
   const [query, setQuery] = useState(initialQuery ?? "");
 
-  useEffect(() => {
-    if (open && initialQuery) setQuery(initialQuery);
-  }, [open, initialQuery]);
+  const [previousOpen, setPreviousOpen] = useState(open);
+  const [previousInitial, setPreviousInitial] = useState(initialQuery);
+  if (previousOpen !== open || previousInitial !== initialQuery) {
+    setPreviousOpen(open);
+    setPreviousInitial(initialQuery);
+    if (open) setQuery(initialQuery ?? "");
+  }
 
-  const { categories: categoryHits, services: serviceHits } = useCatalogSearch();
+  const { categories: categoryHits, services: serviceHits } = useCatalogSearch(open);
 
   const q = query.trim().toLowerCase();
   const matchedServices = q

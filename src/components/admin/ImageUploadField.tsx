@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import { useRef, useState } from "react";
 import { Image as ImageIcon, Loader2, Upload, X } from "lucide-react";
 import { deleteCatalogImage, uploadCatalogImage } from "@/lib/s3-upload-client";
@@ -44,7 +46,7 @@ export function ImageUploadField({
       <div className="flex items-center gap-3">
         <div className="grid h-16 w-16 shrink-0 place-items-center overflow-hidden rounded-xl border border-border bg-muted">
           {value ? (
-            <img src={value} alt="" className="h-full w-full object-cover" />
+            <Image unoptimized width={64} height={64} src={value} alt="" className="h-full w-full object-cover" />
           ) : (
             <ImageIcon className="h-5 w-5 text-muted-foreground" />
           )}

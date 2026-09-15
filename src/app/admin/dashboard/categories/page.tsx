@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ChevronDown, ChevronUp, Layers, Loader2, Plus, Trash2 } from "lucide-react";
@@ -14,14 +16,14 @@ export default function CategoriesPage() {
   const [loading, setLoading] = useState(true);
 
   async function load() {
-    setLoading(true);
     const supabase = createClient();
-    const { data } = await supabase
+    return supabase
       .from("categories")
       .select("*")
-      .order("sort_order", { ascending: true });
+      .order("sort_order", { ascending: true }).then(({ data }) => {
     setRows(data ?? []);
     setLoading(false);
+    });
   }
 
   useEffect(() => {
@@ -90,7 +92,7 @@ export default function CategoriesPage() {
               </div>
               <div className="grid h-10 w-10 shrink-0 place-items-center overflow-hidden rounded-lg border border-border bg-muted">
                 {r.image_url ? (
-                  <img src={r.image_url} alt="" className="h-full w-full object-cover" />
+                  <Image unoptimized width={40} height={40} src={r.image_url} alt="" className="h-full w-full object-cover" />
                 ) : (
                   <Layers className="h-4 w-4 text-muted-foreground" />
                 )}

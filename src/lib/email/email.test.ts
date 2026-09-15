@@ -4,9 +4,10 @@ vi.mock("server-only", () => ({}));
 import { renderEmail } from "./templates";
 import { contactSchema } from "./contact-schema";
 import { sendEmail } from "./transport";
-import { retryDelay } from "./worker";
+import { emailConfig } from "./config";
+import { processEmailQueue, retryDelay } from "./worker";
 
-afterEach(() => vi.unstubAllGlobals());
+afterEach(() => { vi.unstubAllGlobals(); vi.unstubAllEnvs(); });
 
 describe("email safety and transport", () => {
   it("escapes user content in HTML and includes a plain-text version", () => {
@@ -50,5 +51,20 @@ describe("email safety and transport", () => {
     expect(retryDelay(1)).toBe(60);
     expect(retryDelay(3)).toBe(240);
     expect(retryDelay(8)).toBe(3600);
+  });
+});
+
+
+describe("sender configuration", () => {
+  it("rejects the onboarding sender before queue claims consume attempts", async () => {
+    vi.stubEnv("RESEND_API_KEY", "test-key");
+    vi.stubEnv("RESEND_FROM_EMAIL", "Decor Eventz <onboarding@resend.dev>");
+    expect(() => emailConfig()).toThrow(/Verify decoreventz.com/);
+    await expect(processEmailQueue()).rejects.toThrow(/Verify decoreventz.com/);
+  });
+  it("accepts a sender on the configured production domain", () => {
+    vi.stubEnv("RESEND_API_KEY", "test-key");
+    vi.stubEnv("RESEND_FROM_EMAIL", "Decor Eventz <notifications@decoreventz.com>");
+    expect(emailConfig().from).toBe("Decor Eventz <notifications@decoreventz.com>");
   });
 });

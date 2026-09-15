@@ -38,9 +38,7 @@ export function VendorList({ defaultFilter }: { defaultFilter: "all" | VendorSta
   const [rejectReason, setRejectReason] = useState("");
   const [rejecting, setRejecting] = useState(false);
 
-  // reviewed_by fills in via the vendors.reviewed_by column default
-  // (auth.uid()) — no need for a client-side getUser() round trip just to
-  // stamp who acted.
+  // The database stamps the reviewer on status changes.
   async function review(vendor: VendorRow, status: "approved" | "rejected", reason?: string) {
     setBusyId(vendor.id);
     const supabase = createClient();

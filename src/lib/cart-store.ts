@@ -1,6 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useMemo } from "react";
+import { readStorage, writeStorage, useStoredValue, useBrowserReady } from "./browser-storage";
+import { parseCart } from "./cart-validation";
 import type { ServiceAddOn } from "@/data/types";
 
 export type CartItem = {
@@ -29,46 +31,20 @@ const KEY = "baraabar_cart_v1";
 
 function readCart(): CartItem[] {
   try {
-    const raw = localStorage.getItem(KEY);
-    return raw ? (JSON.parse(raw) as CartItem[]) : [];
+    const raw = readStorage(KEY);
+    return raw ? parseCart(JSON.parse(raw)) : [];
   } catch {
     return [];
   }
 }
 
-function writeCart(items: CartItem[]) {
-  try {
-    localStorage.setItem(KEY, JSON.stringify(items));
-  } catch {}
-}
-
-// Cross-tab/cross-component sync — several components (TopBar badge,
-// BottomNav badge, cart page) all read this hook independently, so a
-// change in one must be reflected in the others without a page reload.
-const listeners = new Set<() => void>();
-function notify() {
-  listeners.forEach((l) => l());
-}
-
 export function useCart() {
-  const [items, setItems] = useState<CartItem[]>([]);
-  const [ready, setReady] = useState(false);
-
-  useEffect(() => {
-    setItems(readCart());
-    setReady(true);
-    const onChange = () => setItems(readCart());
-    listeners.add(onChange);
-    return () => {
-      listeners.delete(onChange);
-    };
-  }, []);
-
-  const commit = (next: CartItem[]) => {
-    setItems(next);
-    writeCart(next);
-    notify();
-  };
+  const raw = useStoredValue(KEY);
+  const ready = useBrowserReady();
+  const items = useMemo(() => {
+    try { return raw ? parseCart(JSON.parse(raw)) : []; } catch { return []; }
+  }, [raw]);
+  const commit = (next: CartItem[]) => writeStorage(KEY,JSON.stringify(next));
 
   const addItem = (
     item: Omit<CartItem, "quantity"> & { quantity?: number },
@@ -79,7 +55,7 @@ export function useCart() {
       commit(
         current.map((it) =>
           it.id === item.id
-            ? { ...it, quantity: it.quantity + (item.quantity ?? 1) }
+            ? { ...it, quantity: Math.min(100, it.quantity + (item.quantity ?? 1)) }
             : it,
         ),
       );
@@ -92,6 +68,7 @@ export function useCart() {
     commit(readCart().filter((it) => it.id !== id));
 
   const updateQuantity = (id: string, quantity: number) => {
+    if (!Number.isInteger(quantity) || quantity > 100) return;
     if (quantity < 1) return removeItem(id);
     commit(readCart().map((it) => (it.id === id ? { ...it, quantity } : it)));
   };

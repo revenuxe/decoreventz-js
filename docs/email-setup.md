@@ -124,3 +124,12 @@ For failed messages, inspect `last_error`, `resend_id`, and Resend first. Within
 6. Simulate temporary delivery failure only in a separate test environment; confirm retries.
 
 Automated tests use a local in-memory PostgreSQL engine and mocked provider requests. They do not send real email or change the live database. DNS, real sending, SMTP, scheduler, and production webhooks still require account setup and live smoke tests.
+
+
+## If you used onboarding@resend.dev
+
+Resend limits that sender to the email address attached to your Resend account. It cannot send customer notifications. Verify your domain at https://resend.com/domains and change RESEND_FROM_EMAIL in Vercel Production to Decor Eventz <notifications@decoreventz.com>, without surrounding quotes. If you verified a subdomain, use that exact subdomain. Redeploy afterward. Also update the Supabase SMTP sender separately for account confirmation/recovery mail.
+
+The worker now refuses this restricted sender before claiming queue entries. Contact enquiries can still be saved while delivery configuration is being repaired, provided the contact migration and rate-limit secret exist. Admin > Emails displays the configuration problem. The sender check does not establish that a domain is verified; verify it in Resend.
+
+Previously failed/frozen requests are not silently rewritten after changing the sender: that would violate the provider's idempotency contract. Inspect failed messages in Resend and the queue before deliberately retrying them under the procedure above.

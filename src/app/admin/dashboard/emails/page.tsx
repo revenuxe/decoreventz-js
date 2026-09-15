@@ -11,9 +11,17 @@ export default async function EmailDeliveryPage() {
   if (!user) redirect("/admin/login");
   const { data: isAdmin } = await supabase.rpc("has_role", { _user_id: user.id, _role: "admin" });
   if (!isAdmin) redirect("/");
-  let configured = true;
-  try { emailConfig(); } catch { configured = false; }
-  const db = emailDatabase();
+  let configurationError: string | null = null;
+  try { emailConfig(); } catch (error) {
+    configurationError = error instanceof Error ? error.message : "Email configuration is unavailable.";
+  }
+  let db;
+  try { db = emailDatabase(); } catch {
+    return <section className="space-y-4"><h1 className="font-display text-3xl">Email delivery</h1>
+      {configurationError && <p role="alert">{configurationError}</p>}
+      <p role="alert">Email database access is not configured. Check SUPABASE_SERVICE_ROLE_KEY and NEXT_PUBLIC_SUPABASE_URL.</p>
+    </section>;
+  }
   const { data: messages, error } = await db.from("email_outbox")
     .select("id,recipient,payload,status,attempts,last_error,created_at,resend_id")
     .order("created_at", { ascending: false }).limit(100);
@@ -25,7 +33,7 @@ export default async function EmailDeliveryPage() {
   }
   return <section className="space-y-5">
     <div><h1 className="font-display text-3xl">Email delivery</h1><p className="mt-2 text-sm text-muted-foreground">Latest 100 notifications. Refresh to see new queue and delivery updates.</p></div>
-    {!configured && <p role="alert" className="rounded-xl bg-destructive/10 p-4 text-sm text-destructive">Email sending is not configured. Check the Resend environment variables.</p>}
+    {configurationError && <p role="alert" className="rounded-xl bg-destructive/10 p-4 text-sm text-destructive">{configurationError}</p>}
     {error ? <p role="alert">The email queue is unavailable. Check that the email migration has been applied.</p> : <div className="overflow-x-auto rounded-2xl border border-border bg-card"><table className="w-full text-left text-sm"><thead><tr className="border-b border-border"><th className="p-4">Notification</th><th className="p-4">Recipient</th><th className="p-4">Status</th><th className="p-4">Attempts</th></tr></thead><tbody>
       {messages?.map((message) => <tr key={message.id} className="border-b border-border last:border-0"><td className="p-4"><p className="font-semibold">{message.payload.title}</p><p className="mt-1 text-xs text-muted-foreground">{new Date(message.created_at).toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })} IST</p></td><td className="p-4">{message.recipient ?? "Operations inbox"}</td><td className="p-4"><p>{message.resend_id ? latest.get(message.resend_id)?.replace("email.", "") ?? "Accepted by Resend" : message.status}</p>{message.last_error && <p className="mt-1 text-xs text-destructive">{message.last_error}</p>}</td><td className="p-4">{message.attempts}</td></tr>)}
       {!messages?.length && <tr><td colSpan={4} className="p-6 text-muted-foreground">No email notifications yet.</td></tr>}

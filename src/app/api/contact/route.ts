@@ -2,7 +2,6 @@ import { createHmac } from "node:crypto";
 import { after } from "next/server";
 import { contactSchema } from "@/lib/email/contact-schema";
 import { emailDatabase } from "@/lib/email/database";
-import { emailConfig } from "@/lib/email/config";
 import { processEmailQueue } from "@/lib/email/worker";
 
 export const runtime = "nodejs";
@@ -19,7 +18,6 @@ export async function POST(request: Request) {
     const parsed = contactSchema.safeParse(json);
     if (!parsed.success) return Response.json({ error: "Please enter your name, a valid email, and a message of 10–5,000 characters." }, { status: 400 });
     if (parsed.data.website) return Response.json({ ok: true });
-    emailConfig();
     const secret = process.env.CONTACT_RATE_LIMIT_SECRET;
     if (!secret) throw new Error("Missing contact rate limit secret");
     // Vercel overwrites x-vercel-forwarded-for; never trust a client-supplied

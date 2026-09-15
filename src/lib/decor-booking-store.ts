@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useMemo } from "react";
+import { readStorage, writeStorage, useStoredValue, useBrowserReady } from "./browser-storage";
 
 export type VenueAddress = {
   name: string;
@@ -32,11 +33,18 @@ const empty: DecorBookingDraft = {
   notes: "",
 };
 
-function normalizeDraft(raw: any): DecorBookingDraft {
+function normalizeDraft(raw: unknown): DecorBookingDraft {
+  const data = raw && typeof raw === "object" ? raw as Record<string, unknown> : {};
+  const venue = data.venue && typeof data.venue === "object" ? data.venue as Record<string, unknown> : {};
+  const text = (value: unknown) => typeof value === "string" ? value : "";
   return {
-    ...empty,
-    ...raw,
-    venue: { ...empty.venue, ...raw?.venue },
+    eventDate: text(data.eventDate) || undefined, eventTime: text(data.eventTime) || undefined,
+    notes: text(data.notes),
+    venue: {
+      name: text(venue.name), line1: text(venue.line1), line2: text(venue.line2),
+      city: text(venue.city), pincode: text(venue.pincode), phone: text(venue.phone),
+      label: text(venue.label) || "Home", addressId: text(venue.addressId) || undefined,
+    },
   };
 }
 
@@ -44,46 +52,19 @@ function normalizeDraft(raw: any): DecorBookingDraft {
 // accidental page refresh mid-flow. The account-level address book lives
 // in the `addresses` table (see step-venue.tsx), separate from this draft.
 export function useDecorBookingDraft() {
-  const [draft, setDraft] = useState<DecorBookingDraft>(empty);
-  const [step, setStep] = useState(0);
-  const [ready, setReady] = useState(false);
-
-  useEffect(() => {
-    try {
-      const raw = localStorage.getItem(KEY);
-      if (raw) setDraft(normalizeDraft(JSON.parse(raw)));
-      const rawStep = Number(localStorage.getItem(STEP_KEY));
-      if (Number.isFinite(rawStep) && rawStep > 0) setStep(rawStep);
-    } catch {}
-    setReady(true);
-  }, []);
-
-  useEffect(() => {
-    if (!ready) return;
-    try {
-      localStorage.setItem(KEY, JSON.stringify(draft));
-    } catch {}
-  }, [draft, ready]);
-
-  // Persisted separately from the draft so a mid-flow remount (e.g. the
-  // redirect out to /auth and back for the sign-in gate between Event and
-  // Venue) resumes on the same step instead of snapping back to Event.
-  useEffect(() => {
-    if (!ready) return;
-    try {
-      localStorage.setItem(STEP_KEY, String(step));
-    } catch {}
-  }, [step, ready]);
-
-  const update = (patch: Partial<DecorBookingDraft>) => setDraft((d) => ({ ...d, ...patch }));
-  const reset = () => {
-    setDraft(empty);
-    setStep(0);
-    try {
-      localStorage.removeItem(KEY);
-      localStorage.removeItem(STEP_KEY);
-    } catch {}
+  const raw = useStoredValue(KEY);
+  const rawStep = Number(useStoredValue(STEP_KEY));
+  const ready = useBrowserReady();
+  const draft = useMemo(() => {
+    try { return raw ? normalizeDraft(JSON.parse(raw)) : empty; } catch { return empty; }
+  },[raw]);
+  const step = Number.isInteger(rawStep) && rawStep >= 0 && rawStep <= 2 ? rawStep : 0;
+  const setStep = (value: number) => writeStorage(STEP_KEY,String(Math.max(0,Math.min(2,value))));
+  const update = (patch: Partial<DecorBookingDraft>) => {
+    let current = draft;
+    try { current = normalizeDraft(JSON.parse(readStorage(KEY) ?? "null")); } catch {}
+    writeStorage(KEY,JSON.stringify({ ...current, ...patch }));
   };
-
+  const reset = () => { writeStorage(KEY,null); writeStorage(STEP_KEY,null); };
   return { draft, update, reset, ready, step, setStep };
 }

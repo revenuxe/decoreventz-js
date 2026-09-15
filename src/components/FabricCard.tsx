@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import { Check } from "lucide-react";
 
 /** Distinct swatch treatment per fabric so cards read as material, not text. */
@@ -47,8 +49,8 @@ export function FabricCard({
         {image ? (
           // Admins can paste any external image URL for a fabric (see
           // ImageUploadField), so next/image's remotePatterns allowlist
-          // can't cover it — plain <img> loads any domain.
-          <img
+          // can't cover it — plain <Image unoptimized width={300} height={300}> loads any domain.
+          <Image unoptimized width={300} height={300}
             src={image}
             alt={label}
             loading="lazy"

@@ -11,5 +11,8 @@ export function emailConfig() {
   if (!apiKey || !from || !z.email().safeParse(senderEmail).success || /[\r\n]/.test(from) || !z.array(z.email()).min(1).max(10).safeParse(recipients).success || !z.email().safeParse(replyTo).success) {
     throw new Error("Email configuration is missing or invalid");
   }
+  if (senderEmail!.toLowerCase().endsWith("@resend.dev")) {
+    throw new Error("Resend's onboarding sender only delivers to your Resend account email. Verify decoreventz.com in Resend Domains, then set RESEND_FROM_EMAIL to Decor Eventz <notifications@decoreventz.com> and redeploy.");
+  }
   return { apiKey, from, recipients, replyTo };
 }

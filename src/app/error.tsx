@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect } from "react";
 
 // TODO(migration): wire this into a real error-tracking service (Sentry,
@@ -30,12 +31,12 @@ export default function Error({
           >
             Try again
           </button>
-          <a
+          <Link
             href="/"
             className="rounded-full border border-border px-5 py-2.5 text-sm font-semibold"
           >
             Go home
-          </a>
+          </Link>
         </div>
       </div>
     </div>

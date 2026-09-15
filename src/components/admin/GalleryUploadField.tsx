@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import { useState } from "react";
 import { GripVertical, ImagePlus, Loader2, Star, X } from "lucide-react";
 import { deleteCatalogImage, uploadCatalogImage } from "@/lib/s3-upload-client";
@@ -105,7 +107,7 @@ export function GalleryUploadField({ value, onChange, pathPrefix, onUploadingCha
         <div className="flex flex-wrap gap-3">
           {value.map((url, index) => (
             <div key={`${url}-${index}`} className="group relative h-28 w-28 shrink-0 overflow-hidden rounded-xl border border-border bg-muted shadow-sm">
-              <img src={url} alt={`Product image ${index + 1}`} className="h-full w-full object-cover" />
+              <Image unoptimized width={112} height={112} src={url} alt={`Product image ${index + 1}`} className="h-full w-full object-cover" />
               {index === 0 ? (
                 <span className="absolute left-1.5 top-1.5 inline-flex items-center gap-1 rounded-full bg-primary px-2 py-1 text-[10px] font-bold text-primary-foreground"><Star className="h-2.5 w-2.5 fill-current" /> Cover</span>
               ) : (

@@ -746,6 +746,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      create_booking: { Args: { _request_id: string; _details: Json; _items: Json; _expected_total: number }; Returns: { id: string; order_code: string }[] }
       cancel_booking: { Args: { _booking_id: string }; Returns: undefined }
       has_role: {
         Args: {

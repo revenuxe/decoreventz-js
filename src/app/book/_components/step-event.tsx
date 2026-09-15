@@ -1,5 +1,6 @@
 "use client";
 
+import { calendarDate } from "@/lib/calendar-date";
 import { useState } from "react";
 import { Calendar as CalendarIcon, CalendarPlus } from "lucide-react";
 import { Calendar } from "@/components/ui/calendar";
@@ -19,7 +20,7 @@ export function StepEvent({
     d.setDate(d.getDate() + i + 1);
     return d;
   });
-  const quickKeys = new Set(days.map((d) => d.toISOString().slice(0, 10)));
+  const quickKeys = new Set(days.map((d) => calendarDate(d)));
   const isCustomSelected = !!draft.eventDate && !quickKeys.has(draft.eventDate);
   const tomorrow = new Date();
   tomorrow.setDate(tomorrow.getDate() + 1);
@@ -72,7 +73,7 @@ export function StepEvent({
                 selected={draft.eventDate ? new Date(`${draft.eventDate}T00:00:00`) : undefined}
                 onSelect={(date) => {
                   if (!date) return;
-                  update({ eventDate: date.toISOString().slice(0, 10) });
+                  update({ eventDate: calendarDate(date) });
                   setCustomOpen(false);
                 }}
                 disabled={{ before: tomorrow }}
@@ -82,7 +83,7 @@ export function StepEvent({
         </div>
         <div className="no-scrollbar -mx-1 flex gap-2 overflow-x-auto px-1">
           {days.map((d) => {
-            const key = d.toISOString().slice(0, 10);
+            const key = calendarDate(d);
             const active = draft.eventDate === key;
             return (
               <button

@@ -1,7 +1,8 @@
 "use client";
 
+import { useStoredValue, writeStorage } from "@/lib/browser-storage";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import {
@@ -95,12 +96,8 @@ export function AdminShell({
 }) {
   const pathname = usePathname();
   const router = useRouter();
-  const [lastListingHref, setLastListingHref] = useState(
-    "/admin/dashboard/categories",
-  );
-  const [lastHomepageHref, setLastHomepageHref] = useState(
-    "/admin/dashboard/homepage",
-  );
+  const lastListingHref = useStoredValue("admin:last-listing-tab", "session") ?? "/admin/dashboard/categories";
+  const lastHomepageHref = useStoredValue("admin:last-homepage-tab", "session") ?? "/admin/dashboard/homepage";
   const activeListing = LISTING_TABS.some((tab) =>
     pathname.startsWith(tab.href),
   );
@@ -116,27 +113,14 @@ export function AdminShell({
       pathname.startsWith(tab.href),
     );
     if (listingTab) {
-      setLastListingHref(listingTab.href);
-      sessionStorage.setItem("admin:last-listing-tab", listingTab.href);
+      writeStorage("admin:last-listing-tab", listingTab.href, "session");
     }
     if (homepageTab) {
-      setLastHomepageHref(homepageTab.href);
-      sessionStorage.setItem("admin:last-homepage-tab", homepageTab.href);
+      writeStorage("admin:last-homepage-tab", homepageTab.href, "session");
     }
   }, [pathname]);
 
-  useEffect(() => {
-    setLastListingHref(
-      sessionStorage.getItem("admin:last-listing-tab") ??
-        "/admin/dashboard/categories",
-    );
-    setLastHomepageHref(
-      sessionStorage.getItem("admin:last-homepage-tab") ??
-        "/admin/dashboard/homepage",
-    );
-  }, []);
-
-  async function signOut() {
+async function signOut() {
     const supabase = createClient();
     await supabase.auth.signOut();
     router.push("/admin/login");

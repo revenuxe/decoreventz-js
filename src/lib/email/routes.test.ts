@@ -42,6 +42,12 @@ describe("contact endpoint", () => {
     expect(mocks.rpc).toHaveBeenCalledWith("submit_contact", expect.objectContaining({ _email: input.email, _fingerprint: expect.stringMatching(/^[a-f0-9]{64}$/) }));
     expect(mocks.after).toHaveBeenCalledOnce();
   });
+  it("keeps enquiries persisted while the sender configuration is being repaired", async () => {
+    mocks.config.mockImplementationOnce(() => { throw new Error("Restricted onboarding sender"); });
+    expect((await contact(contactRequest())).status).toBe(202);
+    expect(mocks.rpc).toHaveBeenCalled();
+    expect(mocks.config).not.toHaveBeenCalled();
+  });
   it("reports persistence failures instead of false success", async () => {
     const log = vi.spyOn(console, "error").mockImplementation(() => {});
     mocks.rpc.mockResolvedValue({ error: { message: "db unavailable" } });

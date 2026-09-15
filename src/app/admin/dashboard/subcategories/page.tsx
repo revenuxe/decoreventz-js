@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { FolderTree, Loader2, Plus, Trash2 } from "lucide-react";
@@ -17,15 +19,15 @@ export default function SubcategoriesPage() {
   const [categoryFilter, setCategoryFilter] = useState("all");
 
   async function load() {
-    setLoading(true);
     const supabase = createClient();
-    const [{ data: subs }, { data: cats }] = await Promise.all([
+    return Promise.all([
       supabase.from("subcategories").select("*").order("sort_order", { ascending: true }),
       supabase.from("categories").select("id,name").order("name"),
-    ]);
+    ]).then(([{ data: subs }, { data: cats }]) => {
     setRows(subs ?? []);
     setCategories(cats ?? []);
     setLoading(false);
+    });
   }
 
   useEffect(() => {
@@ -95,7 +97,7 @@ export default function SubcategoriesPage() {
             >
               <div className="grid h-10 w-10 shrink-0 place-items-center overflow-hidden rounded-lg border border-border bg-muted">
                 {r.image_url ? (
-                  <img src={r.image_url} alt="" className="h-full w-full object-cover" />
+                  <Image unoptimized width={40} height={40} src={r.image_url} alt="" className="h-full w-full object-cover" />
                 ) : (
                   <FolderTree className="h-4 w-4 text-muted-foreground" />
                 )}
