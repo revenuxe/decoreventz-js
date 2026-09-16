@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
+import { CatalogImage as Image } from "@/components/CatalogImage";
 import { notFound } from "next/navigation";
 import { ArrowLeft, MapPin, StickyNote } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";

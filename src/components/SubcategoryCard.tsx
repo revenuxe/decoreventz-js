@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { CatalogImage as Image } from "@/components/CatalogImage";
 import Link from "next/link";
 import type { DecorSubcategory } from "@/data/types";
 

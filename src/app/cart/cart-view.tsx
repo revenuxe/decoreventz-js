@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { CatalogImage as Image } from "@/components/CatalogImage";
 import emptyCartIllustration from "@/assets/empty-cart-illustration.webp";
 import Link from "next/link";
 import { useRouter } from "next/navigation";

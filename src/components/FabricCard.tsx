@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { CatalogImage as Image } from "@/components/CatalogImage";
 
 import { Check } from "lucide-react";
 

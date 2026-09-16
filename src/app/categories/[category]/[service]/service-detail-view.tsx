@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
+import { ProductImage } from "@/components/ProductImage";
 import { toast } from "sonner";
 import {
   Check,
@@ -179,8 +179,8 @@ export function ServiceDetailView({
                 {service.images.map((img, i) => (
                   <CarouselItem key={i} className="pl-0">
                     <div className="relative aspect-[4/3] w-full">
-                      <Image
-                        src={img}
+                      <ProductImage
+                        sources={[img, ...service.images]}
                         alt={`${service.name} photo ${i + 1}`}
                         fill
                         priority={i === 0}
@@ -212,8 +212,8 @@ export function ServiceDetailView({
                           : "border-transparent opacity-70"
                       }`}
                     >
-                      <Image
-                        src={img}
+                      <ProductImage
+                        sources={[img]}
                         alt=""
                         fill
                         sizes="44px"

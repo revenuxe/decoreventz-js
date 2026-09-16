@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
+import { CatalogImage as Image } from "@/components/CatalogImage";
 
 import { useRef, useState } from "react";
 import { Image as ImageIcon, Loader2, Upload, X } from "lucide-react";
-import { deleteCatalogImage, uploadCatalogImage } from "@/lib/s3-upload-client";
+import { uploadCatalogImage } from "@/lib/s3-upload-client";
 
 export function ImageUploadField({
   value,
@@ -24,11 +24,9 @@ export function ImageUploadField({
     setError(null);
     try {
       const publicUrl = await uploadCatalogImage(file, pathPrefix);
-      const previous = value;
       onChange(publicUrl);
-      // Replacing an existing image — clean up the old object now that the
-      // new one is live. Best-effort; never blocks the UI.
-      if (previous) void deleteCatalogImage(previous);
+      // Keep the saved object intact until the parent form is committed.
+      // Other records may still reference it; cleanup must verify references.
     } catch (err) {
       setError((err as Error).message);
     } finally {
@@ -37,7 +35,6 @@ export function ImageUploadField({
   }
 
   function handleRemove() {
-    if (value) void deleteCatalogImage(value);
     onChange(null);
   }
 

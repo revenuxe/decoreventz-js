@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { ProductImage } from "@/components/ProductImage";
 
 import { useMemo, useState } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
@@ -277,7 +277,7 @@ export default function ProductsPage() {
                           <Link href={`/admin/dashboard/products/${r.id}`} className="flex items-center gap-2.5">
                             <div className="grid h-10 w-10 shrink-0 place-items-center overflow-hidden rounded-lg border border-border bg-muted">
                               {r.images[0] ? (
-                                <Image unoptimized width={40} height={40} src={r.images[0]} alt="" className="h-full w-full object-cover" />
+                                <ProductImage unoptimized width={40} height={40} sources={r.images} alt={r.name + " photo"} className="h-full w-full object-cover" />
                               ) : (
                                 <Sparkles className="h-4 w-4 text-muted-foreground" />
                               )}

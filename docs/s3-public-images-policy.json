@@ -1,0 +1,17 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "PublicReadCatalogImages",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": [
+        "arn:aws:s3:::decoreventz-s3-hyderabad/products/*",
+        "arn:aws:s3:::decoreventz-s3-hyderabad/categories/*",
+        "arn:aws:s3:::decoreventz-s3-hyderabad/subcategories/*",
+        "arn:aws:s3:::decoreventz-s3-hyderabad/homepage-hero/*"
+      ]
+    }
+  ]
+}

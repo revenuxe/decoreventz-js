@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import Image from "next/image";
+import { CatalogImage as Image } from "@/components/CatalogImage";
 import Link from "next/link";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { useMegaMenuData } from "@/lib/use-mega-menu-data";

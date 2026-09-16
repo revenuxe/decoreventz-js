@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
+import { CatalogImage as Image } from "@/components/CatalogImage";
 import { toast } from "sonner";
 import { Check, CheckCircle2, Download, FileEdit, Loader2, Upload, Wallet, X, XCircle } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";

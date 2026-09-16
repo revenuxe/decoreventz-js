@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
+import { CatalogImage as Image } from "@/components/CatalogImage";
 import { CalendarCheck, ChevronRight, LogIn, PartyPopper } from "lucide-react";
 import { TopBar } from "@/components/TopBar";
 import { BottomNav } from "@/components/BottomNav";
