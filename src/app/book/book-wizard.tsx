@@ -8,6 +8,7 @@ import { TopBar } from "@/components/TopBar";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 import { CONTACT } from "@/lib/site";
 import { useCart } from "@/lib/cart-store";
+import { validEventSchedule } from "@/lib/event-schedule";
 import { useDecorBookingDraft } from "@/lib/decor-booking-store";
 import { createClient } from "@/lib/supabase/client";
 import { StepEvent } from "./_components/step-event";
@@ -62,7 +63,7 @@ export function BookWizard() {
   const steps = ["Event", "Venue", "Review"] as const;
   const lastStep = steps.length - 1;
   const canContinue = () => {
-    if (step === 0) return !!draft.eventDate && !!draft.eventTime;
+    if (step === 0) return validEventSchedule(draft.eventDate, draft.eventTime);
     if (step === 1)
       return (
         !!draft.venue.line1 &&
@@ -74,6 +75,11 @@ export function BookWizard() {
   };
 
   async function submitBooking() {
+    if (!validEventSchedule(draft.eventDate, draft.eventTime)) {
+      setStep(0);
+      toast.error("Please choose a future event date and setup window.");
+      return;
+    }
     if (submissionLock.current) return;
     submissionLock.current = true;
     setSubmitting(true);
@@ -192,6 +198,7 @@ export function BookWizard() {
 
   async function next() {
     if (checkingAccount || submitting) return;
+    if (!validEventSchedule(draft.eventDate, draft.eventTime)) { setStep(0); return; }
     setCheckingAccount(true);
     try {
       if (step === 0) {

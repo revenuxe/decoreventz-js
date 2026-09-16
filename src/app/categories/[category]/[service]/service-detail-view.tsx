@@ -27,6 +27,8 @@ import {
   CarouselPrevious,
   type CarouselApi,
 } from "@/components/ui/carousel";
+import { EventSlotPicker } from "@/components/EventSlotPicker";
+import { useDecorBookingDraft } from "@/lib/decor-booking-store";
 import { useCart } from "@/lib/cart-store";
 import type { DecorCategory, DecorService, ServiceAddOn } from "@/data/types";
 
@@ -41,6 +43,7 @@ export function ServiceDetailView({
 }) {
   const router = useRouter();
   const { addItem } = useCart();
+  const { draft, update, setStep } = useDecorBookingDraft();
   const [selectedAddOnIds, setSelectedAddOnIds] = useState<string[]>([]);
   const [relatedQuery, setRelatedQuery] = useState("");
   const [galleryApi, setGalleryApi] = useState<CarouselApi>();
@@ -161,6 +164,7 @@ export function ServiceDetailView({
 
   function handleBookNow() {
     addItem(buildCartItem());
+    setStep(0);
     router.push("/book");
   }
 
@@ -382,6 +386,8 @@ export function ServiceDetailView({
                 )}
               </section>
             )}
+
+            <div className="mt-6"><EventSlotPicker eventDate={draft.eventDate} eventTime={draft.eventTime} onChange={update} /></div>
 
             {detailTabs.length > 0 && (
               <section className="mt-6 overflow-hidden rounded-3xl border border-border bg-card shadow-card">

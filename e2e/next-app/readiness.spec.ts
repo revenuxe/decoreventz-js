@@ -23,9 +23,9 @@ test("setup selection reaches the event wizard and preserves the chosen date thr
   await page.getByRole("button",{name:"Book Now",exact:true}).filter({visible:true}).first().click();
   await expect(page).toHaveURL(/\/book/);
   await expect(page.getByRole("heading",{name:"When's the big day?"})).toBeVisible();
-  const day=page.locator("button").filter({has:page.locator("p.font-black")}).first();
+  const day=page.getByRole("button").filter({hasText:"Tmrw"});
   await day.click();
-  await page.getByRole("button",{name:/Morning/}).click();
+  await page.getByRole("button",{name:/10 AM/}).click();
   await page.getByRole("button",{name:/Continue/}).click();
   await expect(page).toHaveURL(/\/auth/);
   const stored=await page.evaluate(()=>JSON.parse(localStorage.getItem("baraabar_decor_booking_draft_v1")!));
