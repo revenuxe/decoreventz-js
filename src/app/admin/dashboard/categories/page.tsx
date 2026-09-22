@@ -4,7 +4,9 @@ import { CatalogImage as Image } from "@/components/CatalogImage";
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { ChevronDown, ChevronUp, Layers, Loader2, Plus, Trash2 } from "lucide-react";
+import { CatalogSortHandle } from "@/components/admin/CatalogSortHandle";
+import { useCatalogSort } from "@/lib/use-catalog-sort";
+import { Layers, Loader2, Plus, Trash2 } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
 import { deleteCatalogImage } from "@/lib/s3-upload-client";
 import type { Database } from "@/lib/supabase/types";
@@ -39,14 +41,7 @@ export default function CategoriesPage() {
     load();
   }
 
-  async function swap(a: CategoryRow, b: CategoryRow) {
-    const supabase = createClient();
-    await Promise.all([
-      supabase.from("categories").update({ sort_order: b.sort_order }).eq("id", a.id),
-      supabase.from("categories").update({ sort_order: a.sort_order }).eq("id", b.id),
-    ]);
-    load();
-  }
+  const sorting = useCatalogSort("categories", rows, setRows, load);
 
   return (
     <section>
@@ -63,33 +58,20 @@ export default function CategoriesPage() {
         </Link>
       </div>
 
+      <p className="mb-3 text-xs text-muted-foreground">Drag the handles to reorder categories. You can also focus a handle and use the arrow keys.</p>
+      <p role="status" className="mb-3 text-xs text-muted-foreground">{sorting.status}</p>
+
       {loading ? (
         <Loader2 className="mx-auto h-5 w-5 animate-spin text-muted-foreground" />
       ) : (
         <div className="space-y-2">
-          {rows.map((r, i) => (
+          {rows.map((r) => (
             <div
               key={r.id}
-              className="flex flex-wrap items-center gap-3 rounded-2xl border border-border bg-card p-3 text-sm"
+              data-sort-id={r.id}
+              className="flex flex-wrap items-center gap-3 rounded-2xl border border-border bg-card p-3 text-sm data-[sort-target=true]:ring-2 data-[sort-target=true]:ring-primary"
             >
-              <div className="flex shrink-0 flex-col gap-0.5">
-                <button
-                  onClick={() => i > 0 && swap(r, rows[i - 1])}
-                  disabled={i === 0}
-                  aria-label="Move up"
-                  className="grid h-6 w-6 place-items-center rounded-md border border-border text-muted-foreground disabled:opacity-30"
-                >
-                  <ChevronUp className="h-3.5 w-3.5" />
-                </button>
-                <button
-                  onClick={() => i < rows.length - 1 && swap(r, rows[i + 1])}
-                  disabled={i === rows.length - 1}
-                  aria-label="Move down"
-                  className="grid h-6 w-6 place-items-center rounded-md border border-border text-muted-foreground disabled:opacity-30"
-                >
-                  <ChevronDown className="h-3.5 w-3.5" />
-                </button>
-              </div>
+              <CatalogSortHandle id={r.id} name={r.name} ids={rows.map(row => row.id)} disabled={sorting.saving} onMove={sorting.move} />
               <div className="grid h-10 w-10 shrink-0 place-items-center overflow-hidden rounded-lg border border-border bg-muted">
                 {r.image_url ? (
                   <Image unoptimized width={40} height={40} src={r.image_url} alt="" className="h-full w-full object-cover" />
@@ -110,6 +92,7 @@ export default function CategoriesPage() {
                 Edit
               </Link>
               <button
+                disabled={sorting.saving}
                 onClick={() => remove(r)}
                 aria-label={`Delete ${r.name}`}
                 className="grid h-8 w-8 place-items-center rounded-full border border-border text-destructive"

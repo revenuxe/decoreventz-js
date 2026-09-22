@@ -4,6 +4,8 @@ import { CatalogImage as Image } from "@/components/CatalogImage";
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import { CatalogSortHandle } from "@/components/admin/CatalogSortHandle";
+import { useCatalogSort } from "@/lib/use-catalog-sort";
 import { FolderTree, Loader2, Plus, Trash2 } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
 import { deleteCatalogImage } from "@/lib/s3-upload-client";
@@ -22,7 +24,7 @@ export default function SubcategoriesPage() {
     const supabase = createClient();
     return Promise.all([
       supabase.from("subcategories").select("*").order("sort_order", { ascending: true }),
-      supabase.from("categories").select("id,name").order("name"),
+      supabase.from("categories").select("id,name").order("sort_order"),
     ]).then(([{ data: subs }, { data: cats }]) => {
     setRows(subs ?? []);
     setCategories(cats ?? []);
@@ -40,6 +42,11 @@ export default function SubcategoriesPage() {
   }, [categories]);
 
   const filtered = categoryFilter === "all" ? rows : rows.filter((r) => r.category_id === categoryFilter);
+
+  const sorting = useCatalogSort("subcategories", filtered, (ordered) => {
+    const updated = new Map(ordered.map(row => [row.id, row]));
+    setRows(current => current.map(row => updated.get(row.id) ?? row).sort((a, b) => a.sort_order - b.sort_order));
+  }, load);
 
   async function remove(row: SubcategoryRow) {
     if (!confirm(`Delete "${row.name}"?`)) return;
@@ -69,6 +76,8 @@ export default function SubcategoriesPage() {
 
       <div className="mb-4">
         <select
+          aria-label="Filter by category"
+          disabled={sorting.saving}
           value={categoryFilter}
           onChange={(e) => setCategoryFilter(e.target.value)}
           className="rounded-full border border-border bg-card px-3 py-2 text-xs font-semibold"
@@ -82,6 +91,9 @@ export default function SubcategoriesPage() {
         </select>
       </div>
 
+      <p className="mb-3 text-xs text-muted-foreground">{categoryFilter === "all" ? "Select a category to reorder its subcategories." : "Drag the handles to reorder subcategories. You can also focus a handle and use the arrow keys."}</p>
+      <p role="status" className="mb-3 text-xs text-muted-foreground">{sorting.status}</p>
+
       {loading ? (
         <Loader2 className="mx-auto h-5 w-5 animate-spin text-muted-foreground" />
       ) : filtered.length === 0 ? (
@@ -93,8 +105,10 @@ export default function SubcategoriesPage() {
           {filtered.map((r) => (
             <div
               key={r.id}
-              className="flex flex-wrap items-center gap-3 rounded-2xl border border-border bg-card p-3 text-sm"
+              data-sort-id={r.id}
+              className="flex flex-wrap items-center gap-3 rounded-2xl border border-border bg-card p-3 text-sm data-[sort-target=true]:ring-2 data-[sort-target=true]:ring-primary"
             >
+              <CatalogSortHandle id={r.id} name={r.name} ids={filtered.map(row => row.id)} disabled={sorting.saving || categoryFilter === "all"} onMove={sorting.move} />
               <div className="grid h-10 w-10 shrink-0 place-items-center overflow-hidden rounded-lg border border-border bg-muted">
                 {r.image_url ? (
                   <Image unoptimized width={40} height={40} src={r.image_url} alt="" className="h-full w-full object-cover" />
@@ -115,6 +129,7 @@ export default function SubcategoriesPage() {
                 Edit
               </Link>
               <button
+                disabled={sorting.saving}
                 onClick={() => remove(r)}
                 aria-label={`Delete ${r.name}`}
                 className="grid h-8 w-8 place-items-center rounded-full border border-border text-destructive"
