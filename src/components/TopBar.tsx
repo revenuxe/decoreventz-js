@@ -24,6 +24,7 @@ export function TopBar() {
   const [activeSubcategory, setActiveSubcategory] = useState<string | null>(null);
   const [user, setUser] = useState<User | null>(null);
   const [supabase] = useState(() => createClient());
+  const headerRef = useRef<HTMLElement>(null);
   const closeTimer = useRef<number | null>(null);
   const { itemCount } = useCart();
   const { categories, subcategories, products } = useMegaMenuData(true);
@@ -33,6 +34,27 @@ export function TopBar() {
   const mobileSubcategories = subcategories.filter((subcategory) => subcategory.categorySlug === mobileMenu);
   const mobileProducts = products.filter((product) => product.categorySlug === mobileMenu).slice(0, 4);
   const [searchPrompt, setSearchPrompt] = useState("");
+  const desktopItem = categories.find(item => item.slug === openMenu);
+  const desktopChildren = subcategories.filter(child => child.categorySlug === openMenu);
+  const selectedSubcategory = desktopChildren.find(child => child.slug === activeSubcategory) ?? desktopChildren[0];
+  const desktopProducts = products.filter(product => product.categorySlug === openMenu && (!selectedSubcategory || product.subcategorySlug === selectedSubcategory.slug)).slice(0, 6);
+  useEffect(() => {
+    const dismiss = (event: PointerEvent) => { if (!headerRef.current?.contains(event.target as Node)) { setOpenMenu(null); setMobileMenu(null); } };
+    const escape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        headerRef.current?.querySelector<HTMLButtonElement>('button[aria-expanded="true"]')?.focus();
+        setOpenMenu(null); setMobileMenu(null);
+      }
+    };
+    document.addEventListener("pointerdown", dismiss);
+    document.addEventListener("keydown", escape);
+    return () => {
+      document.removeEventListener("pointerdown", dismiss);
+      document.removeEventListener("keydown", escape);
+      if (closeTimer.current) window.clearTimeout(closeTimer.current);
+    };
+  }, []);
+
 
   useEffect(() => {
     let phraseIndex = 0;
@@ -90,7 +112,7 @@ export function TopBar() {
   }, [supabase]);
 
   return (
-    <header className="sticky inset-x-0 top-0 z-40 border-b border-[#e8edf3] bg-white shadow-sm">
+    <header ref={headerRef} onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setOpenMenu(null); }} className="sticky inset-x-0 top-0 z-40 border-b border-[#e8edf3] bg-white shadow-sm">
       <div className="mx-auto flex h-[72px] max-w-none items-center gap-4 px-4 md:px-12 xl:px-16">
         <Link href="/" aria-label="Decor Eventz home" className="flex h-16 shrink-0 items-center rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"><Image src={logo} alt="Decor Eventz — Dream, Design, Deliver" priority width={238} height={64} className="h-14 w-[210px] object-contain object-left md:h-16 md:w-[238px]" /></Link>
         <button onClick={() => setSearchOpen(true)} className="hidden h-11 max-w-[480px] flex-1 items-center gap-3 rounded-xl border border-[#dfe6ee] bg-[#f8fafc] px-4 text-left text-sm text-muted-foreground md:flex">
@@ -109,16 +131,41 @@ export function TopBar() {
         <Link href="/categories" className="shrink-0 text-sm font-bold text-accent">Explore all</Link>
         <span aria-hidden className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-white to-transparent" />
       </nav>
-      {mobileMenu && <div id="mobile-category-menu" aria-label={`Browse ${mobileItem?.name ?? "categories"}`} className="fixed inset-x-0 bottom-0 top-[116px] z-50 overflow-y-auto bg-white p-5 md:hidden"><div className="flex items-start justify-between"><div><p className="text-xs font-bold uppercase tracking-[.18em] text-accent">Explore</p><h2 className="mt-1 text-2xl font-bold text-primary">{mobileItem?.name}</h2></div><button onClick={() => setMobileMenu(null)} aria-label="Close category menu" className="grid h-10 w-10 place-items-center rounded-full border border-[#dce4ed] text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"><X className="h-5 w-5" /></button></div><p className="mt-6 text-xs font-bold uppercase tracking-[.16em] text-muted-foreground">Subcategories</p><div className="mt-3 grid grid-cols-2 gap-3">{mobileSubcategories.length ? mobileSubcategories.map((subcategory) => <Link key={subcategory.slug} href={`/categories/${mobileMenu}/sub/${subcategory.slug}`} onClick={() => setMobileMenu(null)} className="rounded-xl border border-[#dce4ed] px-4 py-4 text-sm font-semibold text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">{subcategory.name}</Link>) : <Link href={`/categories/${mobileMenu}`} onClick={() => setMobileMenu(null)} className="rounded-xl border border-[#dce4ed] px-4 py-4 text-sm font-semibold text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">View all {mobileItem?.name}</Link>}</div>{mobileProducts.length > 0 && <><p className="mt-7 text-xs font-bold uppercase tracking-[.16em] text-muted-foreground">Popular setups</p><div className="mt-3 grid grid-cols-2 gap-3">{mobileProducts.map((product) => <Link key={product.slug} href={`/categories/${mobileMenu}/${product.slug}`} onClick={() => setMobileMenu(null)} className="overflow-hidden rounded-xl border border-[#dce4ed] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"><div className="relative aspect-square">{product.image && <Image src={product.image} alt={product.name} fill sizes="45vw" className="object-cover" />}</div><p className="line-clamp-2 p-3 text-sm font-semibold text-primary">{product.name}</p></Link>)}</div></>}</div>}
-      <nav aria-label="Browse event categories" className="hidden border-t border-[#edf0f4] md:block"><div className="mx-auto flex max-w-none items-center gap-7 px-12 py-3 xl:px-16">{categories.map((item) => {
-        const children = subcategories.filter((subcategory) => subcategory.categorySlug === item.slug);
-        const selectedSubcategory = activeSubcategory ?? children[0]?.slug ?? null;
-        const selectedProducts = products.filter((product) => product.categorySlug === item.slug && (!selectedSubcategory || product.subcategorySlug === selectedSubcategory)).slice(0, 6);
-        return <div key={item.slug} className="relative" onMouseEnter={() => { keepMenuOpen(item.slug); setActiveSubcategory(children[0]?.slug ?? null); }} onMouseLeave={scheduleMenuClose} onFocus={() => { keepMenuOpen(item.slug); setActiveSubcategory(children[0]?.slug ?? null); }} onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) scheduleMenuClose(); }} onKeyDown={(event) => { if (event.key === "Escape") setOpenMenu(null); }}>
-          <Link href={`/categories/${item.slug}`} aria-expanded={openMenu === item.slug} className="inline-flex items-center gap-1 rounded-md text-sm font-medium text-primary hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">{item.name}<ChevronDown className={`h-3.5 w-3.5 text-muted-foreground transition ${openMenu === item.slug ? "rotate-180" : ""}`} /></Link>
-          {openMenu === item.slug && <div onMouseEnter={() => keepMenuOpen(item.slug)} onMouseLeave={scheduleMenuClose} className="fixed inset-x-0 top-[121px] z-50 border-y border-[#dce4ed] bg-white shadow-elevated"><div className="mx-auto grid min-h-72 max-w-none grid-cols-[18rem_1fr] px-12 py-7 xl:px-16"><div className="border-r border-[#e5edf3] pr-6"><p className="text-xs font-bold uppercase tracking-[.18em] text-accent">Explore {item.name}</p><div className="mt-4 space-y-1">{children.length ? children.map((child) => <Link key={child.slug} href={`/categories/${item.slug}/sub/${child.slug}`} onMouseEnter={() => setActiveSubcategory(child.slug)} className={`block rounded-xl px-4 py-3 text-sm font-semibold transition ${selectedSubcategory === child.slug ? "bg-[#edf7f8] text-accent" : "text-primary hover:bg-[#f3f8fa]"}`}>{child.name}</Link>) : <Link href={`/categories/${item.slug}`} className="block rounded-xl px-4 py-3 text-sm font-semibold text-primary hover:bg-[#f3f8fa]">Explore {item.name}</Link>}</div></div><div className="pl-7"><p className="text-xs font-bold uppercase tracking-[.18em] text-accent">Popular in this collection</p><div className="mt-4 grid grid-cols-3 gap-4">{selectedProducts.length ? selectedProducts.map((product) => <Link key={product.slug} href={`/categories/${item.slug}/${product.slug}`} className="group flex items-center gap-3 rounded-xl border border-[#e5edf3] p-2 transition hover:border-accent/40 hover:shadow-card">{product.image && <span className="relative h-16 w-16 shrink-0 overflow-hidden rounded-lg"><Image src={product.image} alt={product.name} fill sizes="64px" className="object-cover" /></span>}<span className="line-clamp-2 text-sm font-semibold text-primary group-hover:text-accent">{product.name}</span></Link>) : <p className="col-span-3 py-10 text-sm text-muted-foreground">New decoration packages will appear here soon.</p>}</div></div></div></div>}
-        </div>;
-      })}<Link href="/categories" className="text-sm font-bold text-accent">Explore all</Link></div></nav>
+      {mobileMenu && <div id="mobile-category-menu" aria-label={`Browse ${mobileItem?.name ?? "categories"}`} className="fixed inset-x-0 bottom-0 top-[116px] z-50 overflow-y-auto overscroll-contain bg-white p-5 md:hidden"><div className="sticky -top-5 z-10 -mx-5 -mt-5 flex items-start justify-between border-b border-border bg-white p-5"><div><p className="text-xs font-bold uppercase tracking-[.18em] text-accent">Explore</p><h2 className="mt-1 text-2xl font-bold text-primary">{mobileItem?.name}</h2></div><button onClick={() => setMobileMenu(null)} aria-label="Close category menu" className="grid h-10 w-10 place-items-center rounded-full border border-[#dce4ed] text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"><X className="h-5 w-5" /></button></div><p className="mt-6 text-xs font-bold uppercase tracking-[.16em] text-muted-foreground">Subcategories</p><div className="mt-3 grid grid-cols-2 gap-3">{mobileSubcategories.length ? mobileSubcategories.map((subcategory) => <Link key={subcategory.slug} href={`/categories/${mobileMenu}/sub/${subcategory.slug}`} onClick={() => setMobileMenu(null)} className="rounded-xl border border-[#dce4ed] px-4 py-4 text-sm font-semibold text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">{subcategory.name}</Link>) : <Link href={`/categories/${mobileMenu}`} onClick={() => setMobileMenu(null)} className="rounded-xl border border-[#dce4ed] px-4 py-4 text-sm font-semibold text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">View all {mobileItem?.name}</Link>}</div>{mobileProducts.length > 0 && <><p className="mt-7 text-xs font-bold uppercase tracking-[.16em] text-muted-foreground">Popular setups</p><div className="mt-3 grid grid-cols-2 gap-3">{mobileProducts.map((product) => <Link key={product.slug} href={`/categories/${mobileMenu}/${product.slug}`} onClick={() => setMobileMenu(null)} className="overflow-hidden rounded-xl border border-[#dce4ed] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"><div className="relative aspect-square">{product.image && <Image src={product.image} alt={product.name} fill sizes="45vw" className="object-cover" />}</div><p className="line-clamp-2 p-3 text-sm font-semibold text-primary">{product.name}</p></Link>)}</div></>}</div>}
+      <nav aria-label="Browse event categories" className="hidden border-t border-[#edf0f4] md:flex">
+        <div className="thin-scrollbar flex h-12 min-w-0 flex-1 items-center gap-6 overflow-x-auto overscroll-x-contain px-6 xl:px-12">
+          {categories.map(item => <button key={item.slug} type="button" aria-expanded={openMenu === item.slug} aria-controls="desktop-category-menu"
+            onMouseEnter={() => { keepMenuOpen(item.slug); setActiveSubcategory(null); }} onMouseLeave={scheduleMenuClose}
+            onClick={() => { if (closeTimer.current) window.clearTimeout(closeTimer.current); setOpenMenu(openMenu === item.slug ? null : item.slug); setActiveSubcategory(null); }}
+            className="inline-flex h-10 shrink-0 items-center gap-1.5 whitespace-nowrap rounded-md text-sm font-semibold text-primary hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+            {item.name}<ChevronDown className={"h-3.5 w-3.5 shrink-0 transition " + (openMenu === item.slug ? "rotate-180" : "")} />
+          </button>)}
+        </div>
+        <Link href="/categories" onClick={() => setOpenMenu(null)} className="flex shrink-0 items-center border-l border-border px-5 text-sm font-bold text-accent">Explore all</Link>
+      </nav>
+      {desktopItem && <div id="desktop-category-menu" key={desktopItem.slug} onMouseEnter={() => keepMenuOpen(desktopItem.slug)} onMouseLeave={scheduleMenuClose}
+        className="absolute inset-x-0 top-full z-50 hidden h-[min(30rem,calc(100dvh-137px))] min-h-0 flex-col overflow-hidden rounded-b-2xl border border-[#dce4ed] bg-white shadow-elevated md:flex">
+        <div className="flex shrink-0 items-center justify-between gap-4 border-b border-[#e5edf3] px-6 py-3 xl:px-12">
+          <div className="min-w-0"><p className="truncate text-sm font-bold text-primary">Explore {desktopItem.name}</p><p className="text-xs text-muted-foreground">{desktopChildren.length} subcategories</p></div>
+          <div className="flex shrink-0 items-center gap-3"><Link href={"/categories/" + desktopItem.slug} onClick={() => setOpenMenu(null)} className="text-xs font-bold text-accent hover:underline">View all</Link><button type="button" onClick={() => setOpenMenu(null)} aria-label="Close category menu" className="grid h-8 w-8 place-items-center rounded-full border border-border hover:bg-muted"><X className="h-4 w-4" /></button></div>
+        </div>
+        <div className="grid min-h-0 flex-1 grid-cols-[minmax(15rem,30%)_minmax(0,1fr)]">
+          <div aria-label="Subcategories" tabIndex={0} className="thin-scrollbar min-h-0 overflow-y-auto overscroll-contain border-r border-[#e5edf3] bg-[#f8fafc] p-3 [scrollbar-gutter:stable] focus-visible:outline-primary">
+            {desktopChildren.length ? desktopChildren.map(child => <Link key={child.slug} href={"/categories/" + desktopItem.slug + "/sub/" + child.slug} onClick={() => setOpenMenu(null)} onMouseEnter={() => setActiveSubcategory(child.slug)} onFocus={() => setActiveSubcategory(child.slug)} className={"mb-1 block rounded-lg px-3 py-2.5 text-sm font-semibold transition focus-visible:outline-primary " + (selectedSubcategory?.slug === child.slug ? "bg-[#edf7f8] text-accent" : "text-primary hover:bg-white")}>
+              {child.name}
+            </Link>) : <Link href={"/categories/" + desktopItem.slug} onClick={() => setOpenMenu(null)} className="block p-3 text-sm font-semibold text-primary">View all {desktopItem.name}</Link>}
+          </div>
+          <div aria-label="Popular decorations" tabIndex={0} className="thin-scrollbar min-h-0 min-w-0 overflow-y-auto overscroll-contain p-5 [scrollbar-gutter:stable] xl:p-6">
+            <p className="text-xs font-bold uppercase tracking-[.14em] text-accent">{selectedSubcategory?.name ?? "Popular in this collection"}</p>
+            <div className="mt-4 grid grid-cols-1 gap-3 lg:grid-cols-2 xl:grid-cols-3">
+              {desktopProducts.length ? desktopProducts.map(product => <Link key={product.slug} href={"/categories/" + desktopItem.slug + "/" + product.slug} onClick={() => setOpenMenu(null)} className="group flex min-w-0 items-center gap-3 rounded-xl border border-[#e5edf3] p-2 transition hover:border-accent/40 hover:shadow-card">
+                {product.image && <span className="relative h-16 w-16 shrink-0 overflow-hidden rounded-lg"><Image src={product.image} alt={product.name} fill sizes="64px" className="object-cover" /></span>}
+                <span className="line-clamp-2 text-sm font-semibold text-primary group-hover:text-accent">{product.name}</span>
+              </Link>) : <div className="col-span-full rounded-xl border border-dashed border-border p-6"><p className="text-sm text-muted-foreground">New decoration packages will appear here soon.</p><Link href={"/categories/" + desktopItem.slug} onClick={() => setOpenMenu(null)} className="mt-3 inline-block text-sm font-semibold text-accent">Browse all {desktopItem.name}</Link></div>}
+            </div>
+          </div>
+        </div>
+      </div>}
       <SearchOverlay open={searchOpen} onOpenChange={setSearchOpen} />
     </header>
   );
