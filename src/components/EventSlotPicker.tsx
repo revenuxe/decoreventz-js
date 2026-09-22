@@ -43,7 +43,13 @@ export function EventSlotPicker({ eventDate, eventTime, onChange }: Props) {
     </div>
     <p className="mb-2 mt-3 text-xs font-semibold text-muted-foreground">Time windows{validDate ? " - " + dateLabel(eventDate!) : " - Choose a date"}</p>
     <div className="grid grid-cols-2 gap-2" role="group" aria-label="Setup time window">
-      {EVENT_WINDOWS.map((time) => <button key={time} type="button" disabled={!validDate} aria-pressed={validDate && eventTime === time} onClick={() => onChange({ eventTime: time })} className={"flex min-h-11 items-center justify-center gap-1.5 rounded-xl border px-2 py-2 text-xs font-bold transition focus-visible:ring-2 focus-visible:ring-primary disabled:cursor-not-allowed disabled:opacity-40 sm:text-sm " + (validDate && eventTime === time ? "border-primary bg-primary/5 text-primary" : "border-border hover:border-primary/40")}>{time}{validDate && eventTime === time && <Check className="h-4 w-4" />}</button>)}
+      {EVENT_WINDOWS.map((time) => {
+        const selected = validDate && eventTime === time;
+        return <button key={time} type="button" disabled={!validDate} aria-label={time} aria-pressed={selected} onClick={() => onChange({ eventTime: time })} className={"flex min-h-11 flex-col items-center justify-center gap-1 rounded-xl border px-2 py-2 text-xs font-bold transition focus-visible:ring-2 focus-visible:ring-primary disabled:cursor-not-allowed disabled:opacity-40 sm:text-sm " + (selected ? "border-primary bg-primary/5 text-primary" : "border-border hover:border-primary/40")}>
+          <span className="flex items-center justify-center gap-1.5">{time}{selected && <Check aria-hidden="true" className="h-4 w-4" />}</span>
+          {selected && <span role="status" className="text-[10px] font-semibold text-emerald-700 sm:text-xs">Available</span>}
+        </button>;
+      })}
     </div>
     <p className="mt-2 text-[10px] text-muted-foreground">Times in IST. Book from tomorrow.</p>
     {eventDate && !validDate && <p role="alert" className="mt-2 text-xs text-destructive">Please choose a future event date.</p>}
