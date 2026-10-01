@@ -2,10 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { ArrowLeft } from "lucide-react";
 import { toast } from "sonner";
 import { TopBar } from "@/components/TopBar";
-import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 import { CONTACT } from "@/lib/site";
 import { useCart } from "@/lib/cart-store";
 import { validEventSchedule } from "@/lib/event-schedule";
@@ -266,10 +266,19 @@ export function BookWizard() {
           href={CONTACT.whatsappHref}
           target="_blank"
           rel="noreferrer"
-          className="mt-8 flex items-center justify-center gap-2 rounded-2xl border border-dashed border-border p-3 text-xs font-semibold text-muted-foreground"
+          className="mt-8 flex min-h-20 w-full items-center justify-center gap-2 rounded-2xl bg-brand-purple px-3 py-4 text-center text-sm font-semibold leading-snug text-white shadow-lg shadow-brand-purple/20 transition-colors hover:bg-brand-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-pink focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:gap-3 sm:px-6 sm:text-base"
         >
-          <WhatsAppIcon className="h-4 w-4" />
-          Not sure? Chat with a Decor Eventz decorator
+          <Image
+            src="/whatsapp-color.svg"
+            alt=""
+            width={40}
+            height={40}
+            className="h-10 w-10 shrink-0"
+          />
+          <span className="whitespace-nowrap sm:hidden">Not sure? Chat with us</span>
+          <span className="hidden whitespace-nowrap sm:inline">
+            Not sure? Chat with a Decor Eventz decorator
+          </span>
         </a>
       </main>
 

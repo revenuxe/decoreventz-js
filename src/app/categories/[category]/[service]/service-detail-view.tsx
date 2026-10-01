@@ -19,6 +19,8 @@ import { TopBar } from "@/components/TopBar";
 import { Footer } from "@/components/Footer";
 import { ServiceCard } from "@/components/ServiceCard";
 import { SearchBar } from "@/components/SearchBar";
+import { WhatsAppIcon } from "@/components/WhatsAppIcon";
+import { CONTACT, SITE_URL } from "@/lib/site";
 import {
   Carousel,
   CarouselContent,
@@ -42,6 +44,9 @@ export function ServiceDetailView({
   related: DecorService[];
 }) {
   const router = useRouter();
+  const productUrl = `${SITE_URL}/categories/${encodeURIComponent(service.categorySlug)}/${encodeURIComponent(service.slug)}`;
+  const whatsappMessage = `Hi Decor Eventz team, I was viewing "${service.name}" and need some assistance:\n\n${productUrl}`;
+  const whatsappHref = `${CONTACT.whatsappHref}?text=${encodeURIComponent(whatsappMessage)}`;
   const { addItem } = useCart();
   const { draft, update, setStep } = useDecorBookingDraft();
   const [selectedAddOnIds, setSelectedAddOnIds] = useState<string[]>([]);
@@ -583,6 +588,16 @@ export function ServiceDetailView({
         )}
       </main>
       <Footer />
+      <a
+        href={whatsappHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`Chat on WhatsApp about ${service.name}`}
+        title="Need help with this decoration? Chat on WhatsApp"
+        className="fixed bottom-[calc(6rem+env(safe-area-inset-bottom))] right-5 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-black/20 transition-colors hover:bg-[#128C7E] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple focus-visible:ring-offset-2 md:bottom-6 md:right-6 md:h-16 md:w-16"
+      >
+        <WhatsAppIcon className="h-8 w-8 md:h-9 md:w-9" />
+      </a>
     </div>
   );
 }
