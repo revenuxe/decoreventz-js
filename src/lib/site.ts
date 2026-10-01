@@ -1,22 +1,6 @@
-const DEFAULT_SITE_URL = "https://www.decoreventz.com";
-
-function getSiteUrl() {
-  const configuredUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
-
-  if (!configuredUrl) return DEFAULT_SITE_URL;
-
-  try {
-    const url = new URL(configuredUrl);
-    return url.origin;
-  } catch {
-    return DEFAULT_SITE_URL;
-  }
-}
-
-// Environment variables configured as an empty string override a fallback
-// supplied with `??`. Validate the value here because metadataBase calls
-// `new URL(SITE_URL)` during the production build.
-export const SITE_URL = getSiteUrl();
+// Canonical public domain for sharing, metadata, sitemaps and email links.
+// Keep this fixed so stale deployment environment settings cannot change it.
+export const SITE_URL = "https://www.decoreventz.com";
 
 export const SITE_NAME = "Decor Eventz";
 
