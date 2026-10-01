@@ -236,6 +236,22 @@ export default function ContactPage() {
           </div>
         </section>
       </main>
+      <section
+        aria-label="Platform credit"
+        className="mx-auto w-full px-5 text-center md:px-12 xl:px-16"
+      >
+        <p className="border-t border-border py-6 text-sm text-muted-foreground">
+          Platform built by{" "}
+          <a
+            href="https://www.revenuxe.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-brand-purple underline-offset-4 hover:underline focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple focus-visible:ring-offset-2"
+          >
+            Revenuxe
+          </a>
+        </p>
+      </section>
       <Footer />
       <BottomNav />
     </div>

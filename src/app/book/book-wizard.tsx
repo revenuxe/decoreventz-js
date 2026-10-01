@@ -266,7 +266,7 @@ export function BookWizard() {
           href={CONTACT.whatsappHref}
           target="_blank"
           rel="noreferrer"
-          className="mt-8 flex min-h-20 w-full items-center justify-center gap-2 rounded-2xl bg-brand-purple px-3 py-4 text-center text-sm font-semibold leading-snug text-white shadow-lg shadow-brand-purple/20 transition-colors hover:bg-brand-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-pink focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:gap-3 sm:px-6 sm:text-base"
+          className="mt-8 flex min-h-20 w-full items-center justify-center gap-2 rounded-2xl border-2 border-brand-purple bg-white px-3 py-4 text-center text-sm font-semibold leading-snug text-brand-purple shadow-sm transition-colors hover:border-brand-ink hover:text-brand-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-pink focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:gap-3 sm:px-6 sm:text-base"
         >
           <Image
             src="/whatsapp-color.svg"
