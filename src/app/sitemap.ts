@@ -29,15 +29,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     getHomepageTopics(),
   ]);
 
-  const now = new Date();
-  const staticPages = staticEntries.map((e) => ({
+  const populatedCategories = categories.filter((category) => services.some((service) => service.categorySlug === category.slug));
+  const populatedSubcategories = subcategories.filter((sub) => services.some((service) => service.categorySlug === sub.categorySlug && service.subcategorySlug === sub.slug));
+  const staticPages = staticEntries.filter((entry) => {
+    if (entry.path === "/trending") return !topics.some((topic) => topic.id === "00000000-0000-4000-8000-000000000001") && services.some((service) => service.isTrending);
+    if (entry.path === "/featured") return !topics.some((topic) => topic.id === "00000000-0000-4000-8000-000000000002") && services.some((service) => service.isFeatured);
+    return true;
+  }).map((e) => ({
     url: `${SITE_URL}${e.path}`,
-    lastModified: now,
     changeFrequency: e.changeFrequency,
     priority: e.priority,
   }));
 
-  const categoryPages = categories.map((c) => ({
+  const categoryPages = populatedCategories.map((c) => ({
     url: `${SITE_URL}/categories/${c.slug}`,
     lastModified: new Date(c.updatedAt),
     changeFrequency: "weekly" as const,
@@ -45,14 +49,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     images: c.heroImage ? [c.heroImage] : [],
   }));
 
-  const subcategoryIndexPages = categories.map((c) => ({
+  const subcategoryIndexPages = populatedCategories.filter((category) => populatedSubcategories.some((sub) => sub.categorySlug === category.slug)).map((c) => ({
     url: `${SITE_URL}/categories/${c.slug}/sub`,
-    lastModified: now,
+    lastModified: new Date(c.updatedAt),
     changeFrequency: "weekly" as const,
     priority: 0.6,
   }));
 
-  const subcategoryPages = subcategories.map((s) => ({
+  const subcategoryPages = populatedSubcategories.map((s) => ({
     url: `${SITE_URL}/categories/${s.categorySlug}/sub/${s.slug}`,
     lastModified: new Date(s.updatedAt),
     changeFrequency: "weekly" as const,

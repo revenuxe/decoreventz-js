@@ -1,0 +1,5149 @@
+{
+  "base": "https://www.decoreventz.com",
+  "checkedAt": "2026-10-29T08:46:42.300Z",
+  "pages": [
+    {
+      "path": "/",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com",
+      "title": "Balloon & Event Decoration Services | Birthday, Wedding & More",
+      "description": "Professional balloon and event decoration for birthdays, weddings, baby showers, corporate events and more — book online in minutes, get a same-week setup at your venue.",
+      "robots": "",
+      "headings": [
+        "Decoration Services in Bangalore"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories",
+      "title": "All Decoration Categories | Decor Eventz",
+      "description": "Browse every occasion we decorate for — birthdays, weddings, baby showers, corporate events and more.",
+      "robots": "",
+      "headings": [
+        "Every occasion, covered"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/anniversary",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/anniversary",
+      "title": "Anniversary Decoration | Decor Eventz",
+      "description": "Book anniversary decoration — designed and installed by trained decorators.",
+      "robots": "",
+      "headings": [
+        "Anniversary"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "ItemList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/anniversary/elegant-gold-white-anniversary-balloon-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/anniversary/elegant-gold-white-anniversary-balloon-decoration",
+      "title": "Elegant Gold & White Anniversary Balloon Decoration | Decor Eventz",
+      "description": "Celebrate Your Beautiful Journey Together with a Luxurious Gold & White Anniversary Setup ✨",
+      "robots": "",
+      "headings": [
+        "Elegant Gold & White Anniversary Balloon Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "Product"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/anniversary/red-hearts-anniversary-hall-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/anniversary/red-hearts-anniversary-hall-decoration",
+      "title": "Anniversary Decoration at home | Decor Eventz",
+      "description": "Celebrate Your Love with a Beautiful Romantic Anniversary Setup ❤️",
+      "robots": "",
+      "headings": [
+        "Anniversary Decoration at home"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "Product"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/anniversary/red-rose-colored-cushions-scattered-rose-prtals-candles-warm-lighting",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/anniversary/red-rose-colored-cushions-scattered-rose-prtals-candles-warm-lighting",
+      "title": "First Anniversary Romantic Decoration | Decor Eventz",
+      "description": "“One Beautiful Year, One Magical Celebration.”",
+      "robots": "",
+      "headings": [
+        "First Anniversary Romantic Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "Product"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/anniversary/sub",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/anniversary/sub",
+      "title": "All Anniversary Types | Decor Eventz",
+      "description": "Every type of anniversary decor we offer.",
+      "robots": "",
+      "headings": [
+        "All Anniversary types"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/anniversary/sub/anniversary-backdrop-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/anniversary/sub/anniversary-backdrop-decoration",
+      "title": "Anniversary Backdrop Decoration | Decor Eventz",
+      "description": "Anniversary Backdrop Decoration decoration for your anniversary.",
+      "robots": "",
+      "headings": [
+        "Anniversary Backdrop Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/anniversary/sub/anniversary-balloon-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/anniversary/sub/anniversary-balloon-decoration",
+      "title": "Anniversary Balloon Decoration | Decor Eventz",
+      "description": "Anniversary Balloon Decoration decoration for your anniversary.",
+      "robots": "",
+      "headings": [
+        "Anniversary Balloon Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "ItemList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/anniversary/sub/anniversary-car-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/anniversary/sub/anniversary-car-decoration",
+      "title": "Anniversary Car Decoration | Decor Eventz",
+      "description": "Anniversary Car Decoration decoration for your anniversary.",
+      "robots": "",
+      "headings": [
+        "Anniversary Car Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/anniversary/sub/anniversary-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/anniversary/sub/anniversary-decoration",
+      "title": "Anniversary Decoration | Decor Eventz",
+      "description": "Anniversary Decoration decoration for your anniversary.",
+      "robots": "",
+      "headings": [
+        "Anniversary Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "ItemList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/anniversary/sub/anniversary-room-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/anniversary/sub/anniversary-room-decoration",
+      "title": "Anniversary Room Decoration | Decor Eventz",
+      "description": "Anniversary Room Decoration decoration for your anniversary.",
+      "robots": "",
+      "headings": [
+        "Anniversary Room Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/anniversary/sub/anniversary-surprise",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/anniversary/sub/anniversary-surprise",
+      "title": "Anniversary Surprise | Decor Eventz",
+      "description": "Anniversary Surprise decoration for your anniversary.",
+      "robots": "",
+      "headings": [
+        "Anniversary Surprise"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/anniversary/sub/first-anniversary",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/anniversary/sub/first-anniversary",
+      "title": "First Anniversary | Decor Eventz",
+      "description": "First Anniversary decoration for your anniversary.",
+      "robots": "",
+      "headings": [
+        "First Anniversary"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "ItemList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/anniversary/sub/golden-jubilee",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/anniversary/sub/golden-jubilee",
+      "title": "Golden Jubilee | Decor Eventz",
+      "description": "Golden Jubilee decoration for your anniversary.",
+      "robots": "",
+      "headings": [
+        "Golden Jubilee"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/anniversary/sub/milestone-anniversary",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/anniversary/sub/milestone-anniversary",
+      "title": "Milestone Anniversary | Decor Eventz",
+      "description": "Milestone Anniversary decoration for your anniversary.",
+      "robots": "",
+      "headings": [
+        "Milestone Anniversary"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/anniversary/sub/romantic-anniversary",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/anniversary/sub/romantic-anniversary",
+      "title": "Romantic Anniversary | Decor Eventz",
+      "description": "Romantic Anniversary decoration for your anniversary.",
+      "robots": "",
+      "headings": [
+        "Romantic Anniversary"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/anniversary/sub/silver-jubilee",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/anniversary/sub/silver-jubilee",
+      "title": "Silver Jubilee | Decor Eventz",
+      "description": "Silver Jubilee decoration for your anniversary.",
+      "robots": "",
+      "headings": [
+        "Silver Jubilee"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/baby-ceremonies",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/baby-ceremonies",
+      "title": "Baby Ceremonies Decoration | Decor Eventz",
+      "description": "Book baby ceremonies decoration — designed and installed by trained decorators.",
+      "robots": "",
+      "headings": [
+        "Baby Ceremonies"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "ItemList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/baby-ceremonies/blue-bliss-baby-naming-ceremony-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/baby-ceremonies/blue-bliss-baby-naming-ceremony-decoration",
+      "title": "Blue Bliss Baby Naming Ceremony | Decor Eventz",
+      "description": "A Beautiful Blue Celebration for Your Little One",
+      "robots": "",
+      "headings": [
+        "Blue Bliss Baby Naming Ceremony"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "Product"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/baby-ceremonies/sub",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/baby-ceremonies/sub",
+      "title": "All Baby Ceremonies Types | Decor Eventz",
+      "description": "Every type of baby ceremonies decor we offer.",
+      "robots": "",
+      "headings": [
+        "All Baby Ceremonies types"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/baby-ceremonies/sub/annaprashan",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/baby-ceremonies/sub/annaprashan",
+      "title": "Annaprashan | Decor Eventz",
+      "description": "Annaprashan decoration for your baby ceremonies.",
+      "robots": "",
+      "headings": [
+        "Annaprashan"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/baby-ceremonies/sub/aqiqah",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/baby-ceremonies/sub/aqiqah",
+      "title": "Aqiqah | Decor Eventz",
+      "description": "Aqiqah decoration for your baby ceremonies.",
+      "robots": "",
+      "headings": [
+        "Aqiqah"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/baby-ceremonies/sub/chhathi-ceremony",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/baby-ceremonies/sub/chhathi-ceremony",
+      "title": "Chhathi Ceremony | Decor Eventz",
+      "description": "Chhathi Ceremony decoration for your baby ceremonies.",
+      "robots": "",
+      "headings": [
+        "Chhathi Ceremony"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/baby-ceremonies/sub/cradle-ceremony",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/baby-ceremonies/sub/cradle-ceremony",
+      "title": "Cradle Ceremony | Decor Eventz",
+      "description": "Cradle Ceremony decoration for your baby ceremonies.",
+      "robots": "",
+      "headings": [
+        "Cradle Ceremony"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/baby-ceremonies/sub/mundan-ceremony",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/baby-ceremonies/sub/mundan-ceremony",
+      "title": "Mundan Ceremony | Decor Eventz",
+      "description": "Mundan Ceremony decoration for your baby ceremonies.",
+      "robots": "",
+      "headings": [
+        "Mundan Ceremony"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/baby-ceremonies/sub/naming-ceremony",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/baby-ceremonies/sub/naming-ceremony",
+      "title": "Naming Ceremony | Decor Eventz",
+      "description": "Naming Ceremony decoration for your baby ceremonies.",
+      "robots": "",
+      "headings": [
+        "Naming Ceremony"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "ItemList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/baby-ceremonies/sub/seemantham",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/baby-ceremonies/sub/seemantham",
+      "title": "Seemantham | Decor Eventz",
+      "description": "Seemantham decoration for your baby ceremonies.",
+      "robots": "",
+      "headings": [
+        "Seemantham"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/baby-shower",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/baby-shower",
+      "title": "Baby Shower Decoration | Decor Eventz",
+      "description": "Book baby shower decoration — designed and installed by trained decorators.",
+      "robots": "",
+      "headings": [
+        "Baby Shower"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "ItemList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/baby-shower/baby-shower-balloon-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/baby-shower/baby-shower-balloon-decoration",
+      "title": "Baby Shower Balloon Decoration | Decor Eventz",
+      "description": "Beautiful Balloon Decorations for a Sweet Baby Shower Celebration",
+      "robots": "",
+      "headings": [
+        "Baby Shower Balloon Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "Product"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/baby-shower/royal-blue-pink-baby-shower-balloon-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/baby-shower/royal-blue-pink-baby-shower-balloon-decoration",
+      "title": "Royal Blue & Pink Baby Shower Balloon Decoration | Decor Eventz",
+      "description": "Beautiful Royal Blue & Pink Baby Shower Decoration with Baby Foil Balloons",
+      "robots": "",
+      "headings": [
+        "Royal Blue & Pink Baby Shower Balloon Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "Product"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/baby-shower/simple-baby-shower-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/baby-shower/simple-baby-shower-decoration",
+      "title": "Simple Baby Shower Decoration | Decor Eventz",
+      "description": "Beautiful Blue & Pink Baby Shower Decoration with Baby Foil Balloons",
+      "robots": "",
+      "headings": [
+        "Simple Baby Shower Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "Product"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/baby-shower/sub",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/baby-shower/sub",
+      "title": "All Baby Shower Types | Decor Eventz",
+      "description": "Every type of baby shower decor we offer.",
+      "robots": "",
+      "headings": [
+        "All Baby Shower types"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/baby-shower/sub/baby-shower-backdrop",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/baby-shower/sub/baby-shower-backdrop",
+      "title": "Baby Shower Backdrop | Decor Eventz",
+      "description": "Baby Shower Backdrop decoration for your baby shower.",
+      "robots": "",
+      "headings": [
+        "Baby Shower Backdrop"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/baby-shower/sub/baby-shower-balloon-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/baby-shower/sub/baby-shower-balloon-decoration",
+      "title": "Baby Shower Balloon Decoration | Decor Eventz",
+      "description": "Baby Shower Balloon Decoration decoration for your baby shower.",
+      "robots": "",
+      "headings": [
+        "Baby Shower Balloon Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "ItemList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/baby-shower/sub/baby-shower-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/baby-shower/sub/baby-shower-decoration",
+      "title": "Baby Shower Decoration | Decor Eventz",
+      "description": "Baby Shower Decoration decoration for your baby shower.",
+      "robots": "",
+      "headings": [
+        "Baby Shower Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "ItemList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/baby-shower/sub/baby-shower-floral-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/baby-shower/sub/baby-shower-floral-decoration",
+      "title": "Baby Shower Floral Decoration | Decor Eventz",
+      "description": "Baby Shower Floral Decoration decoration for your baby shower.",
+      "robots": "",
+      "headings": [
+        "Baby Shower Floral Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/baby-shower/sub/baby-shower-room-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/baby-shower/sub/baby-shower-room-decoration",
+      "title": "Baby Shower Room Decoration | Decor Eventz",
+      "description": "Baby Shower Room Decoration decoration for your baby shower.",
+      "robots": "",
+      "headings": [
+        "Baby Shower Room Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/baby-shower/sub/baby-shower-stage-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/baby-shower/sub/baby-shower-stage-decoration",
+      "title": "Baby Shower Stage Decoration | Decor Eventz",
+      "description": "Baby Shower Stage Decoration decoration for your baby shower.",
+      "robots": "",
+      "headings": [
+        "Baby Shower Stage Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/baby-shower/sub/boy-baby-shower",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/baby-shower/sub/boy-baby-shower",
+      "title": "Boy Baby Shower | Decor Eventz",
+      "description": "Boy Baby Shower decoration for your baby shower.",
+      "robots": "",
+      "headings": [
+        "Boy Baby Shower"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/baby-shower/sub/couple-baby-shower",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/baby-shower/sub/couple-baby-shower",
+      "title": "Couple Baby Shower | Decor Eventz",
+      "description": "Couple Baby Shower decoration for your baby shower.",
+      "robots": "",
+      "headings": [
+        "Couple Baby Shower"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/baby-shower/sub/gender-reveal-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/baby-shower/sub/gender-reveal-decoration",
+      "title": "Gender Reveal Decoration | Decor Eventz",
+      "description": "Gender Reveal Decoration decoration for your baby shower.",
+      "robots": "",
+      "headings": [
+        "Gender Reveal Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/baby-shower/sub/girl-baby-shower",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/baby-shower/sub/girl-baby-shower",
+      "title": "Girl Baby Shower | Decor Eventz",
+      "description": "Girl Baby Shower decoration for your baby shower.",
+      "robots": "",
+      "headings": [
+        "Girl Baby Shower"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/backdrop-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/backdrop-decoration",
+      "title": "Backdrop Decoration Decoration | Decor Eventz",
+      "description": "Book backdrop decoration decoration — designed and installed by trained decorators.",
+      "robots": "",
+      "headings": [
+        "Backdrop Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/backdrop-decoration/sub",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/backdrop-decoration/sub",
+      "title": "All Backdrop Decoration Types | Decor Eventz",
+      "description": "Every type of backdrop decoration decor we offer.",
+      "robots": "",
+      "headings": [
+        "All Backdrop Decoration types"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/backdrop-decoration/sub/balloon-backdrop",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/backdrop-decoration/sub/balloon-backdrop",
+      "title": "Balloon Backdrop | Decor Eventz",
+      "description": "Balloon Backdrop decoration for your backdrop decoration.",
+      "robots": "",
+      "headings": [
+        "Balloon Backdrop"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/backdrop-decoration/sub/fabric-backdrop",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/backdrop-decoration/sub/fabric-backdrop",
+      "title": "Fabric Backdrop | Decor Eventz",
+      "description": "Fabric Backdrop decoration for your backdrop decoration.",
+      "robots": "",
+      "headings": [
+        "Fabric Backdrop"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/backdrop-decoration/sub/floral-backdrop",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/backdrop-decoration/sub/floral-backdrop",
+      "title": "Floral Backdrop | Decor Eventz",
+      "description": "Floral Backdrop decoration for your backdrop decoration.",
+      "robots": "",
+      "headings": [
+        "Floral Backdrop"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/backdrop-decoration/sub/led-backdrop",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/backdrop-decoration/sub/led-backdrop",
+      "title": "LED Backdrop | Decor Eventz",
+      "description": "LED Backdrop decoration for your backdrop decoration.",
+      "robots": "",
+      "headings": [
+        "LED Backdrop"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/backdrop-decoration/sub/neon-backdrop",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/backdrop-decoration/sub/neon-backdrop",
+      "title": "Neon Backdrop | Decor Eventz",
+      "description": "Neon Backdrop decoration for your backdrop decoration.",
+      "robots": "",
+      "headings": [
+        "Neon Backdrop"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/backdrop-decoration/sub/photo-backdrop",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/backdrop-decoration/sub/photo-backdrop",
+      "title": "Photo Backdrop | Decor Eventz",
+      "description": "Photo Backdrop decoration for your backdrop decoration.",
+      "robots": "",
+      "headings": [
+        "Photo Backdrop"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/backdrop-decoration/sub/ring-backdrop",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/backdrop-decoration/sub/ring-backdrop",
+      "title": "Ring Backdrop | Decor Eventz",
+      "description": "Ring Backdrop decoration for your backdrop decoration.",
+      "robots": "",
+      "headings": [
+        "Ring Backdrop"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/backdrop-decoration/sub/sequin-backdrop",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/backdrop-decoration/sub/sequin-backdrop",
+      "title": "Sequin Backdrop | Decor Eventz",
+      "description": "Sequin Backdrop decoration for your backdrop decoration.",
+      "robots": "",
+      "headings": [
+        "Sequin Backdrop"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/balloon-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/balloon-decoration",
+      "title": "Balloon Decoration Decoration | Decor Eventz",
+      "description": "Book balloon decoration decoration — designed and installed by trained decorators.",
+      "robots": "",
+      "headings": [
+        "Balloon Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/balloon-decoration/sub",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/balloon-decoration/sub",
+      "title": "All Balloon Decoration Types | Decor Eventz",
+      "description": "Every type of balloon decoration decor we offer.",
+      "robots": "",
+      "headings": [
+        "All Balloon Decoration types"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/balloon-decoration/sub/balloon-arch",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/balloon-decoration/sub/balloon-arch",
+      "title": "Balloon Arch | Decor Eventz",
+      "description": "Balloon Arch decoration for your balloon decoration.",
+      "robots": "",
+      "headings": [
+        "Balloon Arch"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/balloon-decoration/sub/balloon-backdrop",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/balloon-decoration/sub/balloon-backdrop",
+      "title": "Balloon Backdrop | Decor Eventz",
+      "description": "Balloon Backdrop decoration for your balloon decoration.",
+      "robots": "",
+      "headings": [
+        "Balloon Backdrop"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/balloon-decoration/sub/balloon-bouquet",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/balloon-decoration/sub/balloon-bouquet",
+      "title": "Balloon Bouquet | Decor Eventz",
+      "description": "Balloon Bouquet decoration for your balloon decoration.",
+      "robots": "",
+      "headings": [
+        "Balloon Bouquet"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/balloon-decoration/sub/balloon-canopy",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/balloon-decoration/sub/balloon-canopy",
+      "title": "Balloon Canopy | Decor Eventz",
+      "description": "Balloon Canopy decoration for your balloon decoration.",
+      "robots": "",
+      "headings": [
+        "Balloon Canopy"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/balloon-decoration/sub/balloon-ceiling",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/balloon-decoration/sub/balloon-ceiling",
+      "title": "Balloon Ceiling | Decor Eventz",
+      "description": "Balloon Ceiling decoration for your balloon decoration.",
+      "robots": "",
+      "headings": [
+        "Balloon Ceiling"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/balloon-decoration/sub/balloon-column",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/balloon-decoration/sub/balloon-column",
+      "title": "Balloon Column | Decor Eventz",
+      "description": "Balloon Column decoration for your balloon decoration.",
+      "robots": "",
+      "headings": [
+        "Balloon Column"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/balloon-decoration/sub/balloon-gate",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/balloon-decoration/sub/balloon-gate",
+      "title": "Balloon Gate | Decor Eventz",
+      "description": "Balloon Gate decoration for your balloon decoration.",
+      "robots": "",
+      "headings": [
+        "Balloon Gate"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/balloon-decoration/sub/balloon-ring",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/balloon-decoration/sub/balloon-ring",
+      "title": "Balloon Ring | Decor Eventz",
+      "description": "Balloon Ring decoration for your balloon decoration.",
+      "robots": "",
+      "headings": [
+        "Balloon Ring"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/balloon-decoration/sub/balloon-room",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/balloon-decoration/sub/balloon-room",
+      "title": "Balloon Room | Decor Eventz",
+      "description": "Balloon Room decoration for your balloon decoration.",
+      "robots": "",
+      "headings": [
+        "Balloon Room"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/balloon-decoration/sub/balloon-table",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/balloon-decoration/sub/balloon-table",
+      "title": "Balloon Table | Decor Eventz",
+      "description": "Balloon Table decoration for your balloon decoration.",
+      "robots": "",
+      "headings": [
+        "Balloon Table"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/balloon-decoration/sub/balloon-wall",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/balloon-decoration/sub/balloon-wall",
+      "title": "Balloon Wall | Decor Eventz",
+      "description": "Balloon Wall decoration for your balloon decoration.",
+      "robots": "",
+      "headings": [
+        "Balloon Wall"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/birthday",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/birthday",
+      "title": "Birthday Decoration | Decor Eventz",
+      "description": "Celebrate Every Birthday in Style",
+      "robots": "",
+      "headings": [
+        "Birthday"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "ItemList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/birthday/ballon-ring-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/birthday/ballon-ring-decoration",
+      "title": "Ballon Ring Decoration | Decor Eventz",
+      "description": "Celebrate in Elegance, Create Timeless Memories",
+      "robots": "",
+      "headings": [
+        "Ballon Ring Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "Product"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/birthday/birthday-arch-backdrop",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/birthday/birthday-arch-backdrop",
+      "title": "Birthday Arch Backdrop | Decor Eventz",
+      "description": "A Glamorous Celebration Wrapped in Golden Elegance",
+      "robots": "",
+      "headings": [
+        "Birthday Arch Backdrop"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "Product"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/birthday/birthday-balloon-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/birthday/birthday-balloon-decoration",
+      "title": "Birthday Balloon Decoration | Decor Eventz",
+      "description": "Beautiful Balloon Decor for a Memorable Birthday",
+      "robots": "",
+      "headings": [
+        "Birthday Balloon Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "Product"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/birthday/birthday-decoration-at-home",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/birthday/birthday-decoration-at-home",
+      "title": "Birthday Decoration at Home | Decor Eventz",
+      "description": "Simple & Stylish Birthday Celebration",
+      "robots": "",
+      "headings": [
+        "Birthday Decoration at Home"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "Product"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/birthday/birthday-wall-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/birthday/birthday-wall-decoration",
+      "title": "Birthday Wall Decoration | Decor Eventz",
+      "description": "Simple & Stylish Birthday Celebration",
+      "robots": "",
+      "headings": [
+        "Birthday Wall Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "Product"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/birthday/black-gold-birthday-balloon-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/birthday/black-gold-birthday-balloon-decoration",
+      "title": "Birthday Balloon Decoration | Decor Eventz",
+      "description": "Elegant Black & Gold Balloon Decoration for Memorable Birthdays",
+      "robots": "",
+      "headings": [
+        "Birthday Balloon Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "Product"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/birthday/black-gold-birthday-balloon-hall-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/birthday/black-gold-birthday-balloon-hall-decoration",
+      "title": "Black & Gold Birthday Balloon Hall Decoration | Decor Eventz",
+      "description": "Elegant Black & Gold Balloon Decoration for Stylish Celebrations",
+      "robots": "",
+      "headings": [
+        "Black & Gold Birthday Balloon Hall Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "Product"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/birthday/blush-gold-birthday-elegance",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/birthday/blush-gold-birthday-elegance",
+      "title": "Blush & Gold Birthday Elegance | Decor Eventz",
+      "description": "A Birthday Wrapped in Elegance",
+      "robots": "",
+      "headings": [
+        "Blush & Gold Birthday Elegance"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "Product"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/birthday/elegant-blue-silver-birthday-balloon-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/birthday/elegant-blue-silver-birthday-balloon-decoration",
+      "title": "Elegant Blue & Silver Birthday Balloon Decoration | Decor Eventz",
+      "description": "Celebrate in style with an elegant blue & silver birthday setup 🎈✨",
+      "robots": "",
+      "headings": [
+        "Elegant Blue & Silver Birthday Balloon Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "Product"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/birthday/frozen-theme-5th-birthday-balloon-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/birthday/frozen-theme-5th-birthday-balloon-decoration",
+      "title": "Frozen Theme 5th Birthday Balloon Decoration | Decor Eventz",
+      "description": "✨ A Magical Frozen-Themed Birthday Setup for Your Little Princess! ❄️💙",
+      "robots": "",
+      "headings": [
+        "Frozen Theme 5th Birthday Balloon Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "Product"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/birthday/royal-blue-silver-first-birthday-balloon-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/birthday/royal-blue-silver-first-birthday-balloon-decoration",
+      "title": "Royal Blue & Silver First Birthday Balloon Decoration | Decor Eventz",
+      "description": "A Magical Blue & Silver Celebration for Their First Milestone",
+      "robots": "",
+      "headings": [
+        "Royal Blue & Silver First Birthday Balloon Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "Product"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/birthday/sub",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/birthday/sub",
+      "title": "All Birthday Types | Decor Eventz",
+      "description": "Every type of birthday decor we offer.",
+      "robots": "",
+      "headings": [
+        "All Birthday types"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/birthday/sub/adult-birthday",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/birthday/sub/adult-birthday",
+      "title": "Adult Birthday | Decor Eventz",
+      "description": "Celebrate Every Moment in Style",
+      "robots": "",
+      "headings": [
+        "Adult Birthday"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "ItemList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/birthday/sub/birthday-backdrop-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/birthday/sub/birthday-backdrop-decoration",
+      "title": "Birthday Backdrop Decoration | Decor Eventz",
+      "description": "Birthday Backdrop Decoration decoration for your birthday.",
+      "robots": "",
+      "headings": [
+        "Birthday Backdrop Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/birthday/sub/birthday-balloon-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/birthday/sub/birthday-balloon-decoration",
+      "title": "Birthday Balloon Decoration | Decor Eventz",
+      "description": "Birthday Balloon Decoration decoration for your birthday.",
+      "robots": "",
+      "headings": [
+        "Birthday Balloon Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "ItemList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/birthday/sub/birthday-car-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/birthday/sub/birthday-car-decoration",
+      "title": "Birthday Car Decoration | Decor Eventz",
+      "description": "Birthday Car Decoration decoration for your birthday.",
+      "robots": "",
+      "headings": [
+        "Birthday Car Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/birthday/sub/birthday-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/birthday/sub/birthday-decoration",
+      "title": "Birthday Decoration | Decor Eventz",
+      "description": "Celebrate Their First Milestone in a Beautiful Way",
+      "robots": "",
+      "headings": [
+        "Birthday Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "ItemList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/birthday/sub/birthday-hall-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/birthday/sub/birthday-hall-decoration",
+      "title": "Birthday Hall Decoration | Decor Eventz",
+      "description": "Birthday Hall Decoration decoration for your birthday.",
+      "robots": "",
+      "headings": [
+        "Birthday Hall Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "ItemList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/birthday/sub/birthday-outdoor-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/birthday/sub/birthday-outdoor-decoration",
+      "title": "Birthday Outdoor Decoration | Decor Eventz",
+      "description": "Birthday Outdoor Decoration decoration for your birthday.",
+      "robots": "",
+      "headings": [
+        "Birthday Outdoor Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/birthday/sub/birthday-party-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/birthday/sub/birthday-party-decoration",
+      "title": "Birthday Party Decoration | Decor Eventz",
+      "description": "Birthday Party Decoration decoration for your birthday.",
+      "robots": "",
+      "headings": [
+        "Birthday Party Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/birthday/sub/birthday-room-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/birthday/sub/birthday-room-decoration",
+      "title": "Birthday Room Decoration | Decor Eventz",
+      "description": "Birthday Room Decoration decoration for your birthday.",
+      "robots": "",
+      "headings": [
+        "Birthday Room Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/birthday/sub/birthday-surprise-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/birthday/sub/birthday-surprise-decoration",
+      "title": "Birthday Surprise Decoration | Decor Eventz",
+      "description": "Birthday Surprise Decoration decoration for your birthday.",
+      "robots": "",
+      "headings": [
+        "Birthday Surprise Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/birthday/sub/birthday-terrace-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/birthday/sub/birthday-terrace-decoration",
+      "title": "Birthday Terrace Decoration | Decor Eventz",
+      "description": "Birthday Terrace Decoration decoration for your birthday.",
+      "robots": "",
+      "headings": [
+        "Birthday Terrace Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/birthday/sub/by-occasion",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/birthday/sub/by-occasion",
+      "title": "By Occasion | Decor Eventz",
+      "description": "Make Their Birthday Truly Special",
+      "robots": "",
+      "headings": [
+        "By Occasion"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "ItemList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/birthday/sub/first-birthday",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/birthday/sub/first-birthday",
+      "title": "First Birthday | Decor Eventz",
+      "description": "First Birthday decoration for your birthday.",
+      "robots": "",
+      "headings": [
+        "First Birthday"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "ItemList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/birthday/sub/first-born",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/birthday/sub/first-born",
+      "title": "First Born | Decor Eventz",
+      "description": "First Born decoration for your birthday.",
+      "robots": "",
+      "headings": [
+        "First Born"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/birthday/sub/kids-birthday",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/birthday/sub/kids-birthday",
+      "title": "Kids Birthday | Decor Eventz",
+      "description": "Kids Birthday decoration for your birthday.",
+      "robots": "",
+      "headings": [
+        "Kids Birthday"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "ItemList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/birthday/sub/milestone-birthday",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/birthday/sub/milestone-birthday",
+      "title": "Milestone Birthday | Decor Eventz",
+      "description": "Milestone Birthday decoration for your birthday.",
+      "robots": "",
+      "headings": [
+        "Milestone Birthday"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/canopy-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/canopy-decoration",
+      "title": "Canopy Decoration Decoration | Decor Eventz",
+      "description": "Book canopy decoration decoration — designed and installed by trained decorators.",
+      "robots": "",
+      "headings": [
+        "Canopy Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/canopy-decoration/sub",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/canopy-decoration/sub",
+      "title": "All Canopy Decoration Types | Decor Eventz",
+      "description": "Every type of canopy decoration decor we offer.",
+      "robots": "",
+      "headings": [
+        "All Canopy Decoration types"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/canopy-decoration/sub/anniversary-canopy",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/canopy-decoration/sub/anniversary-canopy",
+      "title": "Anniversary Canopy | Decor Eventz",
+      "description": "Anniversary Canopy decoration for your canopy decoration.",
+      "robots": "",
+      "headings": [
+        "Anniversary Canopy"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/canopy-decoration/sub/baby-shower-canopy",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/canopy-decoration/sub/baby-shower-canopy",
+      "title": "Baby Shower Canopy | Decor Eventz",
+      "description": "Baby Shower Canopy decoration for your canopy decoration.",
+      "robots": "",
+      "headings": [
+        "Baby Shower Canopy"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/canopy-decoration/sub/balloon-canopy",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/canopy-decoration/sub/balloon-canopy",
+      "title": "Balloon Canopy | Decor Eventz",
+      "description": "Balloon Canopy decoration for your canopy decoration.",
+      "robots": "",
+      "headings": [
+        "Balloon Canopy"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/canopy-decoration/sub/bed-canopy",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/canopy-decoration/sub/bed-canopy",
+      "title": "Bed Canopy | Decor Eventz",
+      "description": "Bed Canopy decoration for your canopy decoration.",
+      "robots": "",
+      "headings": [
+        "Bed Canopy"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/canopy-decoration/sub/birthday-canopy",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/canopy-decoration/sub/birthday-canopy",
+      "title": "Birthday Canopy | Decor Eventz",
+      "description": "Birthday Canopy decoration for your canopy decoration.",
+      "robots": "",
+      "headings": [
+        "Birthday Canopy"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/canopy-decoration/sub/romantic-canopy",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/canopy-decoration/sub/romantic-canopy",
+      "title": "Romantic Canopy | Decor Eventz",
+      "description": "Romantic Canopy decoration for your canopy decoration.",
+      "robots": "",
+      "headings": [
+        "Romantic Canopy"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/canopy-decoration/sub/wedding-canopy",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/canopy-decoration/sub/wedding-canopy",
+      "title": "Wedding Canopy | Decor Eventz",
+      "description": "Wedding Canopy decoration for your canopy decoration.",
+      "robots": "",
+      "headings": [
+        "Wedding Canopy"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/car-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/car-decoration",
+      "title": "Car Decoration Decoration | Decor Eventz",
+      "description": "Book car decoration decoration — designed and installed by trained decorators.",
+      "robots": "",
+      "headings": [
+        "Car Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/car-decoration/sub",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/car-decoration/sub",
+      "title": "All Car Decoration Types | Decor Eventz",
+      "description": "Every type of car decoration decor we offer.",
+      "robots": "",
+      "headings": [
+        "All Car Decoration types"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/car-decoration/sub/anniversary-car",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/car-decoration/sub/anniversary-car",
+      "title": "Anniversary Car | Decor Eventz",
+      "description": "Anniversary Car decoration for your car decoration.",
+      "robots": "",
+      "headings": [
+        "Anniversary Car"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/car-decoration/sub/birthday-car",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/car-decoration/sub/birthday-car",
+      "title": "Birthday Car | Decor Eventz",
+      "description": "Birthday Car decoration for your car decoration.",
+      "robots": "",
+      "headings": [
+        "Birthday Car"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/car-decoration/sub/bride-car",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/car-decoration/sub/bride-car",
+      "title": "Bride Car | Decor Eventz",
+      "description": "Bride Car decoration for your car decoration.",
+      "robots": "",
+      "headings": [
+        "Bride Car"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/car-decoration/sub/car-boot",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/car-decoration/sub/car-boot",
+      "title": "Car Boot | Decor Eventz",
+      "description": "Car Boot decoration for your car decoration.",
+      "robots": "",
+      "headings": [
+        "Car Boot"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/car-decoration/sub/groom-car",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/car-decoration/sub/groom-car",
+      "title": "Groom Car | Decor Eventz",
+      "description": "Groom Car decoration for your car decoration.",
+      "robots": "",
+      "headings": [
+        "Groom Car"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/car-decoration/sub/new-car",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/car-decoration/sub/new-car",
+      "title": "New Car | Decor Eventz",
+      "description": "New Car decoration for your car decoration.",
+      "robots": "",
+      "headings": [
+        "New Car"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/car-decoration/sub/proposal-car",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/car-decoration/sub/proposal-car",
+      "title": "Proposal Car | Decor Eventz",
+      "description": "Proposal Car decoration for your car decoration.",
+      "robots": "",
+      "headings": [
+        "Proposal Car"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/car-decoration/sub/surprise-car",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/car-decoration/sub/surprise-car",
+      "title": "Surprise Car | Decor Eventz",
+      "description": "Surprise Car decoration for your car decoration.",
+      "robots": "",
+      "headings": [
+        "Surprise Car"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/car-decoration/sub/wedding-car",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/car-decoration/sub/wedding-car",
+      "title": "Wedding Car | Decor Eventz",
+      "description": "Wedding Car decoration for your car decoration.",
+      "robots": "",
+      "headings": [
+        "Wedding Car"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/corporate",
+      "status": 404,
+      "canonical": "https://www.decoreventz.com",
+      "title": "Balloon & Event Decoration Services | Birthday, Wedding & More",
+      "description": "Professional balloon and event decoration for birthdays, weddings, baby showers, corporate events and more — book online in minutes, get a same-week setup at your venue.",
+      "robots": "noindex",
+      "headings": [],
+      "structuredTypes": [],
+      "errors": [
+        "HTTP 404",
+        "Missing or incorrect canonical",
+        "Sitemap URL is noindex"
+      ],
+      "warnings": [
+        "H1 count 0",
+        "Open Graph URL differs from page canonical"
+      ]
+    },
+    {
+      "path": "/categories/corporate/sub",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/corporate/sub",
+      "title": "All Corporate Types | Decor Eventz",
+      "description": "Every type of corporate decor we offer.",
+      "robots": "",
+      "headings": [
+        "All Corporate types"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/corporate/sub/corporate-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/corporate/sub/corporate-decoration",
+      "title": "Corporate Decoration | Decor Eventz",
+      "description": "Corporate Decoration decoration for your corporate.",
+      "robots": "",
+      "headings": [
+        "Corporate Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/corporate/sub/corporate-event",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/corporate/sub/corporate-event",
+      "title": "Corporate Event | Decor Eventz",
+      "description": "Corporate Event decoration for your corporate.",
+      "robots": "",
+      "headings": [
+        "Corporate Event"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/corporate/sub/employee-celebration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/corporate/sub/employee-celebration",
+      "title": "Employee Celebration | Decor Eventz",
+      "description": "Employee Celebration decoration for your corporate.",
+      "robots": "",
+      "headings": [
+        "Employee Celebration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/corporate/sub/farewell",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/corporate/sub/farewell",
+      "title": "Farewell | Decor Eventz",
+      "description": "Farewell decoration for your corporate.",
+      "robots": "",
+      "headings": [
+        "Farewell"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/corporate/sub/office-birthday",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/corporate/sub/office-birthday",
+      "title": "Office Birthday | Decor Eventz",
+      "description": "Office Birthday decoration for your corporate.",
+      "robots": "",
+      "headings": [
+        "Office Birthday"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/corporate/sub/office-party",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/corporate/sub/office-party",
+      "title": "Office Party | Decor Eventz",
+      "description": "Office Party decoration for your corporate.",
+      "robots": "",
+      "headings": [
+        "Office Party"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/corporate/sub/office-welcome",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/corporate/sub/office-welcome",
+      "title": "Office Welcome | Decor Eventz",
+      "description": "Office Welcome decoration for your corporate.",
+      "robots": "",
+      "headings": [
+        "Office Welcome"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/corporate/sub/product-launch",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/corporate/sub/product-launch",
+      "title": "Product Launch | Decor Eventz",
+      "description": "Product Launch decoration for your corporate.",
+      "robots": "",
+      "headings": [
+        "Product Launch"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/corporate/sub/retirement",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/corporate/sub/retirement",
+      "title": "Retirement | Decor Eventz",
+      "description": "Retirement decoration for your corporate.",
+      "robots": "",
+      "headings": [
+        "Retirement"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/corporate/sub/work-anniversary",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/corporate/sub/work-anniversary",
+      "title": "Work Anniversary | Decor Eventz",
+      "description": "Work Anniversary decoration for your corporate.",
+      "robots": "",
+      "headings": [
+        "Work Anniversary"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/festivals-and-special-occasions",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/festivals-and-special-occasions",
+      "title": "Festivals & Special Occasions Decoration | Decor Eventz",
+      "description": "Book festivals & special occasions decoration — designed and installed by trained decorators.",
+      "robots": "",
+      "headings": [
+        "Festivals & Special Occasions"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "ItemList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/festivals-and-special-occasions/elegant-happy-diwali-balloon-backdrop",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/festivals-and-special-occasions/elegant-happy-diwali-balloon-backdrop",
+      "title": "Elegant Happy Diwali Balloon Backdrop | Decor Eventz",
+      "description": "Simple & Elegant Diwali Balloon Decoration for Your Home",
+      "robots": "",
+      "headings": [
+        "Elegant Happy Diwali Balloon Backdrop"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "Product"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/festivals-and-special-occasions/sub",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/festivals-and-special-occasions/sub",
+      "title": "All Festivals & Special Occasions Types | Decor Eventz",
+      "description": "Every type of festivals & special occasions decor we offer.",
+      "robots": "",
+      "headings": [
+        "All Festivals & Special Occasions types"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/festivals-and-special-occasions/sub/childrens-day",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/festivals-and-special-occasions/sub/childrens-day",
+      "title": "Children's Day | Decor Eventz",
+      "description": "Children's Day decoration for your festivals & special occasions.",
+      "robots": "",
+      "headings": [
+        "Children's Day"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/festivals-and-special-occasions/sub/christmas",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/festivals-and-special-occasions/sub/christmas",
+      "title": "Christmas | Decor Eventz",
+      "description": "Christmas decoration for your festivals & special occasions.",
+      "robots": "",
+      "headings": [
+        "Christmas"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/festivals-and-special-occasions/sub/diwali",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/festivals-and-special-occasions/sub/diwali",
+      "title": "Diwali | Decor Eventz",
+      "description": "Diwali decoration for your festivals & special occasions.",
+      "robots": "",
+      "headings": [
+        "Diwali"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "ItemList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/festivals-and-special-occasions/sub/fathers-day",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/festivals-and-special-occasions/sub/fathers-day",
+      "title": "Father's Day | Decor Eventz",
+      "description": "Father's Day decoration for your festivals & special occasions.",
+      "robots": "",
+      "headings": [
+        "Father's Day"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/festivals-and-special-occasions/sub/friendship-day",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/festivals-and-special-occasions/sub/friendship-day",
+      "title": "Friendship Day | Decor Eventz",
+      "description": "Friendship Day decoration for your festivals & special occasions.",
+      "robots": "",
+      "headings": [
+        "Friendship Day"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/festivals-and-special-occasions/sub/ganesh-chaturthi",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/festivals-and-special-occasions/sub/ganesh-chaturthi",
+      "title": "Ganesh Chaturthi | Decor Eventz",
+      "description": "Ganesh Chaturthi decoration for your festivals & special occasions.",
+      "robots": "",
+      "headings": [
+        "Ganesh Chaturthi"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/festivals-and-special-occasions/sub/holi",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/festivals-and-special-occasions/sub/holi",
+      "title": "Holi | Decor Eventz",
+      "description": "Holi decoration for your festivals & special occasions.",
+      "robots": "",
+      "headings": [
+        "Holi"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/festivals-and-special-occasions/sub/mothers-day",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/festivals-and-special-occasions/sub/mothers-day",
+      "title": "Mother's Day | Decor Eventz",
+      "description": "Mother's Day decoration for your festivals & special occasions.",
+      "robots": "",
+      "headings": [
+        "Mother's Day"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/festivals-and-special-occasions/sub/new-year",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/festivals-and-special-occasions/sub/new-year",
+      "title": "New Year | Decor Eventz",
+      "description": "New Year decoration for your festivals & special occasions.",
+      "robots": "",
+      "headings": [
+        "New Year"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/festivals-and-special-occasions/sub/raksha-bandhan",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/festivals-and-special-occasions/sub/raksha-bandhan",
+      "title": "Raksha Bandhan | Decor Eventz",
+      "description": "Raksha Bandhan decoration for your festivals & special occasions.",
+      "robots": "",
+      "headings": [
+        "Raksha Bandhan"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/festivals-and-special-occasions/sub/teachers-day",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/festivals-and-special-occasions/sub/teachers-day",
+      "title": "Teacher's Day | Decor Eventz",
+      "description": "Teacher's Day decoration for your festivals & special occasions.",
+      "robots": "",
+      "headings": [
+        "Teacher's Day"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/festivals-and-special-occasions/sub/valentines-day",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/festivals-and-special-occasions/sub/valentines-day",
+      "title": "Valentine's Day | Decor Eventz",
+      "description": "Valentine's Day decoration for your festivals & special occasions.",
+      "robots": "",
+      "headings": [
+        "Valentine's Day"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/festivals-and-special-occasions/sub/womens-day",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/festivals-and-special-occasions/sub/womens-day",
+      "title": "Women's Day | Decor Eventz",
+      "description": "Women's Day decoration for your festivals & special occasions.",
+      "robots": "",
+      "headings": [
+        "Women's Day"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/kids-special",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/kids-special",
+      "title": "Kids Special Decoration | Decor Eventz",
+      "description": "Book kids special decoration — designed and installed by trained decorators.",
+      "robots": "",
+      "headings": [
+        "Kids Special"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "ItemList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/kids-special/kids-birthday-balloon-decor",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/kids-special/kids-birthday-balloon-decor",
+      "title": "Kids Jungle Theme Decor | Decor Eventz",
+      "description": "A Fun-Filled Celebration for Little Stars",
+      "robots": "",
+      "headings": [
+        "Kids Jungle Theme Decor"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "Product"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/kids-special/sub",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/kids-special/sub",
+      "title": "All Kids Special Types | Decor Eventz",
+      "description": "Every type of kids special decor we offer.",
+      "robots": "",
+      "headings": [
+        "All Kids Special types"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/kids-special/sub/kids-birthday",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/kids-special/sub/kids-birthday",
+      "title": "Kids Birthday | Decor Eventz",
+      "description": "Kids Birthday decoration for your kids special.",
+      "robots": "",
+      "headings": [
+        "Kids Birthday"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/kids-special/sub/kids-ceremony-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/kids-special/sub/kids-ceremony-decoration",
+      "title": "Kids Ceremony Decoration | Decor Eventz",
+      "description": "Kids Ceremony Decoration decoration for your kids special.",
+      "robots": "",
+      "headings": [
+        "Kids Ceremony Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/kids-special/sub/kids-entertainment",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/kids-special/sub/kids-entertainment",
+      "title": "Kids Entertainment | Decor Eventz",
+      "description": "Kids Entertainment decoration for your kids special.",
+      "robots": "",
+      "headings": [
+        "Kids Entertainment"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/kids-special/sub/kids-party-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/kids-special/sub/kids-party-decoration",
+      "title": "Kids Party Decoration | Decor Eventz",
+      "description": "Kids Party Decoration decoration for your kids special.",
+      "robots": "",
+      "headings": [
+        "Kids Party Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/kids-special/sub/kids-room-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/kids-special/sub/kids-room-decoration",
+      "title": "Kids Room Decoration | Decor Eventz",
+      "description": "Kids Room Decoration decoration for your kids special.",
+      "robots": "",
+      "headings": [
+        "Kids Room Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/kids-special/sub/kids-theme-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/kids-special/sub/kids-theme-decoration",
+      "title": "Kids Theme Decoration | Decor Eventz",
+      "description": "Kids Theme Decoration decoration for your kids special.",
+      "robots": "",
+      "headings": [
+        "Kids Theme Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "ItemList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/newborn-welcome",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/newborn-welcome",
+      "title": "Newborn Welcome Decoration | Decor Eventz",
+      "description": "Book newborn welcome decoration — designed and installed by trained decorators.",
+      "robots": "",
+      "headings": [
+        "Newborn Welcome"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "ItemList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/newborn-welcome/sub",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/newborn-welcome/sub",
+      "title": "All Newborn Welcome Types | Decor Eventz",
+      "description": "Every type of newborn welcome decor we offer.",
+      "robots": "",
+      "headings": [
+        "All Newborn Welcome types"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/newborn-welcome/sub/baby-homecoming",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/newborn-welcome/sub/baby-homecoming",
+      "title": "Baby Homecoming | Decor Eventz",
+      "description": "Baby Homecoming decoration for your newborn welcome.",
+      "robots": "",
+      "headings": [
+        "Baby Homecoming"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "ItemList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/newborn-welcome/sub/home-welcome",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/newborn-welcome/sub/home-welcome",
+      "title": "Home Welcome | Decor Eventz",
+      "description": "Home Welcome decoration for your newborn welcome.",
+      "robots": "",
+      "headings": [
+        "Home Welcome"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/newborn-welcome/sub/hospital-welcome",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/newborn-welcome/sub/hospital-welcome",
+      "title": "Hospital Welcome | Decor Eventz",
+      "description": "Hospital Welcome decoration for your newborn welcome.",
+      "robots": "",
+      "headings": [
+        "Hospital Welcome"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/newborn-welcome/sub/newborn-balloon-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/newborn-welcome/sub/newborn-balloon-decoration",
+      "title": "Newborn Balloon Decoration | Decor Eventz",
+      "description": "Newborn Balloon Decoration decoration for your newborn welcome.",
+      "robots": "",
+      "headings": [
+        "Newborn Balloon Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/newborn-welcome/sub/newborn-room-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/newborn-welcome/sub/newborn-room-decoration",
+      "title": "Newborn Room Decoration | Decor Eventz",
+      "description": "Newborn Room Decoration decoration for your newborn welcome.",
+      "robots": "",
+      "headings": [
+        "Newborn Room Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "ItemList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/newborn-welcome/sub/welcome-baby-boy",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/newborn-welcome/sub/welcome-baby-boy",
+      "title": "Welcome Baby Boy | Decor Eventz",
+      "description": "Welcome Baby Boy decoration for your newborn welcome.",
+      "robots": "",
+      "headings": [
+        "Welcome Baby Boy"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/newborn-welcome/sub/welcome-baby-girl",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/newborn-welcome/sub/welcome-baby-girl",
+      "title": "Welcome Baby Girl | Decor Eventz",
+      "description": "Welcome Baby Girl decoration for your newborn welcome.",
+      "robots": "",
+      "headings": [
+        "Welcome Baby Girl"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "ItemList"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/newborn-welcome/welcome-baby-balloon-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/newborn-welcome/welcome-baby-balloon-decoration",
+      "title": "Welcome Baby Balloon Decoration | Decor Eventz",
+      "description": "Sweet & Elegant Balloon Decoration for a Beautiful Baby Welcome",
+      "robots": "",
+      "headings": [
+        "Welcome Baby Balloon Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "Product"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/newborn-welcome/welcome-baby-car-boot-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/newborn-welcome/welcome-baby-car-boot-decoration",
+      "title": "Welcome Baby Car Boot Decoration | Decor Eventz",
+      "description": "Beautiful Blue & White Car Boot Decoration to Welcome Your Little One",
+      "robots": "",
+      "headings": [
+        "Welcome Baby Car Boot Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "Product"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/newborn-welcome/welcome-baby-girl-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/newborn-welcome/welcome-baby-girl-decoration",
+      "title": "Welcome Baby Girl Decoration | Decor Eventz",
+      "description": "Beautiful Pink & White Decoration for a Sweet Baby Girl Welcome",
+      "robots": "",
+      "headings": [
+        "Welcome Baby Girl Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "Product"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/categories/romantic",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/romantic",
+      "title": "Romantic Decoration | Decor Eventz",
+      "description": "Book romantic decoration — designed and installed by trained decorators.",
+      "robots": "",
+      "headings": [
+        "Romantic"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/romantic/sub",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/romantic/sub",
+      "title": "All Romantic Types | Decor Eventz",
+      "description": "Every type of romantic decor we offer.",
+      "robots": "",
+      "headings": [
+        "All Romantic types"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/romantic/sub/candlelight",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/romantic/sub/candlelight",
+      "title": "Candlelight | Decor Eventz",
+      "description": "Candlelight decoration for your romantic.",
+      "robots": "",
+      "headings": [
+        "Candlelight"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/romantic/sub/couple-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/romantic/sub/couple-decoration",
+      "title": "Couple Decoration | Decor Eventz",
+      "description": "Couple Decoration decoration for your romantic.",
+      "robots": "",
+      "headings": [
+        "Couple Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/romantic/sub/first-night",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/romantic/sub/first-night",
+      "title": "First Night | Decor Eventz",
+      "description": "First Night decoration for your romantic.",
+      "robots": "",
+      "headings": [
+        "First Night"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/romantic/sub/honeymoon",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/romantic/sub/honeymoon",
+      "title": "Honeymoon | Decor Eventz",
+      "description": "Honeymoon decoration for your romantic.",
+      "robots": "",
+      "headings": [
+        "Honeymoon"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/romantic/sub/proposal",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/romantic/sub/proposal",
+      "title": "Proposal | Decor Eventz",
+      "description": "Proposal decoration for your romantic.",
+      "robots": "",
+      "headings": [
+        "Proposal"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/romantic/sub/romantic-room",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/romantic/sub/romantic-room",
+      "title": "Romantic Room | Decor Eventz",
+      "description": "Romantic Room decoration for your romantic.",
+      "robots": "",
+      "headings": [
+        "Romantic Room"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/romantic/sub/romantic-surprise",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/romantic/sub/romantic-surprise",
+      "title": "Romantic Surprise | Decor Eventz",
+      "description": "Romantic Surprise decoration for your romantic.",
+      "robots": "",
+      "headings": [
+        "Romantic Surprise"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/room-decoration",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/room-decoration",
+      "title": "Room Decoration Decoration | Decor Eventz",
+      "description": "Book room decoration decoration — designed and installed by trained decorators.",
+      "robots": "",
+      "headings": [
+        "Room Decoration"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/room-decoration/sub",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/room-decoration/sub",
+      "title": "All Room Decoration Types | Decor Eventz",
+      "description": "Every type of room decoration decor we offer.",
+      "robots": "",
+      "headings": [
+        "All Room Decoration types"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/room-decoration/sub/anniversary-room",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/room-decoration/sub/anniversary-room",
+      "title": "Anniversary Room | Decor Eventz",
+      "description": "Anniversary Room decoration for your room decoration.",
+      "robots": "",
+      "headings": [
+        "Anniversary Room"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/room-decoration/sub/bedroom",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/room-decoration/sub/bedroom",
+      "title": "Bedroom | Decor Eventz",
+      "description": "Bedroom decoration for your room decoration.",
+      "robots": "",
+      "headings": [
+        "Bedroom"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/room-decoration/sub/birthday-room",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/room-decoration/sub/birthday-room",
+      "title": "Birthday Room | Decor Eventz",
+      "description": "Birthday Room decoration for your room decoration.",
+      "robots": "",
+      "headings": [
+        "Birthday Room"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/room-decoration/sub/couple-room",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/room-decoration/sub/couple-room",
+      "title": "Couple Room | Decor Eventz",
+      "description": "Couple Room decoration for your room decoration.",
+      "robots": "",
+      "headings": [
+        "Couple Room"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/room-decoration/sub/first-night-room",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/room-decoration/sub/first-night-room",
+      "title": "First Night Room | Decor Eventz",
+      "description": "First Night Room decoration for your room decoration.",
+      "robots": "",
+      "headings": [
+        "First Night Room"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/room-decoration/sub/hotel-room",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/room-decoration/sub/hotel-room",
+      "title": "Hotel Room | Decor Eventz",
+      "description": "Hotel Room decoration for your room decoration.",
+      "robots": "",
+      "headings": [
+        "Hotel Room"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/room-decoration/sub/kids-room",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/room-decoration/sub/kids-room",
+      "title": "Kids Room | Decor Eventz",
+      "description": "Kids Room decoration for your room decoration.",
+      "robots": "",
+      "headings": [
+        "Kids Room"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/room-decoration/sub/living-room",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/room-decoration/sub/living-room",
+      "title": "Living Room | Decor Eventz",
+      "description": "Living Room decoration for your room decoration.",
+      "robots": "",
+      "headings": [
+        "Living Room"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/room-decoration/sub/romantic-room",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/room-decoration/sub/romantic-room",
+      "title": "Romantic Room | Decor Eventz",
+      "description": "Romantic Room decoration for your room decoration.",
+      "robots": "",
+      "headings": [
+        "Romantic Room"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/room-decoration/sub/surprise-room",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/room-decoration/sub/surprise-room",
+      "title": "Surprise Room | Decor Eventz",
+      "description": "Surprise Room decoration for your room decoration.",
+      "robots": "",
+      "headings": [
+        "Surprise Room"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/wedding-and-pre-wedding",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/wedding-and-pre-wedding",
+      "title": "Wedding & Pre-Wedding Decoration | Decor Eventz",
+      "description": "Book wedding & pre-wedding decoration — designed and installed by trained decorators.",
+      "robots": "",
+      "headings": [
+        "Wedding & Pre-Wedding"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/wedding-and-pre-wedding/sub",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/wedding-and-pre-wedding/sub",
+      "title": "All Wedding & Pre-Wedding Types | Decor Eventz",
+      "description": "Every type of wedding & pre-wedding decor we offer.",
+      "robots": "",
+      "headings": [
+        "All Wedding & Pre-Wedding types"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/wedding-and-pre-wedding/sub/bachelor-party",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/wedding-and-pre-wedding/sub/bachelor-party",
+      "title": "Bachelor Party | Decor Eventz",
+      "description": "Bachelor Party decoration for your wedding & pre-wedding.",
+      "robots": "",
+      "headings": [
+        "Bachelor Party"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/wedding-and-pre-wedding/sub/bachelorette",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/wedding-and-pre-wedding/sub/bachelorette",
+      "title": "Bachelorette | Decor Eventz",
+      "description": "Bachelorette decoration for your wedding & pre-wedding.",
+      "robots": "",
+      "headings": [
+        "Bachelorette"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/wedding-and-pre-wedding/sub/bridal-shower",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/wedding-and-pre-wedding/sub/bridal-shower",
+      "title": "Bridal Shower | Decor Eventz",
+      "description": "Bridal Shower decoration for your wedding & pre-wedding.",
+      "robots": "",
+      "headings": [
+        "Bridal Shower"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/wedding-and-pre-wedding/sub/bride-to-be",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/wedding-and-pre-wedding/sub/bride-to-be",
+      "title": "Bride-to-Be | Decor Eventz",
+      "description": "Bride-to-Be decoration for your wedding & pre-wedding.",
+      "robots": "",
+      "headings": [
+        "Bride-to-Be"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/wedding-and-pre-wedding/sub/bride-welcome",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/wedding-and-pre-wedding/sub/bride-welcome",
+      "title": "Bride Welcome | Decor Eventz",
+      "description": "Bride Welcome decoration for your wedding & pre-wedding.",
+      "robots": "",
+      "headings": [
+        "Bride Welcome"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/wedding-and-pre-wedding/sub/engagement",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/wedding-and-pre-wedding/sub/engagement",
+      "title": "Engagement | Decor Eventz",
+      "description": "Engagement decoration for your wedding & pre-wedding.",
+      "robots": "",
+      "headings": [
+        "Engagement"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/wedding-and-pre-wedding/sub/first-night",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/wedding-and-pre-wedding/sub/first-night",
+      "title": "First Night | Decor Eventz",
+      "description": "First Night decoration for your wedding & pre-wedding.",
+      "robots": "",
+      "headings": [
+        "First Night"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/wedding-and-pre-wedding/sub/groom-to-be",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/wedding-and-pre-wedding/sub/groom-to-be",
+      "title": "Groom-to-Be | Decor Eventz",
+      "description": "Groom-to-Be decoration for your wedding & pre-wedding.",
+      "robots": "",
+      "headings": [
+        "Groom-to-Be"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/wedding-and-pre-wedding/sub/haldi",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/wedding-and-pre-wedding/sub/haldi",
+      "title": "Haldi | Decor Eventz",
+      "description": "Haldi decoration for your wedding & pre-wedding.",
+      "robots": "",
+      "headings": [
+        "Haldi"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/wedding-and-pre-wedding/sub/mehndi",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/wedding-and-pre-wedding/sub/mehndi",
+      "title": "Mehndi | Decor Eventz",
+      "description": "Mehndi decoration for your wedding & pre-wedding.",
+      "robots": "",
+      "headings": [
+        "Mehndi"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/wedding-and-pre-wedding/sub/proposal",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/wedding-and-pre-wedding/sub/proposal",
+      "title": "Proposal | Decor Eventz",
+      "description": "Proposal decoration for your wedding & pre-wedding.",
+      "robots": "",
+      "headings": [
+        "Proposal"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/wedding-and-pre-wedding/sub/reception",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/wedding-and-pre-wedding/sub/reception",
+      "title": "Reception | Decor Eventz",
+      "description": "Reception decoration for your wedding & pre-wedding.",
+      "robots": "",
+      "headings": [
+        "Reception"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/wedding-and-pre-wedding/sub/roka",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/wedding-and-pre-wedding/sub/roka",
+      "title": "Roka | Decor Eventz",
+      "description": "Roka decoration for your wedding & pre-wedding.",
+      "robots": "",
+      "headings": [
+        "Roka"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/wedding-and-pre-wedding/sub/sangeet",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/wedding-and-pre-wedding/sub/sangeet",
+      "title": "Sangeet | Decor Eventz",
+      "description": "Sangeet decoration for your wedding & pre-wedding.",
+      "robots": "",
+      "headings": [
+        "Sangeet"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/wedding-and-pre-wedding/sub/wedding",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/wedding-and-pre-wedding/sub/wedding",
+      "title": "Wedding | Decor Eventz",
+      "description": "Wedding decoration for your wedding & pre-wedding.",
+      "robots": "",
+      "headings": [
+        "Wedding"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/categories/wedding-and-pre-wedding/sub/wedding-car",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/categories/wedding-and-pre-wedding/sub/wedding-car",
+      "title": "Wedding Car | Decor Eventz",
+      "description": "Wedding Car decoration for your wedding & pre-wedding.",
+      "robots": "",
+      "headings": [
+        "Wedding Car"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/contact",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/contact",
+      "title": "Contact Decor Eventz in Bengaluru | Decor Eventz",
+      "description": "Contact Decor Eventz for balloon and event decoration bookings, custom themes and venue setup support in Bengaluru.",
+      "robots": "",
+      "headings": [
+        "Get in Touch"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/featured",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/featured",
+      "title": "Featured Setups | Decor Eventz",
+      "description": "Our team's hand-picked event decoration setups.",
+      "robots": "",
+      "headings": [
+        "Featured setups"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "ItemList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/privacy",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/privacy",
+      "title": "Privacy Policy | Decor Eventz",
+      "description": "How Decor Eventz collects, uses, and protects your personal information when you book event decoration services.",
+      "robots": "index, follow",
+      "headings": [
+        "Privacy Policy"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/terms",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/terms",
+      "title": "Terms & Conditions | Decor Eventz",
+      "description": "The terms and conditions governing venue bookings, event decoration setup, cancellations and refunds on Decor Eventz.",
+      "robots": "index, follow",
+      "headings": [
+        "Terms & Conditions"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    },
+    {
+      "path": "/topics/00000000-0000-4000-8000-000000000001",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/topics/00000000-0000-4000-8000-000000000001",
+      "title": "Trending Setups | Decor Eventz",
+      "description": "Explore curated trending setups decoration setups from Decor Eventz in Bengaluru.",
+      "robots": "",
+      "headings": [
+        "Trending Setups"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/topics/00000000-0000-4000-8000-000000000002",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/topics/00000000-0000-4000-8000-000000000002",
+      "title": "Featured Setups | Decor Eventz",
+      "description": "Explore curated featured setups decoration setups from Decor Eventz in Bengaluru.",
+      "robots": "",
+      "headings": [
+        "Featured Setups"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/topics/1e5f6033-feb7-42cd-806a-471f88f13497",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/topics/1e5f6033-feb7-42cd-806a-471f88f13497",
+      "title": "Birthday | Decor Eventz",
+      "description": "Explore curated birthday decoration setups from Decor Eventz in Bengaluru.",
+      "robots": "",
+      "headings": [
+        "Birthday"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "path": "/trending",
+      "status": 200,
+      "canonical": "https://www.decoreventz.com/trending",
+      "title": "Trending Now | Decor Eventz",
+      "description": "Our most-loved event decoration setups, all in one place.",
+      "robots": "",
+      "headings": [
+        "Trending setups"
+      ],
+      "structuredTypes": [
+        "Organization",
+        "LocalBusiness",
+        "ProfessionalService",
+        "BreadcrumbList",
+        "ItemList"
+      ],
+      "errors": [],
+      "warnings": [
+        "Missing Open Graph image"
+      ]
+    }
+  ],
+  "images": [
+    {
+      "url": "https://www.decoreventz.com/_next/static/immutable/media/cart-check.32_46oxa0c2_h.svg",
+      "status": 200,
+      "type": "image/svg+xml"
+    },
+    {
+      "url": "https://www.decoreventz.com/_next/static/immutable/media/decor-eventz-logo.1m658a_egw84e.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "url": "https://qnptiezbwylqhgniapyz.supabase.co/storage/v1/object/public/catalog-images/imported/710d66af1ffbee933b5d448604d93df4d8947870f507aad128018b90da2a9f82.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "url": "https://qnptiezbwylqhgniapyz.supabase.co/storage/v1/object/public/catalog-images/imported/3b060ceab98c0c9c4860e506842edb56e8ede1caee0fbcb5160cffaea0d0e23a.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "url": "https://qnptiezbwylqhgniapyz.supabase.co/storage/v1/object/public/catalog-images/imported/901d02eab9a5eff38b373d4c81b760ec737282d7280cad5147749fb2de74c4ba.jpg",
+      "status": 200,
+      "type": "image/jpeg"
+    },
+    {
+      "url": "https://qnptiezbwylqhgniapyz.supabase.co/storage/v1/object/public/catalog-images/imported/e2f6cb948064966774cae4977cadbc3f171436faec72667fae52a247eeac9555.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "url": "https://qnptiezbwylqhgniapyz.supabase.co/storage/v1/object/public/catalog-images/imported/7ff5ab0d56ea89b0fc61d10567153c6947d2a1d0e184ad0ca95b378689ecb6cb.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "url": "https://qnptiezbwylqhgniapyz.supabase.co/storage/v1/object/public/catalog-images/imported/66e386c2e848e8e92377bfb3f61b7b5833ad19428f861d4eeac561da469283fe.heic",
+      "status": 200,
+      "type": "image/heic"
+    },
+    {
+      "url": "https://qnptiezbwylqhgniapyz.supabase.co/storage/v1/object/public/catalog-images/imported/d771d9b04eb9d5d286b834d0679030c3b76e00c1e828db148f13dfd04584b821.jpg",
+      "status": 200,
+      "type": "image/jpeg"
+    },
+    {
+      "url": "https://qnptiezbwylqhgniapyz.supabase.co/storage/v1/object/public/catalog-images/imported/a453b50d5931e4ebe2e7b915cab1a7008ed2e09441039ab05a6e13a2847e031c.jpg",
+      "status": 200,
+      "type": "image/jpeg"
+    },
+    {
+      "url": "https://qnptiezbwylqhgniapyz.supabase.co/storage/v1/object/public/catalog-images/imported/cebb033c4d975e4bb049c5275f9e7aa79e4fcba3aa5a1c7269db209de690a682.jpg",
+      "status": 200,
+      "type": "image/jpeg"
+    },
+    {
+      "url": "https://qnptiezbwylqhgniapyz.supabase.co/storage/v1/object/public/catalog-images/imported/743d3fb1cac4c5141b119559b19ebdd08d5f274553c8f7b09b6ecf72a63d034b.jpg",
+      "status": 200,
+      "type": "image/jpeg"
+    },
+    {
+      "url": "https://qnptiezbwylqhgniapyz.supabase.co/storage/v1/object/public/catalog-images/imported/8965891b8a6b60476fa9676b39ce3bff4ff44b42615669d794bb96b77b8130eb.jpg",
+      "status": 200,
+      "type": "image/jpeg"
+    },
+    {
+      "url": "https://qnptiezbwylqhgniapyz.supabase.co/storage/v1/object/public/catalog-images/imported/423d62cffa060f6397772d0e56dea3c2285753d3f6cc10c1b7ec3c9f9387364c.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "url": "https://qnptiezbwylqhgniapyz.supabase.co/storage/v1/object/public/catalog-images/imported/f7e7d2da9b61dbd040a21acf24653308b3540f31696956effefe467627621ced.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "url": "https://qnptiezbwylqhgniapyz.supabase.co/storage/v1/object/public/catalog-images/imported/e0d7dc4a63259fab568fd86336fca0e7e82fbd111c7b599ecd02af6a8b263e03.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "url": "https://qnptiezbwylqhgniapyz.supabase.co/storage/v1/object/public/catalog-images/imported/7f99dc43ea05a27ab44bc1f68d8a06e276298401b0606a6a8951bcecc632eca5.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "url": "https://qnptiezbwylqhgniapyz.supabase.co/storage/v1/object/public/catalog-images/imported/98b79a09293098a65e8229e2b1b60c47993affa737b30f290d1a639f1792cc46.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "url": "https://qnptiezbwylqhgniapyz.supabase.co/storage/v1/object/public/catalog-images/imported/935a9bc03fc6370dfc6110b9ba19446c4e0b40bcc138a96dcd96c0642615278d.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "url": "https://qnptiezbwylqhgniapyz.supabase.co/storage/v1/object/public/catalog-images/imported/df884436160591e6b418f50a49c56c70f2efaa7c43c3bbd2d7c5bfdca770717c.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "url": "https://qnptiezbwylqhgniapyz.supabase.co/storage/v1/object/public/catalog-images/imported/ea124f4fbc2534daeacf8ecc9d48698818fa390744df68b7cfc8ca02713f0f0c.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "url": "https://qnptiezbwylqhgniapyz.supabase.co/storage/v1/object/public/catalog-images/imported/a56cc01617722692201c61ebc1573facf2e44a43f283edca2ec7dd308d77e4c8.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "url": "https://qnptiezbwylqhgniapyz.supabase.co/storage/v1/object/public/catalog-images/imported/194368aae51af8853c216b88818e3586251dbaf17126b2550e4d59d23a0d35fa.jpg",
+      "status": 200,
+      "type": "image/jpeg"
+    },
+    {
+      "url": "https://qnptiezbwylqhgniapyz.supabase.co/storage/v1/object/public/catalog-images/imported/c71f746604502857164c3c7565b6b7c53af952eb2b08f50da4e17d23ed9ef084.jpg",
+      "status": 200,
+      "type": "image/jpeg"
+    },
+    {
+      "url": "https://qnptiezbwylqhgniapyz.supabase.co/storage/v1/object/public/catalog-images/imported/48187f8be70b8298ac4de53031929ff692cc1725be26939847ffc54f0964019c.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "url": "https://qnptiezbwylqhgniapyz.supabase.co/storage/v1/object/public/catalog-images/imported/a5afc833efa911a20db2768ead2cce50559c9e0b79807bf57ea31123ddce6e3e.jpg",
+      "status": 200,
+      "type": "image/jpeg"
+    },
+    {
+      "url": "https://qnptiezbwylqhgniapyz.supabase.co/storage/v1/object/public/catalog-images/imported/3e4e065a513aae8f833b0e2cfb6fbc009c403b39ff0e34040242f9a2c47cfaa3.jpg",
+      "status": 200,
+      "type": "image/jpeg"
+    },
+    {
+      "url": "https://qnptiezbwylqhgniapyz.supabase.co/storage/v1/object/public/catalog-images/imported/0dd894f0383ad4312d95cba40e810c0d464a184f1fc6cf60b65c5dcbafdd4ef9.jpg",
+      "status": 200,
+      "type": "image/jpeg"
+    },
+    {
+      "url": "https://qnptiezbwylqhgniapyz.supabase.co/storage/v1/object/public/catalog-images/imported/4c067f3bde66e6dc10cbfcaaaa53c70c511cbb78ac14bacec70b2c91f4f31d95.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "url": "https://qnptiezbwylqhgniapyz.supabase.co/storage/v1/object/public/catalog-images/imported/c6ece622a62c088ab51340f2a423131b735c0a55a841af98e66b3b739e97f8ee.jpg",
+      "status": 200,
+      "type": "image/jpeg"
+    },
+    {
+      "url": "https://qnptiezbwylqhgniapyz.supabase.co/storage/v1/object/public/catalog-images/imported/2e4475be11ecc90a749601ee0b1cefcad5bc47800ff40c7724a71d16da7cad12.jpg",
+      "status": 200,
+      "type": "image/jpeg"
+    },
+    {
+      "url": "https://qnptiezbwylqhgniapyz.supabase.co/storage/v1/object/public/catalog-images/imported/5b3df03df93181d50da27b0bcb1e67dacd9eb78b81e22844a6187ffc7dc71481.jpg",
+      "status": 200,
+      "type": "image/jpeg"
+    },
+    {
+      "url": "https://qnptiezbwylqhgniapyz.supabase.co/storage/v1/object/public/catalog-images/imported/1160b5f5d42a7c246c09f39d8e0dc3bf068abc015d4320f4166b4b9287458a31.jpg",
+      "status": 200,
+      "type": "image/jpeg"
+    },
+    {
+      "url": "https://qnptiezbwylqhgniapyz.supabase.co/storage/v1/object/public/catalog-images/imported/c484f8659e6023f043dc2feda7f31780f9bede679a93fe4aacc5c2b6f72adbb4.jpg",
+      "status": 200,
+      "type": "image/jpeg"
+    },
+    {
+      "url": "https://qnptiezbwylqhgniapyz.supabase.co/storage/v1/object/public/catalog-images/imported/cc23d24516e75bc087918d0805718de54d2e2c852aeacb3ffb6c80fa8745d409.jpg",
+      "status": 200,
+      "type": "image/jpeg"
+    },
+    {
+      "url": "https://qnptiezbwylqhgniapyz.supabase.co/storage/v1/object/public/catalog-images/imported/f211b7de07b1f6d88a1f5aedf4e408c1901d0a0643e64a714dea5dec56b3f7ad.jpg",
+      "status": 200,
+      "type": "image/jpeg"
+    },
+    {
+      "url": "https://qnptiezbwylqhgniapyz.supabase.co/storage/v1/object/public/catalog-images/imported/74a41fe2b7f8b80980d7e76dc2982d2d321340e3c5fef2d415c80e370f15a49f.jpg",
+      "status": 200,
+      "type": "image/jpeg"
+    },
+    {
+      "url": "https://qnptiezbwylqhgniapyz.supabase.co/storage/v1/object/public/catalog-images/imported/a049bd61501e9a25635bf29433e55c26710f1cbc4e7ccc2569db6af40930b6f1.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "url": "https://qnptiezbwylqhgniapyz.supabase.co/storage/v1/object/public/catalog-images/imported/45e9a201670a7b47853c98933d8a4f638596694f933fb758761f395774adfab3.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "url": "https://qnptiezbwylqhgniapyz.supabase.co/storage/v1/object/public/catalog-images/imported/427d19325c119cfc4df4cba1f50744ec5dc3829a9af728d99c74fd60b58248a6.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "url": "https://qnptiezbwylqhgniapyz.supabase.co/storage/v1/object/public/catalog-images/imported/ec745bf23af467794d9556156896d856aeea402175bc61cdd10239813dbc3f48.webp",
+      "status": 200,
+      "type": "image/webp"
+    }
+  ],
+  "errors": [
+    {
+      "path": "/categories/corporate",
+      "issue": "HTTP 404"
+    },
+    {
+      "path": "/categories/corporate",
+      "issue": "Missing or incorrect canonical"
+    },
+    {
+      "path": "/categories/corporate",
+      "issue": "Sitemap URL is noindex"
+    }
+  ],
+  "warnings": [
+    {
+      "path": "/featured",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/trending",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/contact",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/terms",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/privacy",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/wedding-and-pre-wedding",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/romantic",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/room-decoration",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/backdrop-decoration",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/balloon-decoration",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/canopy-decoration",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/car-decoration",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/corporate",
+      "issue": "H1 count 0"
+    },
+    {
+      "path": "/categories/corporate",
+      "issue": "Open Graph URL differs from page canonical"
+    },
+    {
+      "path": "/categories/anniversary/sub",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/festivals-and-special-occasions",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/birthday/sub",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/baby-shower/sub",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/newborn-welcome/sub",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/kids-special/sub",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/baby-ceremonies/sub",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/balloon-decoration/sub",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/room-decoration/sub",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/wedding-and-pre-wedding/sub",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/romantic/sub",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/car-decoration/sub",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/canopy-decoration/sub",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/backdrop-decoration/sub",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/corporate/sub",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/festivals-and-special-occasions/sub",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/car-decoration/sub/birthday-car",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/balloon-decoration/sub/balloon-wall",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/canopy-decoration/sub/balloon-canopy",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/romantic/sub/proposal",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/wedding-and-pre-wedding/sub/engagement",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/backdrop-decoration/sub/balloon-backdrop",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/corporate/sub/corporate-decoration",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/festivals-and-special-occasions/sub/valentines-day",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/room-decoration/sub/bedroom",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/festivals-and-special-occasions/sub/mothers-day",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/canopy-decoration/sub/bed-canopy",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/backdrop-decoration/sub/floral-backdrop",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/corporate/sub/office-birthday",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/car-decoration/sub/anniversary-car",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/balloon-decoration/sub/balloon-arch",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/room-decoration/sub/living-room",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/romantic/sub/romantic-room",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/wedding-and-pre-wedding/sub/roka",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/wedding-and-pre-wedding/sub/haldi",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/romantic/sub/candlelight",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/balloon-decoration/sub/balloon-ring",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/room-decoration/sub/kids-room",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/car-decoration/sub/wedding-car",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/backdrop-decoration/sub/sequin-backdrop",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/canopy-decoration/sub/romantic-canopy",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/corporate/sub/employee-celebration",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/festivals-and-special-occasions/sub/fathers-day",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/wedding-and-pre-wedding/sub/mehndi",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/festivals-and-special-occasions/sub/raksha-bandhan",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/corporate/sub/work-anniversary",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/car-decoration/sub/proposal-car",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/romantic/sub/couple-decoration",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/canopy-decoration/sub/birthday-canopy",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/backdrop-decoration/sub/fabric-backdrop",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/room-decoration/sub/hotel-room",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/balloon-decoration/sub/balloon-backdrop",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/romantic/sub/first-night",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/balloon-decoration/sub/balloon-ceiling",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/corporate/sub/farewell",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/festivals-and-special-occasions/sub/diwali",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/wedding-and-pre-wedding/sub/sangeet",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/canopy-decoration/sub/anniversary-canopy",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/car-decoration/sub/surprise-car",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/backdrop-decoration/sub/ring-backdrop",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/room-decoration/sub/birthday-room",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/room-decoration/sub/couple-room",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/wedding-and-pre-wedding/sub/bridal-shower",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/festivals-and-special-occasions/sub/ganesh-chaturthi",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/romantic/sub/honeymoon",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/balloon-decoration/sub/balloon-room",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/backdrop-decoration/sub/led-backdrop",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/canopy-decoration/sub/wedding-canopy",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/car-decoration/sub/car-boot",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/corporate/sub/retirement",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/car-decoration/sub/new-car",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/balloon-decoration/sub/balloon-table",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/wedding-and-pre-wedding/sub/bride-to-be",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/romantic/sub/romantic-surprise",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/room-decoration/sub/anniversary-room",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/festivals-and-special-occasions/sub/christmas",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/backdrop-decoration/sub/neon-backdrop",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/canopy-decoration/sub/baby-shower-canopy",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/corporate/sub/office-party",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/wedding-and-pre-wedding/sub/groom-to-be",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/festivals-and-special-occasions/sub/new-year",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/balloon-decoration/sub/balloon-canopy",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/backdrop-decoration/sub/photo-backdrop",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/corporate/sub/corporate-event",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/balloon-decoration/sub/balloon-column",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/room-decoration/sub/romantic-room",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/car-decoration/sub/bride-car",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/wedding-and-pre-wedding/sub/bachelorette",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/festivals-and-special-occasions/sub/holi",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/car-decoration/sub/groom-car",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/corporate/sub/product-launch",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/room-decoration/sub/first-night-room",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/wedding-and-pre-wedding/sub/bachelor-party",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/room-decoration/sub/surprise-room",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/festivals-and-special-occasions/sub/friendship-day",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/corporate/sub/office-welcome",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/balloon-decoration/sub/balloon-gate",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/balloon-decoration/sub/balloon-bouquet",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/wedding-and-pre-wedding/sub/proposal",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/festivals-and-special-occasions/sub/womens-day",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/festivals-and-special-occasions/sub/childrens-day",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/wedding-and-pre-wedding/sub/wedding",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/festivals-and-special-occasions/sub/teachers-day",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/wedding-and-pre-wedding/sub/bride-welcome",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/wedding-and-pre-wedding/sub/reception",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/wedding-and-pre-wedding/sub/wedding-car",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "path": "/categories/wedding-and-pre-wedding/sub/first-night",
+      "issue": "Missing Open Graph image"
+    },
+    {
+      "issue": "Duplicate title",
+      "value": "Balloon & Event Decoration Services | Birthday, Wedding & More",
+      "paths": [
+        "/",
+        "/categories/corporate"
+      ]
+    },
+    {
+      "issue": "Duplicate title",
+      "value": "Featured Setups | Decor Eventz",
+      "paths": [
+        "/featured",
+        "/topics/00000000-0000-4000-8000-000000000002"
+      ]
+    },
+    {
+      "issue": "Duplicate title",
+      "value": "Birthday Decoration | Decor Eventz",
+      "paths": [
+        "/categories/birthday",
+        "/categories/birthday/sub/birthday-decoration"
+      ]
+    },
+    {
+      "issue": "Duplicate title",
+      "value": "Anniversary Decoration | Decor Eventz",
+      "paths": [
+        "/categories/anniversary",
+        "/categories/anniversary/sub/anniversary-decoration"
+      ]
+    },
+    {
+      "issue": "Duplicate title",
+      "value": "Baby Shower Decoration | Decor Eventz",
+      "paths": [
+        "/categories/baby-shower",
+        "/categories/baby-shower/sub/baby-shower-decoration"
+      ]
+    },
+    {
+      "issue": "Duplicate title",
+      "value": "Balloon Canopy | Decor Eventz",
+      "paths": [
+        "/categories/canopy-decoration/sub/balloon-canopy",
+        "/categories/balloon-decoration/sub/balloon-canopy"
+      ]
+    },
+    {
+      "issue": "Duplicate title",
+      "value": "Proposal | Decor Eventz",
+      "paths": [
+        "/categories/romantic/sub/proposal",
+        "/categories/wedding-and-pre-wedding/sub/proposal"
+      ]
+    },
+    {
+      "issue": "Duplicate title",
+      "value": "Balloon Backdrop | Decor Eventz",
+      "paths": [
+        "/categories/backdrop-decoration/sub/balloon-backdrop",
+        "/categories/balloon-decoration/sub/balloon-backdrop"
+      ]
+    },
+    {
+      "issue": "Duplicate title",
+      "value": "Kids Birthday | Decor Eventz",
+      "paths": [
+        "/categories/kids-special/sub/kids-birthday",
+        "/categories/birthday/sub/kids-birthday"
+      ]
+    },
+    {
+      "issue": "Duplicate title",
+      "value": "Romantic Room | Decor Eventz",
+      "paths": [
+        "/categories/romantic/sub/romantic-room",
+        "/categories/room-decoration/sub/romantic-room"
+      ]
+    },
+    {
+      "issue": "Duplicate title",
+      "value": "Baby Shower Balloon Decoration | Decor Eventz",
+      "paths": [
+        "/categories/baby-shower/sub/baby-shower-balloon-decoration",
+        "/categories/baby-shower/baby-shower-balloon-decoration"
+      ]
+    },
+    {
+      "issue": "Duplicate title",
+      "value": "Wedding Car | Decor Eventz",
+      "paths": [
+        "/categories/car-decoration/sub/wedding-car",
+        "/categories/wedding-and-pre-wedding/sub/wedding-car"
+      ]
+    },
+    {
+      "issue": "Duplicate title",
+      "value": "First Night | Decor Eventz",
+      "paths": [
+        "/categories/romantic/sub/first-night",
+        "/categories/wedding-and-pre-wedding/sub/first-night"
+      ]
+    },
+    {
+      "issue": "Duplicate title",
+      "value": "Birthday Balloon Decoration | Decor Eventz",
+      "paths": [
+        "/categories/birthday/sub/birthday-balloon-decoration",
+        "/categories/birthday/black-gold-birthday-balloon-decoration",
+        "/categories/birthday/birthday-balloon-decoration"
+      ]
+    },
+    {
+      "issue": "Duplicate description",
+      "value": "Professional balloon and event decoration for birthdays, weddings, baby showers, corporate events and more — book online in minutes, get a same-week setup at your venue.",
+      "paths": [
+        "/",
+        "/categories/corporate"
+      ]
+    },
+    {
+      "issue": "Duplicate description",
+      "value": "Simple & Stylish Birthday Celebration",
+      "paths": [
+        "/categories/birthday/birthday-wall-decoration",
+        "/categories/birthday/birthday-decoration-at-home"
+      ]
+    },
+    {
+      "issue": "Duplicate canonical",
+      "value": "https://www.decoreventz.com",
+      "paths": [
+        "/",
+        "/categories/corporate"
+      ]
+    }
+  ]
+}

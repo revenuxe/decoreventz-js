@@ -1,7 +1,8 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { BOOKING_BUCKET, bookingImageUrl } from "@/lib/supabase/storage";
-import { detectedImageMimeType, MAX_IMAGE_UPLOAD_BYTES, sanitizeFileName } from "@/lib/image-sniff";
+import { MAX_IMAGE_UPLOAD_BYTES } from "@/lib/image-sniff";
+import { ImageOptimizationError, optimizeImage, webpFileName } from "@/lib/optimize-image";
 
 export const runtime = "nodejs";
 
@@ -56,21 +57,16 @@ export async function POST(request: NextRequest) {
     if (!supabase) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
     const buffer = Buffer.from(await file.arrayBuffer());
-    const contentType = detectedImageMimeType(buffer);
-    if (!contentType) {
-      return NextResponse.json(
-        { error: `"${file.name}" doesn't look like a valid image — try saving the photo again` },
-        { status: 400 },
-      );
-    }
-
-    const key = `bookings/${bookingId}/${kind}/${crypto.randomUUID()}-${sanitizeFileName(file.name)}`;
-    const { error } = await supabase.storage.from(BOOKING_BUCKET).upload(key, buffer, {
-      contentType, cacheControl: "0", upsert: false,
+    const path = `bookings/${bookingId}/${kind}`;
+    const optimized = await optimizeImage(buffer, path);
+    const key = `${path}/${crypto.randomUUID()}-${webpFileName(file.name)}`;
+    const { error } = await supabase.storage.from(BOOKING_BUCKET).upload(key, optimized.buffer, {
+      contentType: optimized.contentType, cacheControl: "0", upsert: false,
     });
     if (error) throw error;
     return NextResponse.json({ url: bookingImageUrl(key) });
   } catch (err) {
+    if (err instanceof ImageOptimizationError) return NextResponse.json({ error: err.message }, { status: 400 });
     console.error("[api/vendor/upload]", err);
     return NextResponse.json(
       { error: err instanceof Error ? err.message : "Upload failed" },

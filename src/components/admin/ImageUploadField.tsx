@@ -106,6 +106,7 @@ export function ImageUploadField({
           }}
         />
       </div>
+      <p className="mt-1.5 text-xs text-muted-foreground">Automatically resized and compressed to WebP. Maximum original size: 4 MB.</p>
       {error && <p className="mt-1.5 text-xs text-destructive">{error}</p>}
     </fieldset>
   );

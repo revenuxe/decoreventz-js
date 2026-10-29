@@ -1,5 +1,7 @@
 "use client";
 
+import { refreshPublicCatalog } from "@/lib/refresh-public-catalog";
+
 import { useEffect, useMemo, useState } from "react";
 import { useBrowserReady } from "@/lib/browser-storage";
 import { useRouter } from "next/navigation";
@@ -522,7 +524,7 @@ export function ProductForm({
     // The public catalog uses a server cache for speed. Invalidate it only
     // after all related product writes have succeeded, so palette assignment
     // changes are visible on the next customer page view.
-    await fetch("/api/admin/revalidate-catalog", { method: "POST" });
+    await refreshPublicCatalog();
 
     setSaving(false);
     router.push("/admin/dashboard/products");

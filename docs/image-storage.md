@@ -8,6 +8,21 @@ All application uploads use Supabase Storage with the signed-in user's session. 
 - `booking-images` is private. An approved vendor can upload proof photos only for a booking assigned to them. The booking's customer, assigned approved vendor, and admins can read its photos. Vendors cannot overwrite or delete proof photos.
 - Both buckets accept JPEG, PNG, WebP, GIF, AVIF, HEIC, HEIF and BMP images up to 4 MB. The application checks file signatures as well as size.
 
+## Compression before storage
+
+New admin and vendor uploads are decoded and converted on the server using Sharp before any file is sent to Supabase. The original upload limit remains 4 MB; the image must also be at most 40 megapixels. Invalid or unsupported files return a readable error, with no original-file fallback stored in the bucket. HEIC/HEIF and BMP decoding depends on the deployed native decoder; export to JPEG, PNG or WebP if a source cannot be processed.
+
+| Image use | Maximum edge | Stored WebP limit |
+| --- | ---: | ---: |
+| Categories and subcategories | 1200 px | 100 KiB |
+| Product galleries and social previews | 1920 px | 200 KiB |
+| Homepage banners | 2560 px | 300 KiB |
+| Vendor proof photos | 1600 px | 180 KiB |
+
+The processor corrects EXIF orientation, preserves aspect ratio and transparency, never enlarges or crops, and removes metadata. It starts at WebP quality 82, then reduces quality and dimensions as needed to meet the limit. An image that still cannot fit is rejected rather than stored oversized. Animated images become still images using their first frame. Objects use `.webp` filenames and `image/webp` content types. Existing stored images and pasted existing catalog URLs are unchanged; this is a policy for new uploads, not a bulk rewrite of the migrated originals.
+
+Compression runs in the Node.js upload routes (`src/lib/optimize-image.ts`), independently of Next.js display optimization. Only compressed WebP bytes reach Storage through these routes. No additional credentials or schema migration are required.
+
 Policies and buckets are defined in `supabase/migrations/20261029000000_supabase_image_storage.sql`. Apply pending migrations with `npx supabase db push --linked`.
 
 ## Dashboard and database fields
@@ -46,7 +61,7 @@ Deploy the updated application source to activate the new routes and remove old 
 
 Verify a new catalog image is publicly readable, anonymous uploads fail, private proof photos reject unrelated accounts, and existing catalog pages render. Unit/database tests cover private storage authorization, deletion protection and URL boundaries. Login-based browser verification still needs test accounts.
 
-Validated on 29 October 2026: 81 unit/database/API tests passed, covering successful authenticated admin upload behavior with a mocked Storage service, rejection of invalid files and unauthorized callers, safe deletion, upload-state coordination, and platform-error handling. The 16 production browser smoke checks cover real Supabase catalog image loading and signed-out API rejection. Production build, TypeScript, changed-file lint and whitespace checks passed. Live anonymous Storage uploads and private-photo signing were rejected. Aggregate database checks found zero external image references in all four catalog tables, including inactive rows. The dependency lockfile contains no AWS SDK packages, and active application/source checks found no legacy storage-provider references.
+Validated on 29 October 2026: 87 unit/database/API tests passed, covering successful authenticated admin upload behavior with a mocked Storage service, rejection of invalid files and unauthorized callers, safe deletion, upload-state coordination, platform-error handling, and real pre-storage WebP compression. The 16 production browser smoke checks cover real Supabase catalog image loading and signed-out API rejection. Production build, TypeScript, changed-file lint and whitespace checks passed. Live anonymous Storage uploads and private-photo signing were rejected. Aggregate database checks found zero external image references in all four catalog tables, including inactive rows. The dependency lockfile contains no AWS SDK packages, and active application/source checks found no legacy storage-provider references.
 
 The remote storage migration and catalog URL updates are applied. The application source changes have not been deployed to production.
 

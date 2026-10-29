@@ -69,15 +69,6 @@ export type DecorService = {
   updatedAt: string;
 };
 
-export type Testimonial = {
-  id: string;
-  name: string;
-  city: string;
-  quote: string;
-  rating: number;
-  image: string;
-};
-
 export type ServiceCity = {
   slug: string;
   name: string;

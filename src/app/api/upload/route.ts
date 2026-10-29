@@ -1,7 +1,8 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { CATALOG_BUCKET, catalogKeyFromUrl } from "@/lib/supabase/storage";
-import { detectedImageMimeType, MAX_IMAGE_UPLOAD_BYTES, sanitizeFileName, sanitizeObjectPrefix } from "@/lib/image-sniff";
+import { MAX_IMAGE_UPLOAD_BYTES, sanitizeObjectPrefix } from "@/lib/image-sniff";
+import { ImageOptimizationError, optimizeImage, webpFileName } from "@/lib/optimize-image";
 
 export const runtime = "nodejs";
 
@@ -28,14 +29,14 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Images must be 4 MB or smaller." }, { status: 400 });
     }
     const buffer = Buffer.from(await file.arrayBuffer());
-    const contentType = detectedImageMimeType(buffer);
-    if (!contentType) return NextResponse.json({ error: "Choose a valid image file." }, { status: 400 });
-    const key = `${path}/${crypto.randomUUID()}-${sanitizeFileName(file.name)}`;
+    const optimized = await optimizeImage(buffer, path);
+    const key = `${path}/${crypto.randomUUID()}-${webpFileName(file.name)}`;
     const bucket = supabase.storage.from(CATALOG_BUCKET);
-    const { error } = await bucket.upload(key, buffer, { contentType, cacheControl: "31536000", upsert: false });
+    const { error } = await bucket.upload(key, optimized.buffer, { contentType: optimized.contentType, cacheControl: "31536000", upsert: false });
     if (error) throw error;
     return NextResponse.json({ url: bucket.getPublicUrl(key).data.publicUrl });
   } catch (error) {
+    if (error instanceof ImageOptimizationError) return NextResponse.json({ error: error.message }, { status: 400 });
     console.error("[api/upload POST]", error);
     return NextResponse.json({ error: "Could not upload the image to Supabase Storage. Please try again." }, { status: 500 });
   }

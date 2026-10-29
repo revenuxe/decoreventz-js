@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { publicPageMetadata } from "@/lib/seo";
 import { ContactForm } from "./contact-form";
 import { ContactMapEmbed } from "./contact-map-embed";
 import { Balloon, Clock3, Mail, MapPin, Phone, Sparkles } from "lucide-react";
@@ -19,20 +20,7 @@ const TITLE = "Contact Decor Eventz in Bengaluru";
 const DESCRIPTION =
   "Contact Decor Eventz for balloon and event decoration bookings, custom themes and venue setup support in Bengaluru.";
 
-export const metadata: Metadata = {
-  title: TITLE,
-  description: DESCRIPTION,
-  alternates: { canonical: "/contact" },
-  openGraph: {
-    title: TITLE,
-    description: DESCRIPTION,
-    url: "/contact",
-    type: "website",
-    siteName: "Decor Eventz",
-    locale: "en_IN",
-  },
-  twitter: { card: "summary", title: TITLE, description: DESCRIPTION },
-};
+export const metadata: Metadata = publicPageMetadata(TITLE, DESCRIPTION, "/contact");
 
 const FAQs = [
   [

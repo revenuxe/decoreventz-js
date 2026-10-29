@@ -1,6 +1,5 @@
 import { unstable_cache } from "next/cache";
 import { publicSupabaseClient } from "@/lib/supabase/public";
-import { testimonials } from "./testimonials";
 import { cities } from "./cities";
 import type {
   BalloonOption,
@@ -111,7 +110,8 @@ const getCatalog = unstable_cache(
       updatedAt: c.updated_at,
     }));
 
-    const subcategories: DecorSubcategory[] = (subcategoryRows ?? []).map(
+    const activeCategorySlugs = new Set(categories.map((category) => category.slug));
+    const subcategories: DecorSubcategory[] = (subcategoryRows ?? []).filter((row) => activeCategorySlugs.has(row.categories?.slug ?? "")).map(
       (s) => ({
         id: s.id,
         slug: s.slug,
@@ -124,7 +124,7 @@ const getCatalog = unstable_cache(
       }),
     );
 
-    const services: DecorService[] = (productRows ?? []).map((p) => {
+    const services: DecorService[] = (productRows ?? []).filter((row) => activeCategorySlugs.has(row.categories?.slug ?? "")).map((p) => {
       // One batched lookup for every palette avoids an N+1 public-product
       // query and does not rely on PostgREST's relationship schema cache.
       const palette = p.balloon_palette_id
@@ -335,7 +335,7 @@ export async function getRelatedServices(
   return [...sameCategory, ...others].slice(0, limit);
 }
 
-export { testimonials, cities };
+export { cities };
 export type { DecorCategory, DecorService, DecorSubcategory } from "./types";
 
 export const getHomepageHeroSlides = unstable_cache(async (): Promise<HomepageHeroSlide[]> => {

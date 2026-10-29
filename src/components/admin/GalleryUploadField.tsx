@@ -46,7 +46,7 @@ export function GalleryUploadField({ value, onChange, pathPrefix, onUploadingCha
       // Sequential uploads avoid competing serverless requests and provide an
       // accurate progress message when an admin selects several photos.
       for (const [index, file] of eligible.entries()) {
-        setUploadStatus(`Uploading ${index + 1} of ${eligible.length}…`);
+        setUploadStatus(`Optimizing and uploading ${index + 1} of ${eligible.length}…`);
         try {
           uploaded.push(await uploadCatalogImage(file, pathPrefix));
         } catch (uploadError) {
@@ -160,7 +160,7 @@ export function GalleryUploadField({ value, onChange, pathPrefix, onUploadingCha
         <input type="url" value={pastedUrl} onChange={(event) => setPastedUrl(event.target.value)} onKeyDown={(event) => { if (event.key === "Enter") { event.preventDefault(); addUrl(); } }} placeholder="Or paste an existing catalog image URL" className="flex-1 rounded-xl border border-border bg-background px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-primary" />
         <button type="button" onClick={addUrl} disabled={uploading || value.length >= MAX_IMAGES} className="shrink-0 rounded-xl border border-border bg-card px-4 py-2 text-sm font-bold disabled:opacity-50">Add URL</button>
       </div>
-      <p className="text-[11px] text-muted-foreground">JPEG, PNG, WebP, GIF, BMP, or HEIC · 4 MB maximum per image.</p>
+      <p className="text-[11px] text-muted-foreground">Images are automatically resized and saved as compressed WebP · 4 MB maximum per image.</p>
       {error && <p role="alert" className="rounded-xl bg-destructive/10 px-3 py-2 text-xs font-semibold text-destructive">{error}</p>}
     </fieldset>
   );

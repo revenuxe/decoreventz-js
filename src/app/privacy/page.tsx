@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { publicPageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { TopBar } from "@/components/TopBar";
 import { BottomNav } from "@/components/BottomNav";
@@ -12,13 +13,7 @@ const DESCRIPTION =
   "How Decor Eventz collects, uses, and protects your personal information when you book event decoration services.";
 const LAST_UPDATED = "August 3, 2026";
 
-export const metadata: Metadata = {
-  title: TITLE,
-  description: DESCRIPTION,
-  alternates: { canonical: "/privacy" },
-  robots: { index: true, follow: true },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: "/privacy" },
-};
+export const metadata: Metadata = publicPageMetadata(TITLE, DESCRIPTION, "/privacy");
 
 const SECTIONS: { heading: string; body: React.ReactNode }[] = [
   {

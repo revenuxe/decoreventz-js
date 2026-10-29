@@ -1,4 +1,3 @@
-import dynamic from "next/dynamic";
 import { TopBar } from "@/components/TopBar";
 import { Hero } from "@/components/Hero";
 import { PickupCta } from "@/components/PickupCta";
@@ -12,10 +11,6 @@ import {
   getHomepageHeroSlides,
   getHomepageTopics,
 } from "@/data";
-
-// Below-the-fold and non-critical for first paint — split into its own
-// chunk instead of the initial homepage bundle.
-const Reviews = dynamic(() => import("@/components/Reviews").then((m) => m.Reviews));
 
 export default async function Home() {
   const [categories, heroSlides, homepageTopics] = await Promise.all([
@@ -53,7 +48,6 @@ export default async function Home() {
         ))}
         <PickupCta />
         <Journey />
-        <Reviews />
         <Footer />
       </main>
       <BottomNav />

@@ -1,5 +1,7 @@
 "use client";
 
+import { refreshPublicCatalog } from "@/lib/refresh-public-catalog";
+
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -77,6 +79,7 @@ export function SubcategoryForm({
 
     setSaving(false);
     if (saveError) return setError(saveError.message);
+    await refreshPublicCatalog();
     router.push("/admin/dashboard/subcategories");
   }
 

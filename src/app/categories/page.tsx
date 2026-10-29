@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { publicPageMetadata } from "@/lib/seo";
 import { TopBar } from "@/components/TopBar";
 import { Footer } from "@/components/Footer";
 import { BottomNav } from "@/components/BottomNav";
@@ -11,12 +12,7 @@ const TITLE = "All Decoration Categories";
 const DESCRIPTION =
   "Browse every occasion we decorate for — birthdays, weddings, baby showers, corporate events and more.";
 
-export const metadata: Metadata = {
-  title: TITLE,
-  description: DESCRIPTION,
-  alternates: { canonical: "/categories" },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: "/categories" },
-};
+export const metadata: Metadata = publicPageMetadata(TITLE, DESCRIPTION, "/categories");
 
 export default async function CategoriesPage() {
   const categories = await getCategories();

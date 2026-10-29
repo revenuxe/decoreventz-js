@@ -1,23 +1,26 @@
 import type { Metadata } from "next";
+import { permanentRedirect } from "next/navigation";
+import { publicPageMetadata } from "@/lib/seo";
 import { TopBar } from "@/components/TopBar";
 import { Footer } from "@/components/Footer";
 import { BottomNav } from "@/components/BottomNav";
 import { JsonLd } from "@/components/JsonLd";
 import { ServiceGridSearch } from "@/components/ServiceGridSearch";
 import { breadcrumbJsonLd, itemListJsonLd } from "@/lib/jsonld";
-import { getTrendingServices } from "@/data";
+import { getTrendingServices, getHomepageTopicById } from "@/data";
 
 const TITLE = "Trending Now";
 const DESCRIPTION = "Our most-loved event decoration setups, all in one place.";
 
-export const metadata: Metadata = {
-  title: TITLE,
-  description: DESCRIPTION,
-  alternates: { canonical: "/trending" },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: "/trending" },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const topic = await getHomepageTopicById("00000000-0000-4000-8000-000000000001");
+  const services = topic?.services || await getTrendingServices(200);
+  return publicPageMetadata(TITLE, DESCRIPTION, topic ? `/topics/${topic.id}` : "/trending", services[0]?.images[0], services.length > 0);
+}
 
 export default async function TrendingPage() {
+  const topic = await getHomepageTopicById("00000000-0000-4000-8000-000000000001");
+  if (topic) permanentRedirect(`/topics/${topic.id}`);
   // No hard cap here, unlike the homepage teaser strip — this is the "view
   // all" destination for it.
   const services = await getTrendingServices(200);

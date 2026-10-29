@@ -1,5 +1,7 @@
 "use client";
 
+import { refreshPublicCatalog } from "@/lib/refresh-public-catalog";
+
 import { CatalogImage as Image } from "@/components/CatalogImage";
 
 import { useEffect, useMemo, useState } from "react";
@@ -51,9 +53,10 @@ export default function SubcategoriesPage() {
   async function remove(row: SubcategoryRow) {
     if (!confirm(`Delete "${row.name}"?`)) return;
     const supabase = createClient();
-    if (row.image_url) await deleteCatalogImage(row.image_url);
     const { error } = await supabase.from("subcategories").delete().eq("id", row.id);
     if (error) return alert(error.message);
+    if (row.image_url) await deleteCatalogImage(row.image_url);
+    await refreshPublicCatalog();
     load();
   }
 

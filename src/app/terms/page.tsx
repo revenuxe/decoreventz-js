@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { publicPageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { TopBar } from "@/components/TopBar";
 import { BottomNav } from "@/components/BottomNav";
@@ -12,13 +13,7 @@ const DESCRIPTION =
   "The terms and conditions governing venue bookings, event decoration setup, cancellations and refunds on Decor Eventz.";
 const LAST_UPDATED = "August 3, 2026";
 
-export const metadata: Metadata = {
-  title: TITLE,
-  description: DESCRIPTION,
-  alternates: { canonical: "/terms" },
-  robots: { index: true, follow: true },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: "/terms" },
-};
+export const metadata: Metadata = publicPageMetadata(TITLE, DESCRIPTION, "/terms");
 
 const SECTIONS: { heading: string; body: React.ReactNode }[] = [
   {

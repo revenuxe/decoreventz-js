@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import { publicProductMetadata } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbJsonLd, productJsonLd } from "@/lib/jsonld";
-import { getCategoryBySlug, getServiceBySlug, getRelatedServices, getSubcategoryBySlug } from "@/data";
+import { getCategoryBySlug, getServiceBySlug, getRelatedServices, getSubcategoryBySlug, getAllServices } from "@/data";
 import { ServiceDetailView } from "./service-detail-view";
 
 export async function generateMetadata({
@@ -13,17 +14,7 @@ export async function generateMetadata({
   const { category: categorySlug, service: serviceSlug } = await params;
   const service = await getServiceBySlug(categorySlug, serviceSlug);
   if (!service) return {};
-  const title = service.metaTitle || service.name;
-  const description = service.metaDescription || service.tagline;
-  const image = service.ogImage || service.images[0];
-  const path = `/categories/${categorySlug}/${serviceSlug}`;
-  return {
-    title,
-    description,
-    alternates: { canonical: path },
-    openGraph: { title, description, url: path, images: [image] },
-    twitter: { card: "summary_large_image", title, description, images: [image] },
-  };
+  return publicProductMetadata(service, await getAllServices());
 }
 
 export default async function ServiceDetailPage({

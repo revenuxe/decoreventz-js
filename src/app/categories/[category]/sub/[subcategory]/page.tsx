@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { publicPageMetadata } from "@/lib/seo";
 import { CatalogImage as Image } from "@/components/CatalogImage";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -22,20 +23,12 @@ export async function generateMetadata({
     getSubcategoryBySlug(categorySlug, subcategorySlug),
   ]);
   if (!subcategory) return {};
-  const title = subcategory.name;
+  const title = `${subcategory.name} for ${category?.name || "Your Event"}`;
   const description =
     subcategory.tagline || `${subcategory.name} decoration${category ? ` for your ${category.name.toLowerCase()}` : ""}.`;
-  return {
-    title,
-    description,
-    alternates: { canonical: `/categories/${categorySlug}/sub/${subcategorySlug}` },
-    openGraph: {
-      title,
-      description,
-      url: `/categories/${categorySlug}/sub/${subcategorySlug}`,
-      images: [subcategory.image || category?.heroImage].filter((u): u is string => !!u),
-    },
-  };
+  const services = await getServicesByCategory(categorySlug);
+  const populated = services.some((service) => service.subcategorySlug === subcategorySlug);
+  return publicPageMetadata(title, description, `/categories/${categorySlug}/sub/${subcategorySlug}`, subcategory.image || category?.heroImage, populated);
 }
 
 export default async function SubcategoryPage({

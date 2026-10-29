@@ -1,5 +1,7 @@
 "use client";
 
+import { refreshPublicCatalog } from "@/lib/refresh-public-catalog";
+
 import { CatalogImage as Image } from "@/components/CatalogImage";
 
 import { useEffect, useState } from "react";
@@ -35,9 +37,10 @@ export default function CategoriesPage() {
   async function remove(row: CategoryRow) {
     if (!confirm(`Delete "${row.name}"? Products in this category will be affected.`)) return;
     const supabase = createClient();
-    if (row.image_url) await deleteCatalogImage(row.image_url);
     const { error } = await supabase.from("categories").delete().eq("id", row.id);
     if (error) return alert(error.message);
+    if (row.image_url) await deleteCatalogImage(row.image_url);
+    await refreshPublicCatalog();
     load();
   }
 

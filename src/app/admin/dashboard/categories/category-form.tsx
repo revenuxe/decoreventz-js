@@ -1,5 +1,7 @@
 "use client";
 
+import { refreshPublicCatalog } from "@/lib/refresh-public-catalog";
+
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowLeft, Loader2, Save } from "lucide-react";
@@ -57,6 +59,7 @@ export function CategoryForm({ category }: { category: CategoryRow | null }) {
 
     setSaving(false);
     if (saveError) return setError(saveError.message);
+    await refreshPublicCatalog();
     router.push("/admin/dashboard/categories");
   }
 

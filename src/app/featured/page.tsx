@@ -1,23 +1,26 @@
 import type { Metadata } from "next";
+import { permanentRedirect } from "next/navigation";
+import { publicPageMetadata } from "@/lib/seo";
 import { TopBar } from "@/components/TopBar";
 import { Footer } from "@/components/Footer";
 import { BottomNav } from "@/components/BottomNav";
 import { JsonLd } from "@/components/JsonLd";
 import { ServiceGridSearch } from "@/components/ServiceGridSearch";
 import { breadcrumbJsonLd, itemListJsonLd } from "@/lib/jsonld";
-import { getFeaturedServices } from "@/data";
+import { getFeaturedServices, getHomepageTopicById } from "@/data";
 
 const TITLE = "Featured Setups";
 const DESCRIPTION = "Our team's hand-picked event decoration setups.";
 
-export const metadata: Metadata = {
-  title: TITLE,
-  description: DESCRIPTION,
-  alternates: { canonical: "/featured" },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: "/featured" },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const topic = await getHomepageTopicById("00000000-0000-4000-8000-000000000002");
+  const services = topic?.services || await getFeaturedServices(200);
+  return publicPageMetadata(TITLE, DESCRIPTION, topic ? `/topics/${topic.id}` : "/featured", services[0]?.images[0], services.length > 0);
+}
 
 export default async function FeaturedPage() {
+  const topic = await getHomepageTopicById("00000000-0000-4000-8000-000000000002");
+  if (topic) permanentRedirect(`/topics/${topic.id}`);
   // No hard cap here, unlike the homepage teaser strip — this is the "view
   // all" destination for it.
   const services = await getFeaturedServices(200);

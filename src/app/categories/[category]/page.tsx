@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { publicPageMetadata } from "@/lib/seo";
 import { CatalogImage as Image } from "@/components/CatalogImage";
 import { notFound } from "next/navigation";
 import { TopBar } from "@/components/TopBar";
@@ -21,12 +22,8 @@ export async function generateMetadata({
   const description =
     category.tagline ||
     `Book ${category.name.toLowerCase()} decoration — designed and installed by trained decorators.`;
-  return {
-    title,
-    description,
-    alternates: { canonical: `/categories/${categorySlug}` },
-    openGraph: { title, description, url: `/categories/${categorySlug}`, images: [category.heroImage] },
-  };
+  const services = await getServicesByCategory(categorySlug);
+  return publicPageMetadata(title, description, `/categories/${categorySlug}`, category.heroImage, services.length > 0);
 }
 
 export default async function CategoryPage({

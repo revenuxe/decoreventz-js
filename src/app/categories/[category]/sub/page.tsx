@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { publicPageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { notFound } from "next/navigation";
@@ -7,7 +8,7 @@ import { Footer } from "@/components/Footer";
 import { BottomNav } from "@/components/BottomNav";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/jsonld";
-import { getCategoryBySlug, getSubcategoriesByCategory } from "@/data";
+import { getCategoryBySlug, getSubcategoriesByCategory, getServicesByCategory } from "@/data";
 import { SubcategoriesGrid } from "./subcategories-grid";
 
 export async function generateMetadata({
@@ -20,12 +21,9 @@ export async function generateMetadata({
   if (!category) return {};
   const title = `All ${category.name} Types`;
   const description = `Every type of ${category.name.toLowerCase()} decor we offer.`;
-  return {
-    title,
-    description,
-    alternates: { canonical: `/categories/${categorySlug}/sub` },
-    openGraph: { title, description, url: `/categories/${categorySlug}/sub` },
-  };
+  const [subcategories, services] = await Promise.all([getSubcategoriesByCategory(categorySlug), getServicesByCategory(categorySlug)]);
+  const populated = subcategories.some((sub) => services.some((service) => service.subcategorySlug === sub.slug));
+  return publicPageMetadata(title, description, `/categories/${categorySlug}/sub`, category.heroImage, populated);
 }
 
 export default async function AllSubcategoriesPage({

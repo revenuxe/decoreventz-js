@@ -1,5 +1,7 @@
 "use client";
 
+import { refreshPublicCatalog } from "@/lib/refresh-public-catalog";
+
 import { ProductImage } from "@/components/ProductImage";
 
 import { useMemo, useState } from "react";
@@ -104,8 +106,11 @@ export default function ProductsPage() {
   async function remove(row: ProductRow) {
     if (!confirm(`Delete "${row.name}"? This cannot be undone.`)) return;
     const supabase = createClient();
-    await Promise.all(row.images.map((url) => deleteCatalogImage(url)));
-    await supabase.from("products").delete().eq("id", row.id);
+    const { error } = await supabase.from("products").delete().eq("id", row.id);
+    if (error) return alert(error.message);
+    const images = [...new Set([...row.images, row.og_image_url].filter((url): url is string => !!url))];
+    await Promise.all(images.map(deleteCatalogImage));
+    await refreshPublicCatalog();
     await queryClient.invalidateQueries({ queryKey: PRODUCTS_DIRECTORY_QUERY_KEY });
   }
 
