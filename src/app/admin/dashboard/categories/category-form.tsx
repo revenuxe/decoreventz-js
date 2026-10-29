@@ -26,6 +26,7 @@ export function CategoryForm({ category }: { category: CategoryRow | null }) {
   const [sortOrder, setSortOrder] = useState(category?.sort_order ?? 0);
   const [isActive, setIsActive] = useState(category?.is_active ?? true);
   const [saving, setSaving] = useState(false);
+  const [uploadingImage, setUploadingImage] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   function handleNameChange(v: string) {
@@ -34,6 +35,7 @@ export function CategoryForm({ category }: { category: CategoryRow | null }) {
   }
 
   async function handleSave() {
+    if (saving || uploadingImage) return;
     setError(null);
     if (!name.trim()) return setError("Name is required");
     if (!slug.trim()) return setError("Slug is required");
@@ -99,7 +101,7 @@ export function CategoryForm({ category }: { category: CategoryRow | null }) {
         </Field>
 
         <Field label="Image">
-          <ImageUploadField value={imageUrl} onChange={setImageUrl} pathPrefix={`categories/${category?.id ?? "new"}`} />
+          <ImageUploadField value={imageUrl} onChange={setImageUrl} onUploadingChange={setUploadingImage} disabled={saving || uploadingImage} pathPrefix={`categories/${category?.id ?? "new"}`} />
         </Field>
 
         <Field label="Accent gradient classes" hint="Tailwind gradient overlay used on the category card, e.g. from-fuchsia-500/70 to-purple-700/70">
@@ -140,7 +142,7 @@ export function CategoryForm({ category }: { category: CategoryRow | null }) {
           </Link>
           <button
             onClick={handleSave}
-            disabled={saving}
+            disabled={saving || uploadingImage}
             className="inline-flex items-center gap-1.5 rounded-full bg-gradient-brand px-5 py-2.5 text-sm font-bold text-primary-foreground shadow-glow disabled:opacity-60"
           >
             {saving ? <Loader2 className="h-4 w-4 animate-spin" /> : <Save className="h-4 w-4" />}

@@ -4,16 +4,18 @@ import { ProductImage } from "@/components/ProductImage";
 
 import { useState } from "react";
 import { GripVertical, ImagePlus, Loader2, Star, X } from "lucide-react";
-import { uploadCatalogImage } from "@/lib/s3-upload-client";
+import { catalogKeyFromUrl } from "@/lib/supabase/storage";
+import { uploadCatalogImage } from "@/lib/catalog-upload-client";
 
 const MAX_IMAGE_BYTES = 4 * 1024 * 1024;
 const MAX_IMAGES = 8;
 
-export function GalleryUploadField({ value, onChange, pathPrefix, onUploadingChange }: {
+export function GalleryUploadField({ value, onChange, pathPrefix, onUploadingChange, disabled = false }: {
   value: string[];
   onChange: (urls: string[]) => void;
   pathPrefix: string;
   onUploadingChange?: (uploading: boolean) => void;
+  disabled?: boolean;
 }) {
   const [uploading, setUploading] = useState(false);
   const [uploadStatus, setUploadStatus] = useState("");
@@ -27,6 +29,7 @@ export function GalleryUploadField({ value, onChange, pathPrefix, onUploadingCha
   }
 
   async function handleFiles(files: FileList | File[]) {
+    if (uploading || disabled) return;
     const availableSlots = MAX_IMAGES - value.length;
     const selected = Array.from(files).slice(0, Math.max(availableSlots, 0));
     if (!selected.length) return setError(`A product can have up to ${MAX_IMAGES} photos.`);
@@ -62,10 +65,9 @@ export function GalleryUploadField({ value, onChange, pathPrefix, onUploadingCha
     const url = pastedUrl.trim();
     if (!url) return;
     try {
-      const parsed = new URL(url);
-      if (parsed.protocol !== "https:" && parsed.protocol !== "http:") throw new Error();
+      if (!catalogKeyFromUrl(url)) throw new Error();
     } catch {
-      setError("Enter a complete image URL beginning with https:// or http://.");
+      setError("Upload an image or use an existing catalog image URL from this project.");
       return;
     }
     if (value.length >= MAX_IMAGES) return setError(`A product can have up to ${MAX_IMAGES} photos.`);
@@ -88,7 +90,7 @@ export function GalleryUploadField({ value, onChange, pathPrefix, onUploadingCha
   }
 
   return (
-    <div className="space-y-4">
+    <fieldset className="min-w-0 space-y-4" disabled={uploading || disabled} aria-busy={uploading}>
       <div className="flex flex-wrap items-end justify-between gap-2">
         <div>
           <h3 className="text-sm font-bold">Product gallery</h3>
@@ -155,11 +157,11 @@ export function GalleryUploadField({ value, onChange, pathPrefix, onUploadingCha
 
       {uploadStatus && <p className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary"><Loader2 className="h-3.5 w-3.5 animate-spin" /> {uploadStatus}</p>}
       <div className="flex gap-2">
-        <input type="url" value={pastedUrl} onChange={(event) => setPastedUrl(event.target.value)} onKeyDown={(event) => { if (event.key === "Enter") { event.preventDefault(); addUrl(); } }} placeholder="Or paste a public image URL" className="flex-1 rounded-xl border border-border bg-background px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-primary" />
+        <input type="url" value={pastedUrl} onChange={(event) => setPastedUrl(event.target.value)} onKeyDown={(event) => { if (event.key === "Enter") { event.preventDefault(); addUrl(); } }} placeholder="Or paste an existing catalog image URL" className="flex-1 rounded-xl border border-border bg-background px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-primary" />
         <button type="button" onClick={addUrl} disabled={uploading || value.length >= MAX_IMAGES} className="shrink-0 rounded-xl border border-border bg-card px-4 py-2 text-sm font-bold disabled:opacity-50">Add URL</button>
       </div>
       <p className="text-[11px] text-muted-foreground">JPEG, PNG, WebP, GIF, BMP, or HEIC · 4 MB maximum per image.</p>
       {error && <p role="alert" className="rounded-xl bg-destructive/10 px-3 py-2 text-xs font-semibold text-destructive">{error}</p>}
-    </div>
+    </fieldset>
   );
 }

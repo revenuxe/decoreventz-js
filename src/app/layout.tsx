@@ -7,7 +7,7 @@ import { Providers } from "./providers";
 import { JsonLd } from "@/components/JsonLd";
 import { organizationJsonLd } from "@/lib/jsonld";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
-import { unsplash } from "@/data/images";
+import { siteImage } from "@/data/images";
 
 const playfairDisplay = Playfair_Display({
   variable: "--font-playfair-display",
@@ -29,7 +29,7 @@ const SITE_DESCRIPTION =
   "Professional balloon and event decoration for birthdays, weddings, baby showers, corporate events and more — book online in minutes, get a same-week setup at your venue.";
 // A real, already-live photo (also the homepage hero image) — replaces the
 // old Lovable-hosted preview screenshot, which 404s.
-const OG_IMAGE = unsplash("balloonArch", 1200, 630);
+const OG_IMAGE = siteImage("balloonArch");
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

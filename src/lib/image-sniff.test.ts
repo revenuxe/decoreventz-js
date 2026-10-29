@@ -11,6 +11,13 @@ describe("detectedImageMimeType", () => {
   it("rejects a generic RIFF file that is not a WebP image", () => {
     expect(detectedImageMimeType(new Uint8Array([0x52, 0x49, 0x46, 0x46, 0, 0, 0, 0, 0x41, 0x56, 0x49, 0x20]))).toBeNull();
   });
+
+  it("distinguishes AVIF and HEIC from MP4 containers", () => {
+    const container = (brand: string) => new Uint8Array([0, 0, 0, 24, ...Array.from(`ftyp${brand}`, (char) => char.charCodeAt(0))]);
+    expect(detectedImageMimeType(container("avif"))).toBe("image/avif");
+    expect(detectedImageMimeType(container("heic"))).toBe("image/heic");
+    expect(detectedImageMimeType(container("mp42"))).toBeNull();
+  });
 });
 
 describe("sanitizeObjectPrefix", () => {

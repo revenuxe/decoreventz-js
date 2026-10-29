@@ -746,6 +746,8 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      catalog_image_is_referenced: { Args: { _url: string }; Returns: boolean }
+      can_access_booking_image: { Args: { _name: string; _write?: boolean }; Returns: boolean }
       create_booking: { Args: { _request_id: string; _details: Json; _items: Json; _expected_total: number }; Returns: { id: string; order_code: string }[] }
       cancel_booking: { Args: { _booking_id: string }; Returns: undefined }
       has_role: {

@@ -8,7 +8,7 @@ import { CatalogSortHandle } from "@/components/admin/CatalogSortHandle";
 import { useCatalogSort } from "@/lib/use-catalog-sort";
 import { FolderTree, Loader2, Plus, Trash2 } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
-import { deleteCatalogImage } from "@/lib/s3-upload-client";
+import { deleteCatalogImage } from "@/lib/catalog-upload-client";
 import type { Database } from "@/lib/supabase/types";
 
 type SubcategoryRow = Database["public"]["Tables"]["subcategories"]["Row"];

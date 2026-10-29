@@ -216,7 +216,7 @@ export default function VendorOrdersAssignedPage() {
                         Decoration photo
                       </p>
                       <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-muted">
-                        <Image
+                        <Image unoptimized
                           src={selected.decoration_image_url}
                           alt="Decoration"
                           fill
@@ -232,7 +232,7 @@ export default function VendorOrdersAssignedPage() {
                         Team photo
                       </p>
                       <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-muted">
-                        <Image src={selected.team_image_url} alt="Team" fill sizes="380px" className="object-cover" />
+                        <Image unoptimized src={selected.team_image_url} alt="Team" fill sizes="380px" className="object-cover" />
                       </div>
                     </div>
                   )}

@@ -60,10 +60,11 @@ test("cart stays usable when browser storage writes are blocked",async({page})=>
 test("category image recovers immediately when optimization fails but the original works", async ({page}) => {
   const pixel = Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jL1sAAAAASUVORK5CYII=", "base64");
   await page.route("**/_next/image?**",route=>route.fulfill({status:502,body:"Optimizer unavailable"}));
-  await page.route("https://*.amazonaws.com/**",route=>route.fulfill({status:200,contentType:"image/png",body:pixel}));
+  await page.route("https://*.supabase.co/storage/v1/object/public/**",route=>route.fulfill({status:200,contentType:"image/png",body:pixel}));
   await page.goto("/categories/birthday");
-  const img=page.getByAltText("Kids Birthday Balloon Decor",{exact:true});
-  await page.getByRole("heading",{name:"Kids Birthday Balloon Decor",exact:true}).scrollIntoViewIfNeeded();
+  const card=page.locator('a[href^="/categories/birthday/"]').filter({has:page.locator("h3")}).first();
+  await card.scrollIntoViewIfNeeded();
+  const img=card.locator("img").first();
   await expect.poll(()=>img.evaluate((node:HTMLImageElement)=>node.naturalWidth)).toBeGreaterThan(0);
   await expect(img).toHaveAttribute("src",/^https:\/\//);
   await expect(page).toHaveURL(/\/categories\/birthday$/);
@@ -72,11 +73,29 @@ test("category image recovers immediately when optimization fails but the origin
 test("category image stops retrying and shows a clear fallback when the source is inaccessible",async({page})=>{
   let originalRequests=0;
   await page.route("**/_next/image?**",route=>route.fulfill({status:502,body:"Optimizer unavailable"}));
-  await page.route("https://*.amazonaws.com/**",route=>{originalRequests++;return route.fulfill({status:403,body:"Access denied"});});
+  await page.route("https://*.supabase.co/storage/v1/object/public/**",route=>{originalRequests++;return route.fulfill({status:403,body:"Access denied"});});
   await page.goto("/categories/birthday");
-  const card=page.locator("a").filter({has:page.getByRole("heading",{name:"Kids Birthday Balloon Decor",exact:true})});
+  const card=page.locator('a[href^="/categories/birthday/"]').filter({has:page.locator("h3")}).first();
   await card.scrollIntoViewIfNeeded();
-  await expect(card.getByRole("img",{name:"Kids Birthday Balloon Decor ? image unavailable"})).toBeVisible();
+  await expect(card.getByRole("img",{name:/image unavailable$/})).toBeVisible();
   await expect(card.locator("img")).toHaveCount(0);
   expect(originalRequests).toBeGreaterThan(0);
+});
+
+test("catalog photos load from Supabase Storage", async ({page}) => {
+  await page.goto("/categories/birthday");
+  const card=page.locator('a[href^="/categories/birthday/"]').filter({has:page.locator("h3")}).first();
+  await card.scrollIntoViewIfNeeded();
+  const image=card.locator("img").first();
+  await expect.poll(()=>image.evaluate((node:HTMLImageElement)=>node.naturalWidth)).toBeGreaterThan(0);
+  await expect(image).toHaveAttribute("src",/supabase\.co/);
+});
+
+test("image API routes reject signed-out callers", async ({request}) => {
+  const upload=await request.post("/api/upload");
+  expect(upload.status()).toBe(401);
+  expect(await upload.json()).toEqual({error:"Unauthorized"});
+  const proof=await request.get("/api/booking-images/bookings/00000000-0000-4000-8000-000000000000/team/photo.jpg");
+  expect(proof.status()).toBe(401);
+  expect(proof.headers()["cache-control"]).toContain("no-store");
 });

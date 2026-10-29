@@ -2,6 +2,15 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+Configure `.env.local` with `NEXT_PUBLIC_SUPABASE_URL` and
+`NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` (legacy `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+is also supported). See `.env.example` for optional upload and email settings.
+CLI login/linking enables database management; the app also needs these environment
+variables. Check linked migrations with `npx supabase migration list --linked`.
+See [the Supabase integration audit](docs/supabase-integration-audit-2026-10-29.md)
+for verified connection status and remaining setup. Images use Supabase Storage; see
+[image storage](docs/image-storage.md) for buckets, dashboard fields, and migration results.
+
 First, run the development server:
 
 ```bash

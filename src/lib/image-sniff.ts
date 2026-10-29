@@ -1,5 +1,5 @@
 /**
- * Files currently pass through a Vercel Function before reaching S3. Vercel
+ * Files currently pass through a Vercel Function before reaching Supabase Storage. Vercel
  * limits Function request bodies to 4.5 MB, so leave headroom for multipart
  * form data and reject files that would otherwise be rejected before our
  * route can return a useful error.
@@ -18,7 +18,15 @@ export function detectedImageMimeType(bytes: Uint8Array): string | null {
     bytes[0] === 0x52 && bytes[1] === 0x49 && bytes[2] === 0x46 && bytes[3] === 0x46 &&
     String.fromCharCode(bytes[8], bytes[9], bytes[10], bytes[11]) === "WEBP"
   ) return "image/webp";
-  if (String.fromCharCode(bytes[4], bytes[5], bytes[6], bytes[7]) === "ftyp") return "image/heic";
+  if (String.fromCharCode(bytes[4], bytes[5], bytes[6], bytes[7]) === "ftyp") {
+    const brands = [];
+    for (let offset = 8; offset + 4 <= Math.min(bytes.length, 64); offset += 4) {
+      if (offset !== 12) brands.push(String.fromCharCode(...bytes.slice(offset, offset + 4)));
+    }
+    if (brands.some((brand) => brand === "avif" || brand === "avis")) return "image/avif";
+    if (brands.some((brand) => ["heic", "heix", "hevc", "hevx"].includes(brand))) return "image/heic";
+    if (brands.some((brand) => ["mif1", "msf1"].includes(brand))) return "image/heif";
+  }
   return null;
 }
 

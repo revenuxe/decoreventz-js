@@ -3,9 +3,9 @@ import { createRoot, type Root } from "react-dom/client";
 import { afterEach, beforeEach, expect, it, vi } from "vitest";
 import { ImageUploadField } from "./ImageUploadField";
 import { GalleryUploadField } from "./GalleryUploadField";
-import { deleteCatalogImage, uploadCatalogImage } from "@/lib/s3-upload-client";
+import { deleteCatalogImage, uploadCatalogImage } from "@/lib/catalog-upload-client";
 
-vi.mock("@/lib/s3-upload-client", () => ({ deleteCatalogImage: vi.fn(), uploadCatalogImage: vi.fn().mockResolvedValue("https://example.com/new.jpg") }));
+vi.mock("@/lib/catalog-upload-client", () => ({ deleteCatalogImage: vi.fn(), uploadCatalogImage: vi.fn().mockResolvedValue("https://example.com/new.jpg") }));
 vi.mock("@/components/CatalogImage", () => ({ CatalogImage: () => null }));
 vi.mock("@/components/ProductImage", () => ({ ProductImage: () => null }));
 let root: Root;
@@ -45,4 +45,22 @@ it("replacing a draft image does not delete the previous saved file", async () =
   expect(uploadCatalogImage).toHaveBeenCalled();
   expect(change).toHaveBeenCalledWith("https://example.com/new.jpg");
   expect(deleteCatalogImage).not.toHaveBeenCalled();
+});
+
+it("notifies the parent and locks image edits until an upload finishes", async () => {
+  let finish!: (url: string) => void;
+  vi.mocked(uploadCatalogImage).mockReturnValueOnce(new Promise((resolve) => { finish = resolve; }));
+  const busy = vi.fn();
+  const change = vi.fn();
+  act(() => root.render(<ImageUploadField value={null} onChange={change} onUploadingChange={busy} pathPrefix="categories/new" />));
+  const input = container.querySelector('input[type="file"]')!;
+  Object.defineProperty(input, "files", { value: [new File(["image"], "photo.png")] });
+  await act(async () => input.dispatchEvent(new Event("change", { bubbles: true })));
+  expect(busy).toHaveBeenLastCalledWith(true);
+  expect(container.querySelector("fieldset")?.disabled).toBe(true);
+  expect(change).not.toHaveBeenCalled();
+  await act(async () => finish("https://example.com/new.png"));
+  expect(change).toHaveBeenCalledWith("https://example.com/new.png");
+  expect(busy).toHaveBeenLastCalledWith(false);
+  expect(container.querySelector("fieldset")?.disabled).toBe(false);
 });

@@ -214,6 +214,7 @@ export function ProductForm({
 
   const [saving, setSaving] = useState(false);
   const [uploadingImages, setUploadingImages] = useState(false);
+  const [uploadingOgImage, setUploadingOgImage] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   if (browserReady && restoredKey !== draftKey) {
@@ -429,7 +430,7 @@ export function ProductForm({
       setTab("media");
       return setError("Add at least one product image before publishing.");
     }
-    if (uploadingImages) {
+    if (uploadingImages || uploadingOgImage) {
       setTab("media");
       return setError("Wait for image uploads to finish before saving.");
     }
@@ -706,6 +707,7 @@ export function ProductForm({
               onChange={setImages}
               pathPrefix={`products/${product?.id ?? "new"}`}
               onUploadingChange={setUploadingImages}
+              disabled={saving}
             />
           )}
 
@@ -1130,6 +1132,8 @@ export function ProductForm({
               </Field>
               <Field label="Social share image (OG image)">
                 <ImageUploadField
+                  onUploadingChange={setUploadingOgImage}
+                  disabled={saving}
                   value={ogImageUrl}
                   onChange={setOgImageUrl}
                   pathPrefix={`products/${product?.id ?? "new"}/seo`}
@@ -1154,15 +1158,15 @@ export function ProductForm({
           </Link>
           <button
             onClick={handleSave}
-            disabled={saving || uploadingImages}
+            disabled={saving || uploadingImages || uploadingOgImage}
             className="inline-flex items-center gap-1.5 rounded-full bg-gradient-brand px-5 py-2.5 text-sm font-bold text-primary-foreground shadow-glow disabled:opacity-60"
           >
-            {saving || uploadingImages ? (
+            {saving || uploadingImages || uploadingOgImage ? (
               <Loader2 className="h-4 w-4 animate-spin" />
             ) : (
               <Save className="h-4 w-4" />
             )}
-            {uploadingImages
+            {(uploadingImages || uploadingOgImage)
               ? "Uploading images"
               : isNew
                 ? "Create product"

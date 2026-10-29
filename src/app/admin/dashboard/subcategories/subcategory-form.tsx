@@ -35,6 +35,7 @@ export function SubcategoryForm({
   const [sortOrder, setSortOrder] = useState(subcategory?.sort_order ?? 0);
   const [isActive, setIsActive] = useState(subcategory?.is_active ?? true);
   const [saving, setSaving] = useState(false);
+  const [uploadingImage, setUploadingImage] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -53,6 +54,7 @@ export function SubcategoryForm({
   }
 
   async function handleSave() {
+    if (saving || uploadingImage) return;
     setError(null);
     if (!name.trim()) return setError("Name is required");
     if (!slug.trim()) return setError("Slug is required");
@@ -136,6 +138,8 @@ export function SubcategoryForm({
 
         <Field label="Image">
           <ImageUploadField
+            onUploadingChange={setUploadingImage}
+            disabled={saving || uploadingImage}
             value={imageUrl}
             onChange={setImageUrl}
             pathPrefix={`subcategories/${subcategory?.id ?? "new"}`}
@@ -175,7 +179,7 @@ export function SubcategoryForm({
           </Link>
           <button
             onClick={handleSave}
-            disabled={saving}
+            disabled={saving || uploadingImage}
             className="inline-flex items-center gap-1.5 rounded-full bg-gradient-brand px-5 py-2.5 text-sm font-bold text-primary-foreground shadow-glow disabled:opacity-60"
           >
             {saving ? <Loader2 className="h-4 w-4 animate-spin" /> : <Save className="h-4 w-4" />}

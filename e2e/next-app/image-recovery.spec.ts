@@ -14,7 +14,7 @@ for (const width of [390, 1440]) {
         ? route.fulfill({ status: 502, body: "Optimizer unavailable" })
         : route.continue();
     });
-    await page.route((url) => url.hostname.endsWith(".amazonaws.com"), (route) =>
+    await page.route((url) => url.hostname.endsWith(".supabase.co") && url.pathname.startsWith("/storage/v1/object/public/"), (route) =>
       route.fulfill({ status: 200, contentType: "image/svg+xml", body: photo }),
     );
     await page.goto("/");

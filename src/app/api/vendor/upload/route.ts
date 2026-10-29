@@ -1,14 +1,12 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { PutObjectCommand } from "@aws-sdk/client-s3";
 import { createClient } from "@/lib/supabase/server";
-import { getS3Client, getS3Config } from "@/lib/s3";
-import { s3PublicUrl } from "@/lib/s3-url";
+import { BOOKING_BUCKET, bookingImageUrl } from "@/lib/supabase/storage";
 import { detectedImageMimeType, MAX_IMAGE_UPLOAD_BYTES, sanitizeFileName } from "@/lib/image-sniff";
 
 export const runtime = "nodejs";
 
 // Unlike api/upload/route.ts (admin-only, trusts any pathPrefix an admin
-// supplies), this route builds the S3 key itself from a booking id it has
+// supplies), this route builds the storage path itself from a booking id it has
 // independently verified belongs to the calling vendor — a vendor never
 // gets to name their own upload path.
 async function requireVendorForBooking(bookingId: string) {
@@ -34,33 +32,28 @@ async function requireVendorForBooking(bookingId: string) {
     .maybeSingle();
   if (!booking) return null;
 
-  return vendor;
+  return supabase;
 }
 
 export async function POST(request: NextRequest) {
-  // Every path out of this handler must be JSON, even on an unexpected
-  // throw (e.g. missing/invalid AWS credentials) — otherwise Vercel's
-  // platform-level 500 page (HTML) reaches the client and breaks
-  // `res.json()` there with a confusing "Unexpected token '<'" instead of
-  // a real error message.
   try {
     const form = await request.formData();
     const file = form.get("file");
     const bookingId = form.get("bookingId");
     const kind = form.get("kind");
 
-    if (!(file instanceof File) || typeof bookingId !== "string" || !bookingId) {
+    if (!(file instanceof File) || typeof bookingId !== "string" || !/^[0-9a-f-]{36}$/i.test(bookingId)) {
       return NextResponse.json({ error: "Missing file or bookingId" }, { status: 400 });
     }
     if (kind !== "decoration" && kind !== "team") {
       return NextResponse.json({ error: "Invalid upload kind" }, { status: 400 });
     }
     if (file.size === 0 || file.size > MAX_IMAGE_UPLOAD_BYTES) {
-      return NextResponse.json({ error: "Images must be 10 MB or smaller." }, { status: 400 });
+      return NextResponse.json({ error: "Images must be 4 MB or smaller." }, { status: 400 });
     }
 
-    const vendor = await requireVendorForBooking(bookingId);
-    if (!vendor) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    const supabase = await requireVendorForBooking(bookingId);
+    if (!supabase) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
     const buffer = Buffer.from(await file.arrayBuffer());
     const contentType = detectedImageMimeType(buffer);
@@ -71,20 +64,12 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const key = `bookings/${bookingId}/${kind}/${Date.now()}-${sanitizeFileName(file.name)}`;
-    const { bucketName } = getS3Config();
-    await getS3Client().send(
-      new PutObjectCommand({
-        Bucket: bucketName,
-        Key: key,
-        Body: buffer,
-        ContentType: contentType,
-        CacheControl: "private, max-age=31536000, immutable",
-        ContentDisposition: "inline",
-      }),
-    );
-
-    return NextResponse.json({ url: s3PublicUrl(key) });
+    const key = `bookings/${bookingId}/${kind}/${crypto.randomUUID()}-${sanitizeFileName(file.name)}`;
+    const { error } = await supabase.storage.from(BOOKING_BUCKET).upload(key, buffer, {
+      contentType, cacheControl: "0", upsert: false,
+    });
+    if (error) throw error;
+    return NextResponse.json({ url: bookingImageUrl(key) });
   } catch (err) {
     console.error("[api/vendor/upload]", err);
     return NextResponse.json(

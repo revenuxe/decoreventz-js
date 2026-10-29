@@ -477,7 +477,7 @@ function PhotoPreview({ label, url }: { label: string; url: string }) {
     <div>
       <p className="mb-1.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground">{label}</p>
       <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-muted">
-        <Image src={url} alt={label} fill sizes="480px" className="object-cover" />
+        <Image unoptimized src={url} alt={label} fill sizes="480px" className="object-cover" />
       </div>
     </div>
   );

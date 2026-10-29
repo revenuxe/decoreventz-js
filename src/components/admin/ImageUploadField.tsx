@@ -4,23 +4,30 @@ import { CatalogImage as Image } from "@/components/CatalogImage";
 
 import { useRef, useState } from "react";
 import { Image as ImageIcon, Loader2, Upload, X } from "lucide-react";
-import { uploadCatalogImage } from "@/lib/s3-upload-client";
+import { catalogKeyFromUrl } from "@/lib/supabase/storage";
+import { uploadCatalogImage } from "@/lib/catalog-upload-client";
 
 export function ImageUploadField({
   value,
   onChange,
   pathPrefix,
+  onUploadingChange,
+  disabled = false,
 }: {
   value: string | null;
   onChange: (url: string | null) => void;
   pathPrefix: string;
+  onUploadingChange?: (uploading: boolean) => void;
+  disabled?: boolean;
 }) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   async function handleFile(file: File) {
+    if (uploading || disabled) return;
     setUploading(true);
+    onUploadingChange?.(true);
     setError(null);
     try {
       const publicUrl = await uploadCatalogImage(file, pathPrefix);
@@ -31,6 +38,7 @@ export function ImageUploadField({
       setError((err as Error).message);
     } finally {
       setUploading(false);
+      onUploadingChange?.(false);
     }
   }
 
@@ -39,7 +47,7 @@ export function ImageUploadField({
   }
 
   return (
-    <div>
+    <fieldset disabled={uploading || disabled} aria-busy={uploading}>
       <div className="flex items-center gap-3">
         <div className="grid h-16 w-16 shrink-0 place-items-center overflow-hidden rounded-xl border border-border bg-muted">
           {value ? (
@@ -52,8 +60,13 @@ export function ImageUploadField({
           <input
             type="text"
             value={value ?? ""}
-            onChange={(e) => onChange(e.target.value || null)}
-            placeholder="Paste an image URL…"
+            onChange={(e) => {
+              const url = e.target.value;
+              if (url && !catalogKeyFromUrl(url)) { setError("Upload an image or use an existing catalog image URL from this project."); return; }
+              setError(null);
+              onChange(url || null);
+            }}
+            placeholder="Existing catalog image URL"
             className="w-full rounded-xl border border-border bg-background px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-primary"
           />
           <div className="flex items-center gap-3">
@@ -94,6 +107,6 @@ export function ImageUploadField({
         />
       </div>
       {error && <p className="mt-1.5 text-xs text-destructive">{error}</p>}
-    </div>
+    </fieldset>
   );
 }
