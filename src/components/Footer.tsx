@@ -1,6 +1,7 @@
 import logo from "@/assets/decor-eventz-logo.webp";
 import Image from "next/image";
 import Link from "next/link";
+import { FooterServices } from "@/components/FooterServices";
 import { InstagramIcon, YoutubeIcon, TwitterIcon, LinkedinIcon } from "@/components/SocialIcons";
 
 const LEGAL_LINKS = [
@@ -53,6 +54,8 @@ export function Footer() {
           ))}
         </div>
       </div>
+
+      <FooterServices />
 
       <div className="mt-8 flex justify-center border-t border-border pt-6 text-xs text-muted-foreground md:justify-end">
         <nav className="flex flex-wrap justify-center gap-x-5 gap-y-2.5 md:justify-end">

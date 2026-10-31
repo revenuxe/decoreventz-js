@@ -20,6 +20,10 @@ beforeEach(() => {
 it("publishes only populated listings, products and canonical topic destinations", async () => {
   const entries = await sitemap();
   const paths = entries.map((entry) => new URL(entry.url).pathname);
+  expect(paths).toContain("/birthday-decoration-bangalore");
+  expect(paths).toContain("/birthday-decoration-bangalore/kids-birthday-decoration");
+  expect(paths).toContain("/birthday-decoration-bangalore/birthday-decoration-at-home");
+  expect(paths).toContain("/decoration-services/baby-shower-decoration-bangalore");
   expect(paths).toContain("/categories/birthday");
   expect(paths).toContain("/categories/birthday/sub");
   expect(paths).toContain("/categories/birthday/sub/balloons");

@@ -1,6 +1,14 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/site";
 import {
+  birthdayLandingPages,
+  birthdayLandingHref,
+} from "@/components/birthday/landing-pages";
+import {
+  serviceLandingPages,
+  serviceLandingHref,
+} from "@/components/service-landing-pages";
+import {
   getCategories,
   getAllSubcategories,
   getAllServices,
@@ -14,6 +22,11 @@ const staticEntries: {
 }[] = [
   { path: "/", changeFrequency: "weekly", priority: 1.0 },
   { path: "/categories", changeFrequency: "weekly", priority: 0.9 },
+  {
+    path: "/birthday-decoration-bangalore",
+    changeFrequency: "weekly",
+    priority: 0.9,
+  },
   { path: "/trending", changeFrequency: "daily", priority: 0.7 },
   { path: "/featured", changeFrequency: "daily", priority: 0.7 },
   { path: "/contact", changeFrequency: "yearly", priority: 0.5 },
@@ -29,17 +42,37 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     getHomepageTopics(),
   ]);
 
-  const populatedCategories = categories.filter((category) => services.some((service) => service.categorySlug === category.slug));
-  const populatedSubcategories = subcategories.filter((sub) => services.some((service) => service.categorySlug === sub.categorySlug && service.subcategorySlug === sub.slug));
-  const staticPages = staticEntries.filter((entry) => {
-    if (entry.path === "/trending") return !topics.some((topic) => topic.id === "00000000-0000-4000-8000-000000000001") && services.some((service) => service.isTrending);
-    if (entry.path === "/featured") return !topics.some((topic) => topic.id === "00000000-0000-4000-8000-000000000002") && services.some((service) => service.isFeatured);
-    return true;
-  }).map((e) => ({
-    url: `${SITE_URL}${e.path}`,
-    changeFrequency: e.changeFrequency,
-    priority: e.priority,
-  }));
+  const populatedCategories = categories.filter((category) =>
+    services.some((service) => service.categorySlug === category.slug),
+  );
+  const populatedSubcategories = subcategories.filter((sub) =>
+    services.some(
+      (service) =>
+        service.categorySlug === sub.categorySlug &&
+        service.subcategorySlug === sub.slug,
+    ),
+  );
+  const staticPages = staticEntries
+    .filter((entry) => {
+      if (entry.path === "/trending")
+        return (
+          !topics.some(
+            (topic) => topic.id === "00000000-0000-4000-8000-000000000001",
+          ) && services.some((service) => service.isTrending)
+        );
+      if (entry.path === "/featured")
+        return (
+          !topics.some(
+            (topic) => topic.id === "00000000-0000-4000-8000-000000000002",
+          ) && services.some((service) => service.isFeatured)
+        );
+      return true;
+    })
+    .map((e) => ({
+      url: `${SITE_URL}${e.path}`,
+      changeFrequency: e.changeFrequency,
+      priority: e.priority,
+    }));
 
   const categoryPages = populatedCategories.map((c) => ({
     url: `${SITE_URL}/categories/${c.slug}`,
@@ -49,12 +82,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     images: c.heroImage ? [c.heroImage] : [],
   }));
 
-  const subcategoryIndexPages = populatedCategories.filter((category) => populatedSubcategories.some((sub) => sub.categorySlug === category.slug)).map((c) => ({
-    url: `${SITE_URL}/categories/${c.slug}/sub`,
-    lastModified: new Date(c.updatedAt),
-    changeFrequency: "weekly" as const,
-    priority: 0.6,
-  }));
+  const subcategoryIndexPages = populatedCategories
+    .filter((category) =>
+      populatedSubcategories.some((sub) => sub.categorySlug === category.slug),
+    )
+    .map((c) => ({
+      url: `${SITE_URL}/categories/${c.slug}/sub`,
+      lastModified: new Date(c.updatedAt),
+      changeFrequency: "weekly" as const,
+      priority: 0.6,
+    }));
 
   const subcategoryPages = populatedSubcategories.map((s) => ({
     url: `${SITE_URL}/categories/${s.categorySlug}/sub/${s.slug}`,
@@ -81,6 +118,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [
     ...staticPages,
+    ...birthdayLandingPages.map((page) => ({
+      url: `https://decoreventz.com${birthdayLandingHref(page.label)}`,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+    })),
+    ...serviceLandingPages.map((page) => ({
+      url: `${SITE_URL}${serviceLandingHref(page.label)}`,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+    })),
     ...categoryPages,
     ...subcategoryIndexPages,
     ...subcategoryPages,
